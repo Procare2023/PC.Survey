@@ -1,3 +1,6 @@
+using PC.AccessLayer.Services.IServices;
+using PC.AccessLayer.Survey;
+
 namespace PCSurveyService
 {
     public class Worker : BackgroundService
@@ -10,6 +13,7 @@ namespace PCSurveyService
         {
             _logger = logger;
             _config = config;
+
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -37,6 +41,14 @@ namespace PCSurveyService
                 {
                     this.WriteToFile("Survey running at: {0}" + DateTimeOffset.Now);
                     _logger.LogInformation("Survey running at: {0}", DateTimeOffset.Now);
+
+                    //run the process here
+                    var baseLink = "https://test.com.sa/MC.Web.External/PubGeneralSurvey.aspx";
+                    var apptMonthOffset = 1;
+
+
+                    //surveyManager.ProcessSurveyAppointmentsSms(null, baseLink, apptMonthOffset);
+
                     //If Scheduled Time is passed set Schedule for the next day.
                     scheduledTime = scheduledTime.AddDays(1);
                 }
@@ -45,7 +57,7 @@ namespace PCSurveyService
             {
                 WriteToFile("Simple Service Error on: {0} " + ex.Message + ex.StackTrace);
                 //Stop the Windows Service.
-                using (System.ServiceProcess.ServiceController serviceController = new System.ServiceProcess.ServiceController("Service"))
+                using (System.ServiceProcess.ServiceController serviceController = new("Service"))
                 {
                     serviceController.Stop();
                 }
