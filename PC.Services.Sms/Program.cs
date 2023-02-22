@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using PC.Services.Sms.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,7 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProCare.Services.SendSMS", Version = "v1" });
     c.EnableAnnotations();
 });
-
+builder.Services.AddTransient<ISendEmail, SendEmail>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

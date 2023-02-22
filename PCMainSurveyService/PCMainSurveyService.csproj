@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PCSurveyService\Core\PC.AccessLayer\PC.AccessLayer.csproj" />
-    <ProjectReference Include="..\PCSurveyService\Core\PC.Repository\PC.Repository.csproj" />
+    <ProjectReference Include="..\Core\PC.AccessLayer\PC.AccessLayer.csproj" />
+    <ProjectReference Include="..\Core\PC.Repository\PC.Repository.csproj" />
 
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />

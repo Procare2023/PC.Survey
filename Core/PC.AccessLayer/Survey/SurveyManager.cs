@@ -54,7 +54,7 @@ namespace PC.AccessLayer.Survey
                 // surveyed for the past n months.
                 await CreateAndSaveAppt(apptMonthOffset, yesterday, appts);
 
-                var unsent = await _unitOfWork.GeneralSurveyReport.FindAllAsync(criteria: q => q.SurveyStatus == SurveyStatus.Unsent && q.CreateStamp == yesterday, null);
+                var unsent = await _unitOfWork.GeneralSurveyReport.FindAllAsync(criteria: q => q.SurveyStatus == SurveyStatus.Unsent, null);
                 if (unsent == null || unsent.ToList().Count < 0)
                     return;
 
@@ -69,6 +69,7 @@ namespace PC.AccessLayer.Survey
 
         private async Task SendSmsAndUpdateDatabaseAsync(string externalUrlBaseLink, IEnumerable<GeneralSurveyReport> unsent)
         {
+            int count = 0;
             foreach (var record in unsent)
             {
                 try
@@ -107,6 +108,7 @@ namespace PC.AccessLayer.Survey
                         record.SurveyStatus = SurveyStatus.Sent;
                         record.UpdateStamp = DateTime.Now;
                         _unitOfWork.GeneralSurveyReport.Update(record);
+                        count++;
                         Thread.Sleep(10000);
                     }
                 }
@@ -116,6 +118,15 @@ namespace PC.AccessLayer.Survey
                     //FileTrace.WriteException(unsentException);
                 }
             }
+            try
+            {
+                var sendEmail = await _sendSmsService.SendEmailAsync<ResponseDto>(count);
+            }
+            catch (Exception)
+            {
+            }
+
+
         }
 
         private static SurveyModelDto FillDto(GeneralSurveyReport record, string firstName, string shortenedLink)
