@@ -2,7 +2,7 @@
 
 namespace PC.AccessLayer.Services.IServices
 {
-    public interface IBaseService : IDisposable
+    public interface IBaseService
     {
         public ResponseDto responseModel { get; set; }
         public Task<T> SendAsync<T>(ApiRequest apiRequest);

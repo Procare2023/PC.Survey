@@ -1,4 +1,5 @@
-﻿using PC.AccessLayer.Models;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PC.AccessLayer.Models;
 using PC.AccessLayer.Services.IServices;
 using PC.AccessLayer.Utility.Check;
 using PC.DataLayer.DbContexts;
@@ -17,16 +18,16 @@ namespace PC.AccessLayer.Survey
 {
     public class SurveyManager
     {
-        #region Sending SMS using this class
-        public readonly ISurveyUnitofWork _unitOfWork;
+        #region Sending SMS using this class        
         public readonly ISendService _sendSmsService;
-        public readonly ApplicationDbContext _context;
-
-        public SurveyManager(ISurveyUnitofWork unitOfWork, ISendService sendSmsService, ApplicationDbContext context)
+        private readonly IServiceScopeFactory _serviceScopeFactory;
+        private readonly ISurveyUnitofWork _unitOfWork;
+        public SurveyManager(IServiceScopeFactory serviceScopeFactory)
         {
-            _unitOfWork = unitOfWork;
-            _sendSmsService = sendSmsService;
-            _context = context;
+            _serviceScopeFactory = serviceScopeFactory;
+            var scope = _serviceScopeFactory.CreateScope();
+            _unitOfWork = scope.ServiceProvider.GetRequiredService<ISurveyUnitofWork>();
+            _sendSmsService = scope.ServiceProvider.GetRequiredService<ISendService>();
         }
 
         public async void ProcessSurveyAppointmentsSms(DateTime? appointmentDate, string externalUrlBaseLink,
@@ -57,9 +58,10 @@ namespace PC.AccessLayer.Survey
                 // surveyed for the past n months.
                 await CreateAndSaveAppt(apptMonthOffset, yesterday, appts);
 
-                var unsent = _context.GeneralSurveyReport.Where(q => q.SurveyStatus == SurveyStatus.Unsent).ToList();
-                //await _unitOfWork.GeneralSurveyReport.FindAllAsync(criteria: q => q.SurveyStatus == SurveyStatus.Unsent, null);
-                if (unsent == null || unsent.Count < 0)
+                var unsent = await _unitOfWork.GeneralSurveyReport.FindAllAsync(criteria: q => q.SurveyStatus == SurveyStatus.Unsent, null);
+                //_context.GeneralSurveyReport.Where(q => q.SurveyStatus == SurveyStatus.Unsent).ToList();
+
+                if (unsent == null || unsent.ToList().Count < 0)
                     return;
 
                 await SendSmsAndUpdateDatabaseAsync(externalUrlBaseLink, unsent);
@@ -98,8 +100,9 @@ namespace PC.AccessLayer.Survey
                         //genSvyDb.UpdateToSent(record.ApptCopyGenSurveyId.Value, urlToShorten, shortenedLink, ALBConstants.C_SYSTEM_USER_ID);
                         record.SurveyStatus = SurveyStatus.Sent;
                         record.UpdateStamp = DateTime.Now;
-                        _context.GeneralSurveyReport.Update(record);
-                        await _context.SaveChangesAsync();
+                        _unitOfWork.GeneralSurveyReport.Update(record);
+                        //_context.GeneralSurveyReport.Update(record);
+                        //await _context.SaveChangesAsync();
                         count++;
                         Thread.Sleep(10000);
                     }
@@ -167,8 +170,8 @@ namespace PC.AccessLayer.Survey
                     ac.SurveyStatus = SurveyStatus.Unsent;
                     ac.CreateStamp = DateTime.Now;
 
-                    await _context.GeneralSurveyReport.AddAsync(ac);
-                    await _context.SaveChangesAsync();
+                    await _unitOfWork.GeneralSurveyReport.AddAsync(ac);
+                    //await _context.SaveChangesAsync();
                     //}
                 }
                 catch (Exception apptFetchException)
@@ -179,5 +182,17 @@ namespace PC.AccessLayer.Survey
             }
         }
         #endregion
+
+
+        //public async void TestSave()
+        //{
+        //    var test = new Test()
+        //    {
+        //        Name = "test"
+        //    };
+
+
+        //    await _unitOfWork.Test.AddAsync(test);
+        //}
     }
 }

@@ -13,7 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEntityFrameworkSqlServer();
 builder.Services.AddDbContext<ApplicationDbContext>(
             options => options.UseSqlServer(builder.Configuration.GetConnectionString("ServiceDBConnection")));
-builder.Services.AddTransient<ISurveyUnitofWork, SurveyUnitofWork>();
+builder.Services.AddScoped<ISurveyUnitofWork, SurveyUnitofWork>();
 builder.Services.AddScoped<ISendService, SendService>();
 builder.Services.AddHttpClient<SendService>();
 

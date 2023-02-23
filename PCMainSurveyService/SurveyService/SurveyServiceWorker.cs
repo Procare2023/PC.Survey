@@ -10,15 +10,13 @@ namespace PCMainSurveyService.SurveyService
         private readonly ILogger<SurveyServiceWorker> _logger;
         protected readonly IConfiguration _config;
         private Timer Schedular;
-        private ISurveyUnitofWork _unitOfWork;
-        private ISendService _sendSmsService;
-        private readonly IServiceProvider _serviceProvider;
+        private readonly IServiceScopeFactory _serviceScopeFactory;
 
-        public SurveyServiceWorker(ILogger<SurveyServiceWorker> logger, IConfiguration config, IServiceProvider serviceProvider)
+        public SurveyServiceWorker(ILogger<SurveyServiceWorker> logger, IConfiguration config, IServiceScopeFactory serviceScopeFactory)
         {
             _logger = logger;
             _config = config;
-            _serviceProvider = serviceProvider;
+            _serviceScopeFactory = serviceScopeFactory;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -51,14 +49,9 @@ namespace PCMainSurveyService.SurveyService
                     var baseLink = Convert.ToString(_config["Survey:SurveyLink"]);
                     var apptMonthOffset = 1;
 
-                    using var scope = _serviceProvider.CreateScope();
-                    _unitOfWork = scope.ServiceProvider.GetRequiredService<ISurveyUnitofWork>();
-                    _sendSmsService = scope.ServiceProvider.GetRequiredService<ISendService>();
-                    ApplicationDbContext context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-
-                    SurveyManager surveyManager = new(_unitOfWork, _sendSmsService, context);
+                    SurveyManager surveyManager = new(_serviceScopeFactory);
                     surveyManager.ProcessSurveyAppointmentsSms(null, baseLink, apptMonthOffset);
-
+                    //surveyManager.TestSave();
                     //If Scheduled Time is passed set Schedule for the next day.
                     scheduledTime = scheduledTime.AddDays(1);
                 }

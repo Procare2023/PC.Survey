@@ -3,21 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PCSurveyService", "PCSurveyService\PCSurveyService.csproj", "{7079243F-0B4A-4298-94AB-3989F28BC67B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{69E50E83-0D40-4DCD-B82F-CE4F66C185F8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PC.AccessLayer", "Core\PC.AccessLayer\PC.AccessLayer.csproj", "{1D13F234-9A79-49A7-935E-F5068B4F92A3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PC.DataLayer", "Core\PC.DataLayer\PC.DataLayer.csproj", "{E784C535-2655-451C-B2BE-8903BBEABE75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC.Repository", "Core\PC.Repository\PC.Repository.csproj", "{998D7C4A-9943-42FF-A7F4-EB60C6A096EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PC.Repository", "Core\PC.Repository\PC.Repository.csproj", "{998D7C4A-9943-42FF-A7F4-EB60C6A096EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{9C1D09C7-A22B-4B1F-97A5-BFE80D6CD34B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC.Services.Sms", "PC.Services.Sms\PC.Services.Sms.csproj", "{C9532D59-B7F9-4AAA-ACDF-7800F7D0E933}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PC.Services.Sms", "PC.Services.Sms\PC.Services.Sms.csproj", "{C9532D59-B7F9-4AAA-ACDF-7800F7D0E933}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCMainSurveyService", "PCMainSurveyService\PCMainSurveyService.csproj", "{AC913F14-3059-4F75-9689-F69F6B252DB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PCMainSurveyService", "PCMainSurveyService\PCMainSurveyService.csproj", "{AC913F14-3059-4F75-9689-F69F6B252DB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7079243F-0B4A-4298-94AB-3989F28BC67B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7079243F-0B4A-4298-94AB-3989F28BC67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7079243F-0B4A-4298-94AB-3989F28BC67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7079243F-0B4A-4298-94AB-3989F28BC67B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1D13F234-9A79-49A7-935E-F5068B4F92A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1D13F234-9A79-49A7-935E-F5068B4F92A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D13F234-9A79-49A7-935E-F5068B4F92A3}.Release|Any CPU.ActiveCfg = Release|Any CPU

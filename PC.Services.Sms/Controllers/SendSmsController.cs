@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using PC.Services.Sms.LinkShortner;
 using PC.Services.Sms.Loger;
 using PC.Services.Sms.Models.Dto;
-using RazorEngine.Templating;
+//using RazorEngine.Templating;
 using RazorLight;
 using System.Reflection;
 

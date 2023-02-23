@@ -14,7 +14,6 @@ namespace PC.Repository.SurveyUnitOfWork
         private readonly ApplicationDbContext _context;
 
         public IBaseRepository<GeneralSurveyReport> GeneralSurveyReport { get; private set; }
-
         public SurveyUnitofWork(ApplicationDbContext context)
         {
             _context = context;
