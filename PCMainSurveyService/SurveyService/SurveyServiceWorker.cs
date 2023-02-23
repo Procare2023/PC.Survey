@@ -1,5 +1,6 @@
 ﻿using PC.AccessLayer.Services.IServices;
 using PC.AccessLayer.Survey;
+using PC.DataLayer.DbContexts;
 using PC.Repository.SurveyUnitOfWork;
 
 namespace PCMainSurveyService.SurveyService
@@ -53,8 +54,9 @@ namespace PCMainSurveyService.SurveyService
                     using var scope = _serviceProvider.CreateScope();
                     _unitOfWork = scope.ServiceProvider.GetRequiredService<ISurveyUnitofWork>();
                     _sendSmsService = scope.ServiceProvider.GetRequiredService<ISendService>();
+                    ApplicationDbContext context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-                    SurveyManager surveyManager = new(_unitOfWork, _sendSmsService);
+                    SurveyManager surveyManager = new(_unitOfWork, _sendSmsService, context);
                     surveyManager.ProcessSurveyAppointmentsSms(null, baseLink, apptMonthOffset);
 
                     //If Scheduled Time is passed set Schedule for the next day.

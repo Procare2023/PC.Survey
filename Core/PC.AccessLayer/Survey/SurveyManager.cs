@@ -1,6 +1,7 @@
 ﻿using PC.AccessLayer.Models;
 using PC.AccessLayer.Services.IServices;
 using PC.AccessLayer.Utility.Check;
+using PC.DataLayer.DbContexts;
 using PC.DataLayer.Enum;
 using PC.DataLayer.Model.Survey;
 using PC.DataLayer.Oracle;
@@ -19,11 +20,13 @@ namespace PC.AccessLayer.Survey
         #region Sending SMS using this class
         public readonly ISurveyUnitofWork _unitOfWork;
         public readonly ISendService _sendSmsService;
+        public readonly ApplicationDbContext _context;
 
-        public SurveyManager(ISurveyUnitofWork unitOfWork, ISendService sendSmsService)
+        public SurveyManager(ISurveyUnitofWork unitOfWork, ISendService sendSmsService, ApplicationDbContext context)
         {
             _unitOfWork = unitOfWork;
             _sendSmsService = sendSmsService;
+            _context = context;
         }
 
         public async void ProcessSurveyAppointmentsSms(DateTime? appointmentDate, string externalUrlBaseLink,
@@ -54,8 +57,9 @@ namespace PC.AccessLayer.Survey
                 // surveyed for the past n months.
                 await CreateAndSaveAppt(apptMonthOffset, yesterday, appts);
 
-                var unsent = await _unitOfWork.GeneralSurveyReport.FindAllAsync(criteria: q => q.SurveyStatus == SurveyStatus.Unsent, null);
-                if (unsent == null || unsent.ToList().Count < 0)
+                var unsent = _context.GeneralSurveyReport.Where(q => q.SurveyStatus == SurveyStatus.Unsent).ToList();
+                //await _unitOfWork.GeneralSurveyReport.FindAllAsync(criteria: q => q.SurveyStatus == SurveyStatus.Unsent, null);
+                if (unsent == null || unsent.Count < 0)
                     return;
 
                 await SendSmsAndUpdateDatabaseAsync(externalUrlBaseLink, unsent);
@@ -94,7 +98,8 @@ namespace PC.AccessLayer.Survey
                         //genSvyDb.UpdateToSent(record.ApptCopyGenSurveyId.Value, urlToShorten, shortenedLink, ALBConstants.C_SYSTEM_USER_ID);
                         record.SurveyStatus = SurveyStatus.Sent;
                         record.UpdateStamp = DateTime.Now;
-                        _unitOfWork.GeneralSurveyReport.Update(record);
+                        _context.GeneralSurveyReport.Update(record);
+                        await _context.SaveChangesAsync();
                         count++;
                         Thread.Sleep(10000);
                     }
@@ -147,22 +152,23 @@ namespace PC.AccessLayer.Survey
                     //var surveyed = await _unitOfWork.GeneralSurveyReport.FindAllAsync(criteria: q => q.MRN == a.mrn_no && a.Session_Date.Month > startDate.Month && a.Session_Date < yesterday, null);
                     //if (surveyed == null || surveyed.ToList().Count < 0)
                     //{
-                        // Patient has not been surveyed in the past, so insert the record.
-                        var ac = new GeneralSurveyReport();
-                        ac.ApptId = a.appointment_id;
-                        ac.ApptNo = a.appointment_id.ToString();
-                        ac.ApptDate = a.appt_time;
-                        ac.AppointmentStatus = AppointmentStatus.Closed;
-                        ac.MRN = a.mrn_no;
-                        ac.PatientName = a.NAME;
-                        ac.BirthDate = null;
-                        ac.Mobile = a.mobile;
-                        ac.Doctor = a.doctor_name;
-                        ac.Specialty = "";
-                        ac.SurveyStatus = SurveyStatus.Unsent;
-                        ac.CreateStamp = DateTime.Now;
+                    // Patient has not been surveyed in the past, so insert the record.
+                    var ac = new GeneralSurveyReport();
+                    ac.ApptId = a.appointment_id;
+                    ac.ApptNo = a.appointment_id.ToString();
+                    ac.ApptDate = a.appt_time;
+                    ac.AppointmentStatus = AppointmentStatus.Closed;
+                    ac.MRN = a.mrn_no;
+                    ac.PatientName = a.NAME;
+                    ac.BirthDate = null;
+                    ac.Mobile = a.mobile;
+                    ac.Doctor = a.doctor_name;
+                    ac.Specialty = "";
+                    ac.SurveyStatus = SurveyStatus.Unsent;
+                    ac.CreateStamp = DateTime.Now;
 
-                         _unitOfWork.GeneralSurveyReport.Add(ac);
+                    await _context.GeneralSurveyReport.AddAsync(ac);
+                    await _context.SaveChangesAsync();
                     //}
                 }
                 catch (Exception apptFetchException)
