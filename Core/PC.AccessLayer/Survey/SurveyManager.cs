@@ -78,7 +78,7 @@ namespace PC.AccessLayer.Survey
                     var firstName = Regex.Replace(record.PatientName.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
                     var urlToShorten = string.Format("{0}?i={1}%26k={2}%26lang=ar", externalUrlBaseLink, record.ApptId.ToString(), record.CreateStamp.Value.Ticks.ToString());
 
-                    var shortenedLink = urlToShorten;
+                    //var shortenedLink = urlToShorten;
                     //try
                     //{
                     //    //var bitlyUsername = "";
@@ -94,12 +94,12 @@ namespace PC.AccessLayer.Survey
                     // Create the model for this.
                     var generalSurveyModel = new GeneralSurveyModel();
                     generalSurveyModel.Name = firstName;
-                    generalSurveyModel.Link = shortenedLink;
+                    generalSurveyModel.Link = urlToShorten;
 
                     // Construct the SMS message for this record.
                     // Then queue it to be sent off.
                     //GeneralSurveySMSNotifier.SendSurveyOursms(MessageManager.C_SOURCE_GeneralSurvey, Language.English, record.Mobile, generalSurveyModel, ALBConstants.C_SYSTEM_USER_ID);
-                    SurveyModelDto model = FillDto(record, firstName, shortenedLink);
+                    SurveyModelDto model = FillDto(record, firstName, urlToShorten);
                     var response = await _sendSmsService.SendSmsAsync<ResponseDto>(model);
                     if (response != null && response.IsSuccess)
                     {
