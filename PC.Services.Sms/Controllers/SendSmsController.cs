@@ -63,6 +63,10 @@ namespace PC.Services.Sms
                    "SMSTemplate",  // cache key
                    template,
                  surveytDto);
+
+                if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development" || _config.GetValue<bool>("AppSetting:test"))
+                    surveytDto.Mobile = "0564116640";
+
                 using (var httpClient = new HttpClient { BaseAddress = baseAddress })
                 {
                     using (var content = new StringContent("AppSid=" + appSid + "& Recipient=" + surveytDto.Mobile + "&Body=" + SMScontent, System.Text.Encoding.Default, "application/x-www-form-urlencoded"))

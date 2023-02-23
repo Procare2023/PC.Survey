@@ -78,19 +78,6 @@ namespace PC.AccessLayer.Survey
                     var firstName = Regex.Replace(record.PatientName.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
                     var urlToShorten = string.Format("{0}?i={1}%26k={2}%26lang=ar", externalUrlBaseLink, record.ApptId.ToString(), record.CreateStamp.Value.Ticks.ToString());
 
-                    //var shortenedLink = urlToShorten;
-                    //try
-                    //{
-                    //    //var bitlyUsername = "";
-                    //    //var bitlyKey = "";
-
-                    //    //shortenedLink = BitlyShortner.Shorten(urlToShorten, bitlyUsername, bitlyKey, true);
-                    //}
-                    //catch (Exception linkShortException)
-                    //{
-
-                    //}
-
                     // Create the model for this.
                     var generalSurveyModel = new GeneralSurveyModel();
                     generalSurveyModel.Name = firstName;
@@ -175,7 +162,7 @@ namespace PC.AccessLayer.Survey
                         ac.SurveyStatus = SurveyStatus.Unsent;
                         ac.CreateStamp = DateTime.Now;
 
-                        await _unitOfWork.GeneralSurveyReport.AddAsync(ac);
+                         _unitOfWork.GeneralSurveyReport.Add(ac);
                     //}
                 }
                 catch (Exception apptFetchException)
