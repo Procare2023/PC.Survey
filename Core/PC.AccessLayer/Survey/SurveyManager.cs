@@ -43,7 +43,7 @@ namespace PC.AccessLayer.Survey
                     yesterday = appointmentDate.Value;
 
                 // First, get all appointments for that specific date from oracle db view V_APPOINTMENT_DUMP.
-                var appts = await oasisDb.GetAppointmentsByDay(yesterday);
+                var appts = await oasisDb.GetAppointmentsByDay(yesterday.ToString());
 
                 if (appts == null || appts.Count == 0)
                     return;
@@ -79,17 +79,17 @@ namespace PC.AccessLayer.Survey
                     var urlToShorten = string.Format("{0}?i={1}%26k={2}%26lang=ar", externalUrlBaseLink, record.ApptId.ToString(), record.CreateStamp.Value.Ticks.ToString());
 
                     var shortenedLink = urlToShorten;
-                    try
-                    {
-                        //var bitlyUsername = "ahafeezmyclinic";
-                        //var bitlyKey = "R_a7336aa2dcea42d79405f1f2c0b896fb";
+                    //try
+                    //{
+                    //    //var bitlyUsername = "";
+                    //    //var bitlyKey = "";
 
-                        //shortenedLink = BitlyShortner.Shorten(urlToShorten, bitlyUsername, bitlyKey, true);
-                    }
-                    catch (Exception linkShortException)
-                    {
+                    //    //shortenedLink = BitlyShortner.Shorten(urlToShorten, bitlyUsername, bitlyKey, true);
+                    //}
+                    //catch (Exception linkShortException)
+                    //{
 
-                    }
+                    //}
 
                     // Create the model for this.
                     var generalSurveyModel = new GeneralSurveyModel();
@@ -140,7 +140,7 @@ namespace PC.AccessLayer.Survey
             };
         }
 
-        private async Task CreateAndSaveAppt(int apptMonthOffset, DateTime yesterday, List<DataLayer.Model.Patient.Appointment.AppointmentBase> appts)
+        private async Task CreateAndSaveAppt(int apptMonthOffset, DateTime yesterday, List<DataLayer.Model.Patient.Appointment.v_appointment_dump> appts)
         {
             var startDate = yesterday.AddMonths(apptMonthOffset);
 
@@ -157,9 +157,9 @@ namespace PC.AccessLayer.Survey
                     if (string.IsNullOrWhiteSpace(a.mobile))
                         continue;
 
-                    var surveyed = await _unitOfWork.GeneralSurveyReport.FindAllAsync(criteria: q => q.MRN == a.mrn_no && a.CreateStamp.Month > startDate.Month && a.CreateStamp < yesterday, null);
-                    if (surveyed == null || surveyed.ToList().Count < 0)
-                    {
+                    //var surveyed = await _unitOfWork.GeneralSurveyReport.FindAllAsync(criteria: q => q.MRN == a.mrn_no && a.Session_Date.Month > startDate.Month && a.Session_Date < yesterday, null);
+                    //if (surveyed == null || surveyed.ToList().Count < 0)
+                    //{
                         // Patient has not been surveyed in the past, so insert the record.
                         var ac = new GeneralSurveyReport();
                         ac.ApptId = a.appointment_id;
@@ -176,7 +176,7 @@ namespace PC.AccessLayer.Survey
                         ac.CreateStamp = DateTime.Now;
 
                         await _unitOfWork.GeneralSurveyReport.AddAsync(ac);
-                    }
+                    //}
                 }
                 catch (Exception apptFetchException)
                 {

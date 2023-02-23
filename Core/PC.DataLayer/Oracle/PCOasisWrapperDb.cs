@@ -9,26 +9,19 @@ namespace PC.DataLayer.Oracle
 {
     public class PCOasisWrapperDb
     {
-        public async Task<List<AppointmentBase>> GetAppointmentsByDay(DateTime appointmentDate)
-        {
-
-
-            List<AppointmentBase> appointments = new();
+        public async Task<List<v_appointment_dump>> GetAppointmentsByDay(string appointmentDate)
+        {            
             try
             {
-                var rawList = QueryBuilder<AppointmentBase>.GetList(new AppointmentBase());
-                //var dpBasket = new DataParameter[] { new DataParameter(SqlDbType.DateTime, DbConstants.SP.Params.PARAM_AppointmentDate, appointmentDate, ParameterDirection.Input) };
-
-                //DataManager.ForwardOnlySProcResults = AppointmentExtendedParser.Parse;
-                //var rawList = DataManager.ExecuteStoredProcedureForwardOnlyReturn(base.ConnectionString, DbConstants.SP.Names.SP_AX_ApptGetByAppointmentDate, ref dpBasket, base.DbTimeoutSeconds);
-                //if (rawList != null & rawList.Count() > 0)
-                //appointments = (List<AppointmentExtended>)rawList;
+                var rawList = QueryBuilder<v_appointment_dump>.GetListAppoint(new v_appointment_dump(), appointmentDate);                
+                if (rawList != null & rawList.Count() > 0)
+                    return rawList.ToList();               
             }
             catch (Exception ex)
             {
                 throw;
             }
-            return appointments;
+            return null;
         }
     }
 }

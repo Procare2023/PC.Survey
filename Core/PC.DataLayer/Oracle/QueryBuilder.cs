@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace PC.DataLayer.Oracle
 {
@@ -25,15 +27,24 @@ namespace PC.DataLayer.Oracle
         public static IEnumerable<T> GetList(T entity)
         {
             IDbConnection connection = ConnectionManager.GetConnection();
+            try
+            {                
+                //const string sql = @"SELECT * FROM CUSTM_CLASS";
 
-            //const string sql = @"SELECT * FROM CUSTM_CLASS";
+                var result = connection.Query<T>(GetColumnList(entity));
+                //var result = connection.Query<T>(sql);
 
-            var result = connection.Query<T>(GetColumnList(entity));
-            //var result = connection.Query<T>(sql);
+                ConnectionManager.CloseConnection(connection);
 
-            ConnectionManager.CloseConnection(connection);
+                return result;
+            }
+            catch (Exception)
+            {
+                ConnectionManager.CloseConnection(connection);
 
-            return result;
+                throw;
+            }
+            
         }
 
         public static IEnumerable<T> GetListAppoint(T entity, string ClinicCode, string branch)
@@ -58,15 +69,23 @@ namespace PC.DataLayer.Oracle
             return result;
         }
 
-        public static IEnumerable<T> GetListAppoint(T entity, int app_id)
+        public static IEnumerable<T> GetListAppoint(T entity, string yesterday)
         {
             IDbConnection connection = ConnectionManager.GetConnection();
+            try
+            {
+                var result = connection.Query<T>(GetColumnListAppoint(entity, yesterday));
 
-            var result = connection.Query<T>(GetColumnListAppoint(entity, app_id));
+                ConnectionManager.CloseConnection(connection);
 
-            ConnectionManager.CloseConnection(connection);
-
-            return result;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                ConnectionManager.CloseConnection(connection);
+                throw;
+            }
+            
         }
 
         public static T SingleOrDefault(T entity, string identity_no)
@@ -170,8 +189,10 @@ namespace PC.DataLayer.Oracle
             return selectedColumns + " From " + entity.GetType().Name.ToUpper() + " Where PAT_NAME  IS NULL and DR_CODE = '" + clinicCode + "' and ACTIVE = 1 ORDER BY 2,3";
         }
 
-        private static string GetColumnListAppoint(T entity, int app_id)
+        private static string GetColumnListAppoint(T entity, string yesterday)
         {
+            var ddate = Convert.ToDateTime(yesterday);
+            var tdate = ddate.ToString("MMM/dd/yyyy");
             string selectedColumns = @"Select ";
             int count = entity.GetType().GetProperties().Length;
 
@@ -186,7 +207,7 @@ namespace PC.DataLayer.Oracle
                     selectedColumns = selectedColumns + prop.Name + " AS " + prop.Name + ",";
                 }
             }
-            return selectedColumns + " From " + entity.GetType().Name.ToUpper() + " Where ACTIVE = 1 and PAT_NAME IS NULL and SER_NO = " + app_id;
+            return selectedColumns + " From " + entity.GetType().Name.ToUpper() + " Where time_complete IS not NULL and trunc(time_complete) = TO_DATE('" + tdate + "', 'Mon-dd-yyyy')";
         }
 
         private static string GetColumnListSingle(T entity, string identity_no)

@@ -40,14 +40,14 @@ namespace PCMainSurveyService.SurveyService
 
                 DateTime scheduledTime = DateTime.MinValue;
                 //Get the Scheduled Time from AppSettings.
-                scheduledTime = DateTime.Parse(Convert.ToString(_config["DailyTime:TimeToRun"]));
+                scheduledTime = DateTime.Parse(Convert.ToString(_config["Survey:TimeToRun"]));
                 if (DateTime.Now.ToString() == scheduledTime.ToString())
                 {
                     this.WriteToFile("Survey running at: {0}" + DateTimeOffset.Now);
                     _logger.LogInformation("Survey running at: {0}", DateTimeOffset.Now);
 
                     //run the process here
-                    var baseLink = "https://test.com.sa/PC.Web.External/ProcareSurvey.aspx";
+                    var baseLink = Convert.ToString(_config["Survey:SurveyLink"]);
                     var apptMonthOffset = 1;
 
                     using var scope = _serviceProvider.CreateScope();
@@ -82,7 +82,7 @@ namespace PCMainSurveyService.SurveyService
         {
             try
             {
-                string path = @"C:\Temp\test.txt";
+                string path = @"C:\Temp\SurveyLog.txt";
                 using (StreamWriter writer = new StreamWriter(path, true))
                 {
                     writer.WriteLine(string.Format(text, DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt")));

@@ -12,10 +12,10 @@ namespace PC.DataLayer.Oracle
     {
         private static string connString = "Data Source=" +
                                             "(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" +
-                                            "(HOST=192.168.1.3)(PORT=1521)))" +
-                                            "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=kcs)));" +
-                                            "User Id = kcs; " +
-                                            "Password = kcs; ";
+                                            "(HOST=192.168.2.2)(PORT=1521)))" +
+                                            "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=PROD)));" +
+                                            "User Id = OASIS; " +
+                                            "Password = London#0921; ";
 
         public static IDbConnection GetConnection()
         {

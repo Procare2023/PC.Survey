@@ -14,7 +14,7 @@ namespace PC.DataLayer.Model.Survey
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key, Column(Order = 0)]
         public int ApptCopyGenSurveyId { get; set; }
-        public int ApptId { get; set; }
+        public long ApptId { get; set; }
         public string ApptNo { get; set; }
         public DateTime? ApptDate { get; set; }
         public AppointmentStatus AppointmentStatus { get; set; }

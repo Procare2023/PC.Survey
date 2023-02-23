@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-SD.SendSmsAPIBase = "http://localhost:5256";
+SD.SendSmsAPIBase = builder.Configuration.GetValue<string>("Survey:NotificationServiceApiLink");//"http://localhost:5256";
 builder.Services.AddControllers();
 
 builder.Services.AddEntityFrameworkSqlServer();
