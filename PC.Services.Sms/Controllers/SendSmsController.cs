@@ -1,6 +1,8 @@
 ﻿//using Mango.Services.CouponAPI.Models.Dto;
 //using Mango.Services.CouponAPI.Respository;
 using Microsoft.AspNetCore.Mvc;
+using PC.Services.Sms.LinkShortner;
+using PC.Services.Sms.Log;
 using PC.Services.Sms.Models.Dto;
 using RazorEngine.Templating;
 using RazorLight;
@@ -28,8 +30,23 @@ namespace PC.Services.Sms
         {
             try
             {
+                //shorten sms link
+                var shortenedLink = surveytDto.Link;
+                try
+                {
+                    var bitlyUsername = _config.GetValue<string>("AppSetting:bitlyUsername");
+                    var bitlyKey = _config.GetValue<string>("AppSetting:bitlyKey");
+
+                    shortenedLink = await BitlyShortner.ShortenAsync(shortenedLink, bitlyUsername, bitlyKey, true);
+
+                    surveytDto.Link = shortenedLink;
+                }
+                catch (Exception linkShortException)
+                {
+                    ServiceLogger.WriteToFile("BitlyShortner Error" + linkShortException.ToString());
+                }
                 //send sms
-                var baseAddress = new Uri("https://api.unifonic.com/rest/");
+                var baseAddress = new Uri(_config.GetValue<string>("AppSetting:SmsBaseAddress"));
                 var appSid = _config.GetValue<string>("AppSetting:AppSid");
 
                 string SMScontent = string.Empty;
@@ -78,6 +95,8 @@ namespace PC.Services.Sms
             {
                 _response.IsSuccess = false;
                 _response.ErrorMessages = new List<string>() { ex.ToString() };
+
+                ServiceLogger.WriteToFile("Send SMS Error" + ex.ToString());
             }
             return _response;
         }
