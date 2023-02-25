@@ -82,7 +82,7 @@ namespace PC.AccessLayer.Survey
                 {
                     // Get the first name for this person.
                     var firstName = Regex.Replace(record.PatientName.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
-                    var urlToShorten = string.Format("{0}?i={1}%26k={2}%26lang=ar", externalUrlBaseLink, record.ApptId.ToString(), record.CreateStamp.Value.Ticks.ToString());
+                    var urlToShorten = string.Format("{0}/{1}/?culture=en-US", externalUrlBaseLink, record.ApptCopyGenSurveyId.ToString());
 
                     // Create the model for this.
                     var generalSurveyModel = new GeneralSurveyModel();
@@ -100,6 +100,7 @@ namespace PC.AccessLayer.Survey
                         //genSvyDb.UpdateToSent(record.ApptCopyGenSurveyId.Value, urlToShorten, shortenedLink, ALBConstants.C_SYSTEM_USER_ID);
                         record.SurveyStatus = SurveyStatus.Sent;
                         record.UpdateStamp = DateTime.Now;
+                        record.UrlOriginal = urlToShorten;
                         _unitOfWork.GeneralSurveyReport.Update(record);
                         //_context.GeneralSurveyReport.Update(record);
                         //await _context.SaveChangesAsync();
