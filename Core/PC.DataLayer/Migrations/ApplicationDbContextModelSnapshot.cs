@@ -22,7 +22,7 @@ namespace PC.DataLayer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("PC.DataLayer.Model.Survey.GeneralSurveyReport", b =>
+            modelBuilder.Entity("PC.DataLayer.Model.Survey.GeneralSurvey", b =>
                 {
                     b.Property<int>("ApptCopyGenSurveyId")
                         .ValueGeneratedOnAdd()
@@ -49,23 +49,38 @@ namespace PC.DataLayer.Migrations
                     b.Property<DateTime?>("CreateStamp")
                         .HasColumnType("datetime2");
 
+                    b.Property<long?>("CreateTimeTick")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("CreatedById")
+                        .HasColumnType("int");
+
                     b.Property<string>("Doctor")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DoctorComment")
+                    b.Property<string>("DoctorNotSatisfiedComment")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("DoctorRating")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DoctorSubAnswer")
+                    b.Property<string>("DoctorSatisfiedComment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DoctorSurveyReason")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DoctorSurveySatisfiedReason")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("InsuranceProvider")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("GeneralSurveyReason")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GeneralSurveySatisfiedReason")
+                        .HasColumnType("int");
 
                     b.Property<bool?>("IsContactedByServiceTeam")
                         .HasColumnType("bit");
@@ -79,20 +94,26 @@ namespace PC.DataLayer.Migrations
                     b.Property<int?>("NurseRating")
                         .HasColumnType("int");
 
-                    b.Property<string>("NursesAndStaffComment")
+                    b.Property<string>("NursesAndStaffNotSatisfiedComment")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("NursesAndStaffSubAnswer")
+                    b.Property<int>("NursesAndStaffReason")
                         .HasColumnType("int");
 
-                    b.Property<string>("OverallComment")
+                    b.Property<string>("NursesAndStaffSatisfiedComment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NursesAndStaffSatisfiedReason")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OverallNotSatisfiedComment")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("OverallRating")
                         .HasColumnType("int");
 
-                    b.Property<int?>("OverallSubAnswer")
-                        .HasColumnType("int");
+                    b.Property<string>("OverallSatisfiedComment")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PatientName")
                         .HasColumnType("nvarchar(max)");
@@ -100,11 +121,17 @@ namespace PC.DataLayer.Migrations
                     b.Property<int?>("ReceptionRating")
                         .HasColumnType("int");
 
-                    b.Property<string>("ReceptionStaffComment")
+                    b.Property<int>("ReceptionStaffNotSatisfied")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReceptionStaffNotSatisfiedComment")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ReceptionStaffSubAnswer")
+                    b.Property<int>("ReceptionStaffSatisfied")
                         .HasColumnType("int");
+
+                    b.Property<string>("ReceptionStaffSatisfiedComment")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RecommendComment")
                         .HasColumnType("nvarchar(max)");
@@ -124,7 +151,16 @@ namespace PC.DataLayer.Migrations
                     b.Property<DateTime?>("UpdateStamp")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("complainOrFeedback")
+                    b.Property<int?>("UpdatedById")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UrlBitly")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlOriginal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("complainFeedbacks")
                         .HasColumnType("int");
 
                     b.HasKey("ApptCopyGenSurveyId");

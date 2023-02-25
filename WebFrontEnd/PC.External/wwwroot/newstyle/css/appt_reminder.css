@@ -1,0 +1,411 @@
+﻿html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+    background: #e1e3e5;
+    font-family: arial;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.logo {
+    text-align: center;
+    margin: 40px 0;
+}
+.logo img {
+    display: inline-block;
+    max-width: 50%;
+}
+h1 {
+    color: #002a4e;
+    text-align: center;
+    font-size: 24px;
+    line-height: 36px;
+}
+h3 {
+    color: #002a4e;
+    text-align: center;
+    font-size: 18px;
+    line-height: 36px;
+}
+
+.options {
+    text-align: center;
+    margin: 35px 0 0;
+}
+.options a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 0 8px;
+    border: 1px solid #002a4e;
+    margin: 20px;
+    box-shadow: 3px 3px 1px #002a4e;
+    font-size: 20px;
+    transition: all .2s ease-in-out;
+    width: 150px;
+    text-align: center;
+}
+.options a span {
+    color: #002a4e;
+    display: block;
+    margin: 0 0 10px;
+}
+.options a:hover {
+    background: #002a4e;
+    box-shadow: none;
+}
+.options a:hover span {
+    color: #fff;
+}
+
+form#dontMobile {
+    width: 300px;
+    margin: 14px auto 0;
+}
+form#mobileReg {
+    width: 300px;
+    margin: 14px auto 0;
+}
+form#mobileReg label {
+    font-size: 14px;
+}
+form#mobileReg input[type="checkbox"] {
+    float: left;
+    margin: 9px 0 0;
+}
+form#mobileReg fieldset {
+    margin: 6px 0 0;
+}
+form#mobileReg span {
+    margin: 6px 0 0 4px;
+    line-height: 20px;
+    float: left;
+}
+form#mobileReg input[type="number"] {
+    font-size: 14px;
+    padding: 9px 6px;
+    border: 1px solid #002a4e;
+    height: 47px;
+}
+form#mobileReg button {
+    border: none;
+    background: #002a4e;
+    color: #fff;
+    padding: 6px 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    float: right;
+    line-height: 18px;
+}
+.no-mobile {
+    text-align: center;
+    margin: 40px 0;
+    position: absolute;
+    bottom: 0;
+}
+.no-mobile a {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    background: #002a4e;
+    padding: 8px 0;
+    width: 200px;
+    line-height: 24px;
+}
+p.ticket-number {
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+    margin: 20px 0 0;
+}
+.content {
+    margin: 45px 0 0;
+}
+.sidebar {
+    border-right: 1px solid #00294e;
+    padding: 0 30px 0 0;
+    box-sizing: border-box;
+}
+.sidebar #divCurrentWait .column-1,
+.sidebar #divCurrentWait .column-2,
+.sidebar #divCurrentWait .column-3 {
+    width: 30%;
+    float: left;
+}
+.sidebar h3 {
+    font-size: 18px;
+    margin: 0 0 20px;
+    color: #00294e;
+}
+.sidebar p {
+    font-size: 24px;
+    padding: 0 0 14px 18px;
+    font-weight: bold;
+    color: #00294e;
+}
+.sidebar ul {
+    columns: 2;
+    -website-columns: 2;
+    -moz-columns: 2;
+}
+.sidebar ul li {}
+.sidebar ul li a {
+    font-size: 20px;
+    margin: 0 0 20px;
+    color: #00294e;
+    text-decoration: none;
+    display: block;
+}
+.sidebar ul li a:hover {}
+/*.content-right {
+    border-left: 1px solid #00294e;
+    padding: 0 0 0 30px;
+}*/
+.content-right h3 {
+    font-size: 18px;
+    margin: 0 0 20px;
+    color: #00294e;
+}
+.content-right p {
+    font-size: 24px;
+    padding: 15px 0 20px 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #00294e;
+    color: #00294e;
+}
+.content-right p span {
+    float: right;
+}
+.title {}
+.title h1 {
+    text-align: left;
+    font-size: 36px;
+}
+
+@media (max-width: 767px) {
+    .content-right {
+        border-left: none;
+        padding: 0;
+    }
+}
+.bootstrap-table {
+    margin-bottom: 40px;
+}
+#table_2 {
+    width: 90%;
+    margin: 0 auto;
+}
+table thead {
+    background: #fff;
+}
+.fixed-table-container tbody td {
+    border-left: 1px solid #b7b5b5;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #b7b5b5;
+}
+
+
+#boxModel {
+    position: fixed;
+    bottom: 0;
+    width: 320px;
+    background: #002a4e;
+    padding: 20px 10px;
+    right: 0;
+    display: none;
+}
+#boxModel p {
+    color: #fff;
+    margin: 0 0 10px;
+}
+#boxModel form {}
+#boxModel form select {
+    width: 100%;
+    padding: 7px 0;
+    outline: none;
+}
+#boxModel form select option {}
+#boxModel form input[type="submit"] {
+    float: right;
+    background: #fff;
+    color: #002a4e;
+    padding: 7px 6px;
+    margin: 10px 0 0;
+}
+#boxModel a {
+    border: none;
+    padding: 12px 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    float: left;
+    background: #fff;
+    color: #002a4e;
+    padding: 7px 6px;
+    text-decoration: none;
+    margin: 10px 0 0;
+    cursor: pointer;
+}
+.cancel {
+    cursor: pointer;
+    color: blue;
+}
+
+.content-right h2 {
+    font-size: 20px;
+    margin: 0 0 20px;
+    color: #00294e;
+    text-decoration: none;
+    display: block;
+}
+.content-right h4 {
+    font-size: 20px;
+    margin: 30px 0;
+    color: #00294e;
+    text-decoration: none;
+    display: block;
+}
+.content-right h4 span {
+    font-size: 50px;
+    float: right;
+    margin: -15px 0 0 0;
+}
+.content-right a {
+    font-size: 16px;
+    margin: 50px 0;
+    background: #00294e;
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 0;
+    display: block;
+    text-align: center;
+}
+#table_3 a {
+    margin: 0 0 0 8px;
+    padding: 2px 9px;
+    display: inline-block;
+    float: left;
+}
+
+
+.overly {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.90);
+    z-index: 9999999;
+    display: none;
+}
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    z-index: 9999999;
+    transform: translate(-50%, -40%);
+}
+
+form#mobileReg button {
+    border: none;
+    background: #002a4e;
+    color: #fff;
+    padding: 6px 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    float: right;
+    line-height: 18px;
+}
+
+.button-action {
+    margin: 10px 0 0;
+}
+.button-action div {
+    border: none;
+    background: #002a4e;
+    color: #fff;
+    padding: 6px 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 18px;
+    text-align: center;
+}
+.button-action input {
+    display: inline-block;
+    background: #00aeef;
+    border: none;
+    padding: 10px 25px;
+    color: #fff;
+    font-family: 'gotham-light-webfont';
+    cursor: pointer;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.full_screen_loading_box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  z-index: 99000;
+  left: 0;
+  top: 0;
+}
+.full_screen_loading_box div {
+  position: absolute;
+  z-index: 99100;
+  left: 0;
+  top: 10%;
+  width: 100%;
+  font-size: 22px;
+  margin-top: -40px;
+  color: #015a82;
+}

@@ -14,6 +14,6 @@ namespace PC.DataLayer.DbContexts
         {
         }
 
-        public DbSet<GeneralSurveyReport> GeneralSurveyReport { get; set; }
+        public DbSet<GeneralSurvey> GeneralSurveyReport { get; set; }
     }
 }

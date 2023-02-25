@@ -174,7 +174,9 @@ namespace PC.Repository.Repository
 
         public T Update(T entity)
         {
+            _context.ChangeTracker.Clear();
             _context.Update(entity);
+            _context.SaveChanges();
             return entity;
         }
 

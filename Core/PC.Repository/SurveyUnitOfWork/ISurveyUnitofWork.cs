@@ -10,7 +10,7 @@ namespace PC.Repository.SurveyUnitOfWork
 {
     public interface ISurveyUnitofWork : IDisposable
     {
-        IBaseRepository<GeneralSurveyReport> GeneralSurveyReport { get; }
+        IBaseRepository<GeneralSurvey> GeneralSurveyReport { get; }
 
         int Complete();
     }

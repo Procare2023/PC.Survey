@@ -1,0 +1,82 @@
+.top-content { padding: 40px 0 170px 0; }
+
+.top-content .text { color: #fff; }
+.top-content .text h1 { color: #fff; }
+.top-content .description { margin: 20px 0 10px 0; }
+.top-content .description p { opacity: 0.8; }
+.top-content .description a { color: #fff; }
+.top-content .description a:hover, 
+.top-content .description a:focus { border-bottom: 1px dotted #fff; }
+
+.form-box { 
+	text-align: center;
+}
+.f1 {
+	padding: 20px 50px 50px; 
+	background: #e6e7e9;
+}
+.f1 h3 { 
+	margin-top: 0; 
+	margin-bottom: 5px; 
+	text-transform: uppercase; 
+}
+
+.f1-steps { overflow: hidden; position: relative; margin-top: 20px; margin-bottom: 40px; }
+
+.f1-progress { position: absolute; top: 24px; left: 0; width: 100%; height: 1px; background: #b1b2b7; }
+.f1-progress-line { position: absolute; top: 0; left: 0; height: 1px; background: #008c99; }
+
+.f1-step { position: relative; float: left; width: 33.333333%; padding: 0 5px; }
+
+.f1-step-icon {
+	display: inline-block; width: 40px; height: 40px; margin-top: 4px; background: #b1b2b7;
+	font-size: 16px; color: #fff; line-height: 40px;
+	-moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;
+}
+.f1-step.activated .f1-step-icon {
+	background: #fff; border: 1px solid #009ee0; color: #009ee0; line-height: 38px;
+}
+.f1-step.active .f1-step-icon {
+	width: 48px; height: 48px; margin-top: 0; background: #008c99; font-size: 22px; line-height: 48px;
+}
+
+.f1-step p { 
+	color: #b1b2b7; 
+	margin: 12px 0 0;
+}
+.f1-step.activated p { 
+	color: #000;
+	margin: 12px 0 0;
+}
+.f1-step.active p { 
+	color: #000; 
+	margin: 12px 0 0;
+}
+
+.f1 fieldset { display: none; text-align: left; }
+
+.f1-buttons { text-align: right; }
+.f1-buttons button {
+    background: #002b4e;
+    border: #002b4e;
+    color: #fff;
+}
+.f1-buttons button:hover,
+.f1-buttons button:active,
+.f1-buttons button:active:hover,
+.f1-buttons button:focus {
+    background: #002b4e;
+    border: #002b4e;
+    outline: none;
+    color: #fff;
+}
+.f1 h4 {
+    font-size: 20px;
+    color: #002b4e;
+    margin: 12px 0 12px;
+}
+.f1 h2 {
+    font-size: 30px;
+    margin: 20px 0;
+}
+.f1 .input-error { border-color: #ff7b7b; }

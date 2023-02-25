@@ -1,0 +1,144 @@
+﻿html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+html {
+    height: 100%;
+}
+body {
+    line-height: 1;
+    background: #ffffff;
+    font-family: Arial;
+}
+/*
+ * Logo
+ */
+#logo {
+    width: 100%;
+    float: left;
+}
+#logo img {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+}
+/*Page Title*/
+
+/*Page Title*/
+#page-title {
+    width: 100%;
+    float: left;
+    margin: 30px 0 20px;
+    background: #48baeb;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+}
+#page-title h1 h3 {
+    font-size: 26px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+/*Arb Text**/
+#page-title .arb-text {
+            direction: rtl;
+            font-family: 'ge_ss_two_medium';
+            font-weight: bold;
+            float: right;
+            color: #fff;
+        }
+ .arb-text {
+            direction: rtl;
+			float: right;
+            font-family: 'ge_ss_two_medium';
+            font-weight: normal;
+        }
+
+            .arb-text p {
+                direction: rtl;
+                font-family: 'ge_ss_two_medium';
+                font-weight: normal;
+            }
+
+        .arb-text-color {
+            direction: rtl;
+            font-family: 'ge_ss_two_medium';
+            color: #fff;
+            font-weight: normal;
+            float: right;
+            margin: 0 0 0 40px;
+        }
+.content-area {
+background: #d4f0fd;
+    margin-top: 0px;
+    padding-top: 10px;
+	}
+	.text-padding{   
+
+	}
+.content-padding{   
+     margin-right: 15px !important;
+    margin-left: 15px !important;
+
+	}
+.custom-font{
+	font-weight:bold;
+}
+
+#Recievingsignature canvas{
+background-color: rgb(253 253 253) !important;
+	}
+	
+#signature canvas{
+background-color: rgb(253 253 253) !important;
+	}
+	
+#Witness1signature canvas{
+background-color: rgb(253 253 253) !important;
+	}
+		
+#Witness2signature canvas{
+background-color: rgb(253 253 253) !important;
+	}
+
+#Drsignature canvas{
+background-color: rgb(253 253 253) !important;
+	}
+		
+.custom-justify{
+	text-align: justify;
+}	
+
+.zero-padding{
+    padding-left: 10px !important;
+	}
+.consent-style{
+	padding: 0 0 10px 0px;
+}
+.short-div {
+  height:15px;
+    padding-left: 50%;
+}

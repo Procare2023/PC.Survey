@@ -1,0 +1,1247 @@
+﻿@using Microsoft.Extensions.Localization
+@using PC.External.Resources;
+@using PC.External.Enum;
+@model PC.DataLayer.Model.Survey.GeneralSurvey
+@*//@inject IStringLocalizer<Resource> s1;*@
+@{
+    ViewData["Title"] = "Patient Survey";
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ProCare General Survey</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS Stylesheet -->
+    <link href="~/newstyle/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/newstyle/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="~/newstyle/css/sweetalert.css" rel="stylesheet" />
+    <link href="~/newstyle/css/new-style.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .rating {
+            margin: 0 0 30px;
+        }
+
+            .rating .modal-content {
+                float: left;
+            }
+
+                .rating .modal-content .modal-body {
+                    margin: 0 0 30px;
+                    float: left;
+                }
+
+                    .rating .modal-content .modal-body .col-md-12 {
+                        margin: 10px 0 0;
+                    }
+
+            .rating textarea {
+                width: 100%;
+                font-family: 'Arial';
+                font-size: 14px;
+                padding: 5px;
+                outline: none;
+            }
+
+            .rating span.unchecked,
+            .rating span.checked {
+                padding: 10px 0 0;
+                background: #dfe2e4;
+                color: #00294e;
+                display: inline-block;
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+                margin: 16px 16px 0 0;
+                font-size: 16px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .rating span.checked {
+                background: #00294e;
+                color: #fff;
+            }
+
+            .rating .modal_button {
+                display: none;
+            }
+
+        .arb_v #page-form .form-start h2:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 46px solid #1a2d6b;
+            border-left: 46px solid transparent;
+            top: 0;
+            left: -46px;
+            right: inherit;
+            border-right: inherit;
+        }
+
+        .arb_v .call-to-action .button-action div {
+            display: inline-block;
+            background: #3459a8;
+            border: none;
+            padding: 10px 25px;
+            color: #fff;
+            cursor: pointer;
+            margin: 0 10px 0 0;
+        }
+
+        .arb_v .call-to-action .button-action {
+            float: left;
+        }
+
+        .arb_v .close {
+            float: left;
+        }
+
+        .serviceTeamSpan {
+            font-size: 14px !important;
+        }
+    </style>
+</head>
+<body>
+    <section id="logo">
+        <div class="container">
+            <img src="~/newstyle/images/logo.png" alt="MyClinic" />
+        </div>
+    </section>
+    <form id="form1">
+        <input type="hidden" asp-for="ApptCopyGenSurveyId" />
+        <input type="hidden" asp-for="ApptId" />
+        <input type="hidden" asp-for="ApptNo" />
+
+        <input type="hidden" asp-for="ApptDate" />
+        <input type="hidden" asp-for="AppointmentStatus" />
+        <input type="hidden" asp-for="MRN" />
+
+        <input type="hidden" asp-for="PatientName" />
+        <input type="hidden" asp-for="BirthDate" />
+        <input type="hidden" asp-for="Mobile" />
+
+        <input type="hidden" asp-for="Doctor" />
+        <input type="hidden" asp-for="Specialty" />
+        <input type="hidden" asp-for="SurveyStatus" />
+
+        <input type="hidden" asp-for="CreateStamp" />
+        <div id="language">
+            <p ID="litSwitchLanguage">
+                @*@s1["SwitchLanguage"].Value*@
+                @Resource.SwitchLanguage
+                @*  ID="litSwitchLanguage" Text="@Resource.SwitchLanguage " />*@
+            </p>
+            <span id="eng" onclick="switchLang('eng');">
+                @Resource.English
+                @*  ID="btnEnglish" Text="@Resource.English " />*@
+            </span>
+            <span id="arb" onclick="switchLang('arb');">
+                @Resource.Arabic
+                @*  ID="btnArabic" Text="@Resource.Arabic " />*@
+            </span>
+        </div>
+
+        <section id="form_results">
+            <div class="container">
+                <p>Thank you for your time to fill the questionnaire.</p>
+            </div>
+        </section>
+
+        <section id="page-form">
+            <div class="container">
+                @*<form id="frmGeneralSurvey">*@
+
+                <div id="page-title">
+                    <h1 ID="litCustomerSatisfactionSurvey">
+                        @Resource.CustomerSatisfactionSurvey
+                        @*  ID="litCustomerSatisfactionSurvey" Text="@Resource.CustomerSatisfactionSurvey " />*@
+                    </h1>
+                </div>
+                <div class="form-start">
+                    <h2 ID="litQuestions">
+                        @Resource.Questions
+                        @*  ID="litQuestions" Text="@Resource.Questions " />*@
+                    </h2>
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="rating" id="question_1">
+                                    <label ID="litHowWouldYouRateMyClinic">
+                                        1-
+                                        @Resource.HowWouldYouRateProCareWithScore
+                                    </label>
+
+                                    <button type="button" data-toggle="modal" data-target="#question_1_Modal_Below" id="question_1_modal_button_below" class="modal_button">Open Modal</button>
+                                    <div id="question_1_Modal_Below" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title" ID="litWhatYouNotSatisfied">
+                                                        @Resource.WhatWereYouNotsatisfiedWith
+                                                        @*  ID="litWhatYouNotSatisfied" Text="@Resource.WhatWereYouNotsatisfiedWith " />*@
+                                                    </h4>
+                                                </div>
+                                                <div id="divRateProCareNotSatisfied" class="modal-body">
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_below" id="medical_availability" value="@GeneralSurveyReason.Paking" />
+                                                        <label for="medical_availability" ID="liParking"><span><span></span></span>&nbsp;@Resource.Parking</label>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_below" id="long_waiting_time" value="@GeneralSurveyReason.LongWaitingTime" />
+                                                        <label for="long_waiting_time" ID="litLongWaitingTime"><span><span></span></span>&nbsp;@Resource.LongWaitingTime</label>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_below" id="quality_of_doctor" value="@GeneralSurveyReason.QualityOfDoctor" />
+                                                        <label for="quality_of_doctor" ID="litQualityOfDoctor"><span><span></span></span>&nbsp; @Resource.QualityOfDoctor</label>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_below" id="wait_time_in_pharmacy" value="@GeneralSurveyReason.AvailabilityOfServices " />
+                                                        <label for="wait_time_in_pharmacy" ID="litAvailabilityOfServices"><span><span></span></span>&nbsp; @Resource.AvailabilityOfServices</label>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_below" id="facility_location_environment" value="@GeneralSurveyReason.FacilityLocationAndEnvironment " />
+                                                        <label for="facility_location_environment" ID="litFacilityLocationAndEnvironment"><span><span></span></span>&nbsp; @Resource.FacilityLocationAndEnvironment</label>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_below" id="lab_service" value="@GeneralSurveyReason.LabAndRadiologyServices " />
+                                                        <label for="lab_service" ID="litLabRadiologyServices"><span><span></span></span>&nbsp; @Resource.LabRadiologyServices</label>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_below" id="insurance_related" value="@GeneralSurveyReason.InsuranceRelatedIssues " />
+                                                        <label for="insurance_related" ID="litInsuranceRelatedIssues"><span><span></span></span>&nbsp; @Resource.InsuranceRelatedIssues</label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_below" id="appointment_availability" value="@GeneralSurveyReason.AppointmentAvailability " />
+                                                        <label for="appointment_availability" ID="litAppointmentAvailability"><span><span></span></span>&nbsp; @Resource.AppointmentAvailability</label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_below" id="pharmacy" value="@GeneralSurveyReason.Pharmacy " />
+                                                        <label for="pharmacy" ID="litPharmacy"><span><span></span></span>&nbsp; @Resource.Pharmacy </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_below" id="question_1_other_below" value="@GeneralSurveyReason.Others " />
+                                                        <label for="question_1_other_below" ID="litPubGenOthers"><span><span></span></span>&nbsp; @Resource.PubGenOthers</label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <textarea name="question_1_comment_below" id="question_1_comment_below" placeholder='@Resource.PleaseLetUsKnowMoreInfo' rows="10"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button style="margin: 10px" type="button" class="btn btn-default btlClose" ID="litMyClinicSatClose" data-dismiss="modal">
+                                                        @Resource.Close
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" data-toggle="modal" data-target="#question_1_Modal_Above" id="question_1_modal_button_above" class="modal_button">Open Modal</button>
+                                    <div id="question_1_Modal_Above" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title" ID="litWhatWereYouSatisfiedWith">
+                                                        @Resource.WhatWereYouSatisfiedWith
+                                                    </h4>
+                                                </div>
+                                                <div id="divRateProCareSatisfied" class="modal-body">
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_above" id="smooth_process" value="@GeneralSurveySatisfiedReason.SmoothProcess " />
+                                                        <label for="smooth_process" ID="litSmoothProcess">
+                                                            <span><span></span></span>&nbsp; @Resource.SmoothProcess
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_above" id="short_waiting_time" value="@GeneralSurveySatisfiedReason.ShortWaitingTime " />
+                                                        <label for="short_waiting_time" ID="litShortWaitingTime">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.ShortWaitingTime
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_above" id="quality_above_of_doctor" value="@GeneralSurveySatisfiedReason.QualityofDoctors " />
+                                                        <label for="quality_above_of_doctor" ID="litAboveQualityofDoctors">
+                                                            <span><span></span></span>&nbsp;
+                                                            @Resource.QualityOfDoctor
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_above" id="wait_time_above_in_pharmacy" value="@GeneralSurveySatisfiedReason.AvailabilityOfServices " />
+                                                        <label for="wait_time_above_in_pharmacy" ID="litAboveAvailabilityOfServices">
+                                                            <span><span></span></span>&nbsp;
+                                                            @Resource.AvailabilityOfServices
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_above" id="facility_above_and_environment" value="@GeneralSurveySatisfiedReason.FacilityLocationAndEnvironment " />
+                                                        <label for="facility_above_and_environment" ID="litAboveFacilityLocationAndEnvironment">
+                                                            <span><span></span></span>&nbsp;
+                                                            @Resource.FacilityLocationAndEnvironment
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_above" id="ease_of_book" value="@GeneralSurveySatisfiedReason.EaseOfBookingAnAppointment " />
+                                                        <label for="ease_of_book" ID="litEaseBookingAppointment">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.EaseBookingAppointment
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_above" id="appointment_above_availability" value="@GeneralSurveySatisfiedReason.AvailabilityOfAppointments " />
+                                                        <label for="appointment_above_availability" ID="litAboveAvailabilityOfAppointments">
+                                                            <span><span></span></span>&nbsp;
+                                                            @Resource.AppointmentAvailability
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_1_value_above" id="question_1_other_above" value="@GeneralSurveySatisfiedReason.Others " />
+                                                        <label for="question_1_other_above" ID="litSatPubGenOthers">
+                                                            <span><span></span></span>&nbsp;
+                                                            @Resource.PubGenOthers
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <textarea name="question_1_comment_above" id="question_1_comment_above" placeholder='@Resource.AnyExtraComment' rows="10"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button ID="litNotSatMyClinic" style="margin: 10px" type="button" class="btn btn-default btlClose" data-dismiss="modal">
+                                                        @Resource.Close
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="rating" id="question_2">
+                                    <label ID="litHowWouldYouRateYourDoctor">
+                                        2-
+                                        @Resource.HowWouldYouRateYourDoctorWithScore
+                                    </label>
+
+                                    <button type="button" data-toggle="modal" data-target="#question_2_Modal_Below" id="question_2_modal_button_below" class="modal_button">Open Modal</button>
+                                    <div id="question_2_Modal_Below" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title" ID="litWhatYouNotSatWithDoc">
+                                                        @Resource.WhatWereYouNotsatisfiedWith
+                                                    </h4>
+                                                </div>
+                                                <div id="divRateDoctorNotSatisfied" class="modal-body">
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_below" id="behavior_and_attitude" value="@DoctorSurveyReason.BehaviorAndAttitude " />
+                                                        <label for="behavior_and_attitude" ID="litBehaviorAttitude">
+                                                            <span><span></span></span>&nbsp; @Resource.BehaviorAttitude
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_below" id="felt_hurried_and_rushed" value="@DoctorSurveyReason.FeltHurriedAndRushed " />
+                                                        <label for="felt_hurried_and_rushed" ID="litFeltHurriedRushed">
+                                                            <span><span></span></span>
+                                                            &nbsp;  @Resource.FeltHurriedRushed
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_below" id="wait_time" value="@DoctorSurveyReason.WaitingTime " />
+                                                        <label for="wait_time" ID="litWaitingTime">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.WaitingTime
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_below" id="treatment_plan_clarity" value="@DoctorSurveyReason.TreatmentPlanClarity " />
+                                                        <label for="treatment_plan_clarity" ID="litTreatmentPlanClarity">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.TreatmentPlanClarity
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_below" id="explanation_of_the_diagnosis" value="@DoctorSurveyReason.ExplanationDiagnosis " />
+                                                        <label for="explanation_of_the_diagnosis" ID="litExplanationDiagnosis">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.ExplanationDiagnosis
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_below" id="poor_communication" value="@DoctorSurveyReason.PoorCommunication " />
+                                                        <label for="poor_communication" ID="litPoorCommunication">
+                                                            <span><span></span></span>
+                                                            &nbsp;  @Resource.PoorCommunication
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_below" id="question_2_other_below" value="@DoctorSurveyReason.Others " />
+                                                        <label for="question_2_other_below" ID="litDorPubGenOthers"><span><span></span></span>&nbsp; @Resource.PubGenOthers</label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <textarea name="question_2_comment_below" id="question_2_comment_below" placeholder='@Resource.AnyExtraComment' rows="10"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button ID="litNotDor" style="margin: 10px" type="button" class="btn btn-default btlClose" data-dismiss="modal">
+                                                        @Resource.Close
+                                                    </button>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" data-toggle="modal" data-target="#question_2_Modal_Above" id="question_2_modal_button_above" class="modal_button">Open Modal</button>
+                                    <div id="question_2_Modal_Above" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title" ID="litDocWhatWereYouSatisfiedWith">
+                                                        @Resource.WhatWereYouSatisfiedWith
+                                                    </h4>
+                                                </div>
+                                                <div id="divRateDoctorSatisfied" class="modal-body">
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_above" id="professionalism_attitude" value="@DoctorSurveySatisfiedReason.ProfessionalismAttitude " />
+                                                        <label for="professionalism_attitude" ID="litProfessionalismAttitude">
+                                                            <span><span></span></span>&nbsp;  @Resource.ProfessionalismAttitude
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_above" id="communication" value="@DoctorSurveySatisfiedReason.Communication " />
+                                                        <label for="communication" ID="litCommunication">
+                                                            <span><span></span></span>
+                                                            &nbsp;  @Resource.Communication
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_above" id="treatment_plan_clarity_above" value="@DoctorSurveySatisfiedReason.TreatmentPlanClarity " />
+                                                        <label for="treatment_plan_clarity_above" ID="litDocTreatmentPlanClarity">
+                                                            <span><span></span></span>
+                                                            &nbsp;  @Resource.TreatmentPlanClarity
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_above" id="explanation_of_the_diagnosis_above" value="@DoctorSurveySatisfiedReason.ExplanationDiagnosis " />
+                                                        <label for="explanation_of_the_diagnosis_above" ID="litDocExplanationDiagnosis">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.ExplanationDiagnosis
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_above" id="knowledge_helpfulness" value="@DoctorSurveySatisfiedReason.KnowledgeHelpfulness " />
+                                                        <label for="knowledge_helpfulness" ID="litKnowledgeHelpfulness">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.KnowledgeHelpfulness
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_2_value_above" id="question_2_other_above" value="@DoctorSurveySatisfiedReason.Others " />
+                                                        <label for="question_2_other_above" ID="litDocPubGenOthers"><span><span></span></span>&nbsp; @Resource.PubGenOthers</label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <textarea name="question_2_comment_above" id="question_2_comment_above" placeholder='@Resource.AnyExtraComment' rows="10"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button ID="litSatDr" style="margin: 10px" type="button" class="btn btn-default btlClose" data-dismiss="modal">
+                                                        @Resource.Close
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!--  Reception staff  -->
+
+                            <div class="col-md-12">
+                                <div class="rating" id="question_5">
+                                    <label ID="litHowWouldYouRateReceptionStaffWithScore">
+                                        3-
+                                        @Resource.HowWouldYouRateReceptionStaffWithScore
+                                    </label>
+
+                                    <button type="button" data-toggle="modal" data-target="#question_5_Modal_Below" id="question_5_modal_button_below" class="modal_button">Open Modal</button>
+                                    <div id="question_5_Modal_Below" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title" ID="Literal3">
+                                                        @Resource.WhatWereYouNotsatisfiedWith
+                                                    </h4>
+                                                </div>
+                                                <div id="divRateReceptionNotSatisfied" class="modal-body">
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_5_value_below" id="question_5_behavior_and_attitude" value="@ReceptionStaffNotSatisfied.BehaviorAndAttitude " />
+                                                        <label for="question_5_behavior_and_attitude" ID="Literal4">
+                                                            <span><span></span></span>&nbsp; @Resource.BehaviorAttitude
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_5_value_below" id="question_5_not_helpful" value="@ReceptionStaffNotSatisfied.NotHelpful " />
+                                                        <label for="question_5_not_helpful" ID="Literal5">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.NotHelpful
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_5_value_below" id="question_5_not_available" value="@ReceptionStaffNotSatisfied.NotAvailable " />
+                                                        <label for="question_5_not_available" ID="Literal6">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.NotAvailable
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_5_value_below" id="question_5_poor_communication" value="@ReceptionStaffNotSatisfied.PoorCommunication " />
+                                                        <label for="question_5_poor_communication" ID="Literal7">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.PoorCommunication
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_5_value_below" id="question_5_other_below" value="@ReceptionStaffNotSatisfied.Others " />
+                                                        <label for="question_5_other_below" ID="Literal8"><span><span></span></span>&nbsp; @Resource.PubGenOthers</label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <textarea name="question_5_comment_below" id="question_5_comment_below" placeholder='@Resource.AnyExtraComment' rows="10"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button ID="Literal9" style="margin: 10px" type="button" class="btn btn-default btlClose" data-dismiss="modal">
+                                                        @Resource.Close
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" data-toggle="modal" data-target="#question_5_Modal_Above" id="question_5_modal_button_above" class="modal_button">Open Modal</button>
+                                    <div id="question_5_Modal_Above" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title" ID="Literal10">
+                                                        @Resource.WhatWereYouSatisfiedWith
+                                                    </h4>
+                                                </div>
+                                                <div id="divRateReceptionSatisfied" class="modal-body">
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_5_value_above" id="question_5_professionalism_attitude" value="@ReceptionStaffSatisfied.ProfessionalismAttitude " />
+                                                        <label for="question_5_professionalism_attitude" ID="Literal11">
+                                                            <span><span></span></span>&nbsp; @Resource.ProfessionalismAttitude
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_5_value_above" id="question_5_communication" value="@ReceptionStaffSatisfied.Communication " />
+                                                        <label for="question_5_communication" ID="Literal12">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.Communication
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_5_value_above" id="question_5_knowledge_helpfulness" value="@ReceptionStaffSatisfied.KnowledgeHelpfulness " />
+                                                        <label for="question_5_knowledge_helpfulness" ID="Literal13">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.KnowledgeHelpfulness
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_5_value_above" id="question_5_other_above" value="@ReceptionStaffSatisfied.Others " />
+                                                        <label for="question_5_other_above" ID="Literal14"><span><span></span></span>&nbsp; @Resource.PubGenOthers</label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <textarea name="question_5_comment_above" id="question_5_comment_above" placeholder='@Resource.AnyExtraComment' rows="10"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button ID="Literal15" style="margin: 10px" type="button" class="btn btn-default btlClose" data-dismiss="modal">
+                                                        @Resource.Close
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!--  Nursing  staff  -->
+
+                            <div class="col-md-12">
+                                <div class="rating" id="question_3">
+                                    <label ID="litHowWouldYouRateTheNursesAndTheStaff">
+                                        4-
+                                        @Resource.HowWouldYouRateTheNursesAndTheStaffWithScore
+                                    </label>
+
+                                    <button type="button" data-toggle="modal" data-target="#question_3_Modal_Below" id="question_3_modal_button_below" class="modal_button">Open Modal</button>
+                                    <div id="question_3_Modal_Below" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title" ID="litNurseWhatWereYouNotsatisfiedWith">
+                                                        @Resource.WhatWereYouNotsatisfiedWith
+                                                    </h4>
+                                                </div>
+                                                <div id="divRateNursesNotSatisfied" class="modal-body">
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_3_value_below" id="question_3_behavior_and_attitude" value="@NursesAndStaffReason.BehaviorAndAttitude " />
+                                                        <label for="question_3_behavior_and_attitude" ID="litNurseBehaviorAttitude">
+                                                            <span><span></span></span>&nbsp;
+                                                            @Resource.BehaviorAttitude
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_3_value_below" id="question_3_not_helpful" value="@NursesAndStaffReason.NotHelpful " />
+                                                        <label for="question_3_not_helpful" ID="litNotHelpful">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.NotHelpful
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_3_value_below" id="question_3_not_available" value="@NursesAndStaffReason.NotAvailable " />
+                                                        <label for="question_3_not_available" ID="litNotAvailable">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.NotAvailable
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_3_value_below" id="question_3_poor_communication" value="@NursesAndStaffReason.PoorCommunication " />
+                                                        <label for="question_3_poor_communication" ID="litNursePoorCommunication">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.PoorCommunication
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_3_value_below" id="question_3_other_below" value="@NursesAndStaffReason.Others " />
+                                                        <label for="question_3_other_below" ID="litNursePubGenOthers">
+                                                            <span><span></span></span>&nbsp;
+                                                            @Resource.PubGenOthers
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <textarea name="question_3_comment_below" id="question_3_comment_below" placeholder='@Resource.AnyExtraComment' rows="10"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button ID="litNotSatNur" style="margin: 10px" type="button" class="btn btn-default btlClose" data-dismiss="modal">
+                                                        @Resource.Close
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" data-toggle="modal" data-target="#question_3_Modal_Above" id="question_3_modal_button_above" class="modal_button">Open Modal</button>
+                                    <div id="question_3_Modal_Above" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title" ID="litNurSatWith">
+                                                        @Resource.WhatWereYouSatisfiedWith
+                                                    </h4>
+                                                </div>
+                                                <div id="divRateNursesSatisfied" class="modal-body">
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_3_value_above" id="question_3_professionalism_attitude" value="@NursesAndStaffSatisfiedReason.ProfessionalismAttitude " />
+                                                        <label for="question_3_professionalism_attitude" ID="litNurseProfessionalismAttitude">
+                                                            <span><span></span></span>&nbsp; @Resource.ProfessionalismAttitude
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_3_value_above" id="question_3_communication" value="@NursesAndStaffSatisfiedReason.Communication " />
+                                                        <label for="question_3_communication" ID="litNurCommunication">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.Communication
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_3_value_above" id="question_3_knowledge_helpfulness" value="@NursesAndStaffSatisfiedReason.KnowledgeHelpfulness " />
+                                                        <label for="question_3_knowledge_helpfulness" ID="litNurseKnowledgeHelpfulness">
+                                                            <span><span></span></span>
+                                                            &nbsp; @Resource.KnowledgeHelpfulness
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="radio" name="question_3_value_above" id="question_3_other_above" value="@NursesAndStaffSatisfiedReason.Others " />
+                                                        <label for="question_3_other_above" ID="litNurSatPubGenOthers">
+                                                            <span><span></span></span>&nbsp;
+                                                            @Resource.PubGenOthers
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <textarea name="question_3_comment_above" id="question_3_comment_above" placeholder='@Resource.AnyExtraComment' rows="10"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button ID="Literal1" style="margin: 10px" type="button" class="btn btn-default btlClose" data-dismiss="modal">
+                                                        @Resource.Close
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="rating" id="question_4">
+                                    <label ID="litRecommendMyclinicYourFriends">
+                                        5-
+                                        @Resource.RecommendProCareYourFriendsWithScore
+                                    </label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-12">
+                                <div class="rating">
+                                    <label ID="litWhyNotRecommendMyclinicYourFriends">
+                                        6-
+                                        @Resource.WhyNotRecommendProCareYourFriends
+                                    </label>
+                                    <textarea name="recommend_my_clinic" id="recommend_my_clinic" placeholder='@Resource.Comments' rows="10"></textarea>
+                                </div>
+                            </div>
+
+                            <!--  comments as a complaint or general feedback  -->
+                            <div class="col-md-12">
+                                <div class="rating">
+                                    <label ID="litComplaintOrGeneralFeedback">
+                                        7-
+                                        @Resource.ComplaintorGeneralFeedback
+                                    </label>
+                                    <div class="col-md-12">
+                                        <input type="radio" name="question_7_value_YesNo" id="question_7_Complaint_or_Feedback_yes" value="1" />
+                                        <label for="question_7_Complaint_or_Feedback_yes" ID="litComplaint">
+
+                                            <span><span></span></span>&nbsp; @Resource.Complaint
+                                        </label>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <input type="radio" name="question_7_value_YesNo" id="question_7_Complaint_or_Feedback_no" value="2" />
+                                        <label for="question_7_Complaint_or_Feedback_no" ID="litFeedback">
+                                            <span><span></span></span>&nbsp; @Resource.Feedback
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="call-to-action">
+                    <div class="button-action">
+                        <div onclick="btnSubmitOnClick();" ID="litSubmit">
+                            @Resource.Submit
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </form>
+
+    <div class="inner_logo">
+        <img src="~/newstyle/images/logo.png" alt="" />
+    </div>
+
+</body>
+
+<!-- ~/newstyle Scripts -->
+<script type="text/javascript" src="~/newstyle/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="~/newstyle/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/newstyle/js/sweetalert.min.js"></script>
+
+
+<script type="text/javascript">
+
+    var _generalSurvey;
+
+    var apptId;
+    var ApptCopyGenSurveyId;
+    var createTimeTicks;
+
+    var rateMyClinic;
+    var rateDoctor;
+    var rateNurse;
+    var rateFriend;
+    var rateReception;
+
+    var rateAsComplainOrFeedback;
+    var en = "culture=en-US";
+    var ar = "culture=ar-SA";
+    var lang;
+
+    function switchLang(var2) {
+        if (var2 == 'arb') {
+            var url = location.href.replace(en, ar);
+            document.location = url;
+        }
+        else if (var2 == 'eng') {
+            var url = location.href.replace(ar, en);
+            document.location = url;
+        }
+    }
+
+    jQuery(document).ready(function ($) {
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+        });
+
+        let value = params.culture;
+        lang = value;
+
+        if (value == 'ar-SA') {
+            $('body').attr({ 'dir': 'rtl' });
+            $('body').removeClass('eng_v');
+            $('body').addClass('arb_v');
+            $('.btlClose').css('float', 'left');
+
+        } else {
+
+            $('body').attr({ 'dir': 'ltr' });
+            $('body').removeClass('arb_v');
+            $('body').addClass('eng_v');
+            $('.btlClose').css('float', 'right');
+        }
+
+        apptId = $('#ApptId').val();
+        ApptCopyGenSurveyId = $('#ApptCopyGenSurveyId').val();
+        //apptId = getUrlVars()["i"];
+        //createTimeTicks = getUrlVars()["k"];
+
+        var span = [];
+        $("form .row div.col-md-12").each(function () {
+            var divID = jQuery(this).find('div').attr('id');
+            for (k = 0; k <= 10; ++k) {
+                span[k] = $('<span />').attr({ 'class': 'unchecked', 'id': divID + '_star_' + k, 'data-attr': k }).html(k);
+            }
+            $('#' + divID).append(span);
+            $('<input />').attr({ 'type': 'hidden', 'id': divID + '_selected', 'name': divID + '_selected', 'value': '' }).appendTo('#' + divID);
+
+            $('#' + divID + ' span.unchecked').click(function () {
+                var previous_value = $("#" + divID + "_selected").val();
+                var selected_value = $(this).attr("data-attr");
+                var remove_selected_value = $('#' + divID + ' span.unchecked').removeClass("checked");
+                var add_selected_value = $(this).addClass("checked");
+
+                $("#" + divID + "_selected").val(selected_value);
+                if (selected_value < 9) {
+                    setTimeout(function () {
+                        $('#' + divID + '_modal_button_below').click();
+                    }, 200);
+
+                } else {
+
+                    setTimeout(function () {
+                        $('#' + divID + '_modal_button_above').click();
+                    }, 200);
+
+                }
+
+
+            });
+        });
+
+
+        $('#divRateProCareNotSatisfied input[type="radio"]').click(function () {
+
+            $('input[name="question_1_value_above"]').prop("checked", false);
+            $("#question_1_comment_above").val('');
+
+        });
+
+        $('#divRateProCareSatisfied input[type="radio"]').click(function () {
+
+            $('input[name="question_1_value_below"]').prop("checked", false);
+            $("#question_1_comment_below").val('');
+        });
+
+
+        $('#divRateDoctorNotSatisfied input[type="radio"]').click(function () {
+
+            $('input[name="question_2_value_above"]').prop("checked", false);
+            $("#question_2_comment_above").val('');
+        });
+
+
+        $('#divRateDoctorSatisfied input[type="radio"]').click(function () {
+
+            $('input[name="question_2_value_below"]').prop("checked", false);
+            $("#question_2_comment_below").val('');
+        });
+
+        $('#divRateNursesNotSatisfied input[type="radio"]').click(function () {
+            $('input[name="question_3_value_above"]').prop("checked", false);
+            $("#question_3_comment_above").val('');
+        });
+
+        $('#divRateNursesSatisfied input[type="radio"]').click(function () {
+            $('input[name="question_3_value_below"]').prop("checked", false);
+            $("#question_3_comment_below").val('');
+        });
+
+        $('#divRateReceptionNotSatisfied input[type="radio"]').click(function () {
+            $('input[name="question_5_value_above"]').prop("checked", false);
+            $("#question_5_comment_above").val('');
+        });
+
+        $('#divRateReceptionSatisfied input[type="radio"]').click(function () {
+            $('input[name="question_5_value_below"]').prop("checked", false);
+            $("#question_5_comment_below").val('');
+        });
+
+
+        $('input[name="question_7_value_YesNo"]').prop("checked", false);
+
+
+
+
+    });
+
+    function getUrlVars() {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('%26');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+
+    function btnSubmitOnClick() {
+
+        debugger;
+        // Grab the feedback.
+        var errors = '';
+
+        // How would you rate My Clinic.
+        var overallScore = getScore('question_1_star_');
+        if (overallScore == -1)
+            errors = errors + '@Resource.HowWouldYouRateProCare' + '<br />'
+
+        // question_1_value_below
+        var overallScoreSubBelowQuestionValue = $('input:radio[name="question_1_value_below"]:checked').val();
+        // question_1_value_above
+        var overallScoreSubAboveQuestionValue = $('input:radio[name="question_1_value_above"]:checked').val();
+
+        if (!overallScoreSubBelowQuestionValue && !overallScoreSubAboveQuestionValue) {
+            errors = errors + '@Resource.ProvideReasonRatingQuestionProcare' + '<br />'
+        }
+
+
+        // text area value overall
+        var overallNotSatisfiedOtherComment = $('#question_1_comment_below').val();
+
+        var overallSatisfiedOtherComment = $('#question_1_comment_above').val();
+
+
+
+        // How would you rate your Doctor.
+        var doctorScore = getScore('question_2_star_');
+        if (doctorScore == -1)
+            errors = errors + '@Resource.HowWouldYouRateYourDoctor' + '<br />'
+
+        // question_2_value_below
+        var doctorScoreSubBelowQuestionValue = $('input:radio[name="question_2_value_below"]:checked').val();
+        // question_2_value_above
+        var doctorScoreSubAboveQuestionValue = $('input:radio[name="question_2_value_above"]:checked').val();
+
+        if (!doctorScoreSubBelowQuestionValue && !doctorScoreSubAboveQuestionValue) {
+            errors = errors + '@Resource.ProvideReasonRatingQuestionDoctor' + '<br />'
+        }
+
+        // text area value doctor
+        var doctorNotSatisfiedOtherComment = $('#question_2_comment_below').val();
+
+
+
+        var doctorSatisfiedOtherComment = $('#question_2_comment_above').val();
+
+
+
+        // How would you rate the nurses and the staff.
+        var receptionStaffScore = getScore('question_5_star_');
+        if (receptionStaffScore == -1)
+            errors = errors + '@Resource.HowWouldYouRateReceptionStaff' + '<br />'
+
+        // question_5_value_below
+        var receptionScoreSubBelowQuestionValue = $('input:radio[name="question_5_value_below"]:checked').val();
+
+        // question_5_value_above
+        var receptionScoreSubAboveQuestionValue = $('input:radio[name="question_5_value_above"]:checked').val();
+
+        if (!receptionScoreSubBelowQuestionValue && !receptionScoreSubAboveQuestionValue) {
+            errors = errors + '@Resource.ProvideReasonRatingQuestionReception' + '<br />'
+        }
+
+        // text area value nurse
+        var receptionNotSatisfiedOtherComment = $('#question_5_comment_below').val();
+
+
+        var receptionSatisfiedOtherComment = $('#question_5_comment_above').val();
+
+
+
+        // How would you rate the nurses and the staff.
+        var nursesandStaffScore = getScore('question_3_star_');
+        if (nursesandStaffScore == -1)
+            errors = errors + '@Resource.HowWouldYouRateTheNursesAndTheStaff' + '<br />'
+
+        // question_3_value_below
+        var nursesScoreSubBelowQuestionValue = $('input:radio[name="question_3_value_below"]:checked').val();
+
+        // question_3_value_above
+        var nursesScoreSubAboveQuestionValue = $('input:radio[name="question_3_value_above"]:checked').val();
+
+        if (!nursesScoreSubBelowQuestionValue && !nursesScoreSubAboveQuestionValue) {
+            errors = errors + '@Resource.ProvideReasonRatingQuestionNurse' + '<br />'
+        }
+
+        // text area value nurse
+        var nursesNotSatisfiedOtherComment = $('#question_3_comment_below').val();
+
+
+        var nursesSatisfiedOtherComment = $('#question_3_comment_above').val();
+
+
+        // How would you rate the nurses and the staff.
+        var recommendScore = getScore('question_4_star_');
+        var recommendComments = $('#recommend_my_clinic').val()
+        if (recommendScore == -1 && recommendComments.trim().length == 0)
+            errors = errors + '@Resource.RecommendProCareYourFriends' + '<br />'
+
+        //var serviceTeam = getScoreServiceTeam('question_6_star');
+
+        //var serviceTeamVal;
+        //if (serviceTeam != 0 && serviceTeam == '1') {
+        //    serviceTeamVal = true;
+        //}
+        //else if (serviceTeam != 0 && serviceTeam == '2') {
+        //    serviceTeamVal = false;
+        //}
+
+
+        //question_7_value_YesNo
+        var complainFeedback = $('input:radio[name="question_7_value_YesNo"]:checked').val();
+        if (!complainFeedback) {
+            errors = errors + '@Resource.ProvideReasonComplainOrFeedback' + '<br />'//'Would you like to raise your comments as a complaint or general feedback?' + '<br />'
+        }
+
+        // Validate if errors were found.
+        if (errors != null && errors.length > 0) {
+
+
+            if (lang == 'en-US') {
+            // Display the errors.
+            swal({
+                title: '@Resource.PleaseCompleteAllRequiredFields',
+                html: '@Resource.PleaseEnterTheFollowingInformationToProceed<br/><br/><span>' + errors + '</span>',
+                confirmButtonText: '@Resource.Ok',
+                type: 'error',
+                confirmButtonClass: 'btn-danger',
+            });
+            return;
+            }
+
+            if (lang == 'ar-SA') {
+            // Display the errors.
+            swal({
+                title: 'نرجو اكمال جميع الخانات اللازمة',
+                html: 'الرجاء ادخال البيانات المطلوبة للاستمرار<br/><br/><span>' + errors + '</span>',
+                confirmButtonText: 'إغلاق',
+                type: 'error',
+                confirmButtonClass: 'btn-danger',
+            });
+            return;
+            }
+        }
+
+        saveGeneralSurvey(ApptCopyGenSurveyId, apptId, overallScore, doctorScore, nursesandStaffScore, recommendScore, recommendComments, overallScoreSubBelowQuestionValue
+        , overallScoreSubAboveQuestionValue, doctorScoreSubBelowQuestionValue, doctorScoreSubAboveQuestionValue, nursesScoreSubBelowQuestionValue, nursesScoreSubAboveQuestionValue, overallNotSatisfiedOtherComment, overallSatisfiedOtherComment, doctorNotSatisfiedOtherComment, doctorSatisfiedOtherComment,
+        nursesNotSatisfiedOtherComment, nursesSatisfiedOtherComment, receptionStaffScore, receptionScoreSubBelowQuestionValue, receptionScoreSubAboveQuestionValue, receptionNotSatisfiedOtherComment, receptionSatisfiedOtherComment, complainFeedback);
+
+    }
+
+
+    function GeneralSurveyReport(ApptCopyGenSurveyId, apptId, overallScore, doctorScore, nursesandStaffScore, recommendScore, recommendComments, overallScoreSubBelowQuestionValue
+        , overallScoreSubAboveQuestionValue, doctorScoreSubBelowQuestionValue, doctorScoreSubAboveQuestionValue, nursesScoreSubBelowQuestionValue, nursesScoreSubAboveQuestionValue, overallNotSatisfiedOtherComment,
+        overallSatisfiedOtherComment, doctorNotSatisfiedOtherComment, doctorSatisfiedOtherComment,
+        nursesNotSatisfiedOtherComment, nursesSatisfiedOtherComment, receptionStaffScore, receptionScoreSubBelowQuestionValue, receptionScoreSubAboveQuestionValue, receptionNotSatisfiedOtherComment, receptionSatisfiedOtherComment, complainFeedback) {
+
+        this.ApptId = apptId;
+        this.ApptCopyGenSurveyId = ApptCopyGenSurveyId;
+        this.OverallRating = overallScore;
+        this.DoctorRating = doctorScore;
+        this.NurseRating = nursesandStaffScore;
+        this.RecommendedRating = recommendScore;
+        this.RecommendComment = recommendComments;
+        this.GeneralSurveyReason = overallScoreSubBelowQuestionValue;
+        this.GeneralSurveySatisfiedReason = overallScoreSubAboveQuestionValue;
+        this.DoctorSurveyReason = doctorScoreSubBelowQuestionValue;
+        this.DoctorSurveySatisfiedReason = doctorScoreSubAboveQuestionValue;
+        this.NursesAndStaffReason = nursesScoreSubBelowQuestionValue;
+        this.NursesAndStaffSatisfiedReason = nursesScoreSubAboveQuestionValue;
+        this.OverallNotSatisfiedComment = overallNotSatisfiedOtherComment;
+        this.OverallSatisfiedComment = overallSatisfiedOtherComment;
+        this.DoctorNotSatisfiedComment = doctorNotSatisfiedOtherComment;
+        this.DoctorSatisfiedComment = doctorSatisfiedOtherComment;
+        this.NursesAndStaffNotSatisfiedComment = nursesNotSatisfiedOtherComment;
+        this.NursesAndStaffSatisfiedComment = nursesSatisfiedOtherComment;
+
+        this.ReceptionRating = receptionStaffScore;
+        this.ReceptionStaffNotSatisfied = receptionScoreSubBelowQuestionValue;
+        this.ReceptionStaffSatisfied = receptionScoreSubAboveQuestionValue;
+        this.ReceptionStaffNotSatisfiedComment = receptionNotSatisfiedOtherComment;
+        this.ReceptionStaffSatisfiedComment = receptionSatisfiedOtherComment;
+        this.complainFeedbacks = complainFeedback;
+
+    }
+
+    function saveGeneralSurvey(ApptCopyGenSurveyId, apptId, overallScore, doctorScore, nursesandStaffScore, recommendScore, recommendComments, overallScoreSubBelowQuestionValue
+        , overallScoreSubAboveQuestionValue, doctorScoreSubBelowQuestionValue, doctorScoreSubAboveQuestionValue, nursesScoreSubBelowQuestionValue, nursesScoreSubAboveQuestionValue, overallNotSatisfiedOtherComment, overallSatisfiedOtherComment, doctorNotSatisfiedOtherComment, doctorSatisfiedOtherComment,
+        nursesNotSatisfiedOtherComment, nursesSatisfiedOtherComment, receptionStaffScore, receptionScoreSubBelowQuestionValue, receptionScoreSubAboveQuestionValue, receptionNotSatisfiedOtherComment, receptionSatisfiedOtherComment, complainFeedback) {
+
+        _generalSurvey = new GeneralSurveyReport(ApptCopyGenSurveyId, apptId, overallScore, doctorScore, nursesandStaffScore, recommendScore, recommendComments, overallScoreSubBelowQuestionValue
+        , overallScoreSubAboveQuestionValue, doctorScoreSubBelowQuestionValue, doctorScoreSubAboveQuestionValue, nursesScoreSubBelowQuestionValue, nursesScoreSubAboveQuestionValue, overallNotSatisfiedOtherComment, overallSatisfiedOtherComment, doctorNotSatisfiedOtherComment, doctorSatisfiedOtherComment,
+        nursesNotSatisfiedOtherComment, nursesSatisfiedOtherComment, receptionStaffScore, receptionScoreSubBelowQuestionValue, receptionScoreSubAboveQuestionValue, receptionNotSatisfiedOtherComment, receptionSatisfiedOtherComment, complainFeedback);
+
+
+        var args = { 'genenralSurvey': _generalSurvey };
+
+
+        $.ajax({
+            type: "POST",
+            //contentType: "application/json; charset=utf-8",
+            url: "/Survey/SaveRecord",
+            data: args,
+            success: function (data) {
+                if (lang == 'en-US') {
+                $('.full_screen_loading_box').hide();
+                swal({
+                    title: '@Resource.ThankYou',
+                    html: '@Resource.YourInformationSubmittedSuccessfully',
+                    confirmButtonText: '@Resource.Ok',
+                    type: 'success'
+
+                }, function () {
+                    window.location.replace("https://procare.com.sa/");
+                });
+                }
+
+                if (lang == 'ar-SA') {
+                    swal({
+                    title: 'شكراً لك',
+                    html: 'تم تقديم المعلومات الخاصة بك بنجاح!',
+                    confirmButtonText: 'إغلاق',
+                    type: 'success'
+
+                }, function () {
+                    window.location.replace("https://procare.com.sa/");
+                });
+                }
+            },
+            error: function (data) {
+                alert(data);
+                if (lang == 'en-US') {
+                $('.full_screen_loading_box').hide();
+                swal({
+                    title: '@Resource.RequestFailed',
+                    text: '@Resource.RequestFailedText',
+                    confirmButtonText: '@Resource.Ok',
+                    type: 'error'
+                });
+                }
+
+                if (lang == 'ar-SA') {
+                           swal({
+                    title: 'فشل الطلب!',
+                    text: 'عذرًا ، حدث خطأ أثناء إرسال طلبك. يرجى المحاولة مرة أخرى أو الاتصال بمستشفى العناية للحصول على المساعدة.',
+                    confirmButtonText: 'إغلاق',
+                    type: 'error'
+                });
+                }
+            }
+        });
+    }
+
+    function getScore(sQuestionId) {
+
+        var score = -1;
+        var element = $('[id^="' + sQuestionId + '"].checked');
+        if (element != null && element.length > 0)
+            score = element[0].innerText;
+
+        return score;
+    }
+
+    //function getScoreServiceTeam(sQuestionId) {
+    //    var score = 0;
+    //    var element = $('[id^="' + sQuestionId + '"].checked');
+    //    if (element != null && element.length > 0)
+    //        score = element[0].dataset.attr;
+
+    //    return score;
+    //}
+
+    function getModalResponse() {
+
+
+    }
+
+    function getScoreReason() {
+
+        // question_1_value_below
+    }
+
+</script>
+
+</html>

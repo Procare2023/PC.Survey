@@ -13,12 +13,12 @@ namespace PC.Repository.SurveyUnitOfWork
     {
         private readonly ApplicationDbContext _context;
 
-        public IBaseRepository<GeneralSurveyReport> GeneralSurveyReport { get; private set; }
+        public IBaseRepository<GeneralSurvey> GeneralSurveyReport { get; private set; }
         public SurveyUnitofWork(ApplicationDbContext context)
         {
             _context = context;
 
-            GeneralSurveyReport = new BaseRepository<GeneralSurveyReport>(_context);
+            GeneralSurveyReport = new BaseRepository<GeneralSurvey>(_context);
         }
 
         public int Complete()

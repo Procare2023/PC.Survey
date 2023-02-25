@@ -73,7 +73,7 @@ namespace PC.AccessLayer.Survey
             }
         }
 
-        private async Task SendSmsAndUpdateDatabaseAsync(string externalUrlBaseLink, IEnumerable<GeneralSurveyReport> unsent)
+        private async Task SendSmsAndUpdateDatabaseAsync(string externalUrlBaseLink, IEnumerable<GeneralSurvey> unsent)
         {
             int count = 0;
             foreach (var record in unsent)
@@ -124,7 +124,7 @@ namespace PC.AccessLayer.Survey
 
         }
 
-        private static SurveyModelDto FillDto(GeneralSurveyReport record, string firstName, string shortenedLink)
+        private static SurveyModelDto FillDto(GeneralSurvey record, string firstName, string shortenedLink)
         {
             return new SurveyModelDto()
             {
@@ -156,7 +156,7 @@ namespace PC.AccessLayer.Survey
                     //if (surveyed == null || surveyed.ToList().Count < 0)
                     //{
                     // Patient has not been surveyed in the past, so insert the record.
-                    var ac = new GeneralSurveyReport();
+                    var ac = new GeneralSurvey();
                     ac.ApptId = a.appointment_id;
                     ac.ApptNo = a.appointment_id.ToString();
                     ac.ApptDate = a.appt_time;

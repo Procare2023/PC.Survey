@@ -1,0 +1,1986 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AbilityToBeActiveOnHigherLevel" xml:space="preserve">
+    <value>الأسئلة التالية تتعلق بوظائفك البدنية عندما تمارس أنشطة عالية الجهد، لكل نشاط من الأنشطة التالية يرجى تحديد درجـة الصـعـوبـة التي واجهتها الأسبوع الماضي بسبب الركبة.</value>
+  </data>
+  <data name="AbilityToMoveAndLookAfterYourself" xml:space="preserve">
+    <value>الأسئلة التالية تتعلق بالوظائف البدنية، ونعني بذلك قدرتك على التنقل والإعتناء بنفسك. لكل نشاط من الأنشطة التالية يرجى تحديد درجة الصعوبة التي واجهتها الأسبوع الماضي بسبب الركبة.</value>
+  </data>
+  <data name="Abnormal" xml:space="preserve">
+    <value>غير طبيعي</value>
+  </data>
+  <data name="AbormalAppetite" xml:space="preserve">
+    <value>غير طبيعية (يرجى التحديد)</value>
+  </data>
+  <data name="AbormalAppetiteChild" xml:space="preserve">
+    <value>غير طبيعية</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>اجراءات</value>
+  </data>
+  <data name="AddFamilyMember" xml:space="preserve">
+    <value>إضافة فرد للعائلة</value>
+  </data>
+  <data name="AddMore" xml:space="preserve">
+    <value>أضف المزيد</value>
+  </data>
+  <data name="AdultFemaleForm" xml:space="preserve">
+    <value>نموذج للنساء البالغين</value>
+  </data>
+  <data name="AdultMaleForm" xml:space="preserve">
+    <value>نموذج الرجل البالغ</value>
+  </data>
+  <data name="AlcoholDrugAbuse" xml:space="preserve">
+    <value>تعاطي الكحول/ المواد المخدرة</value>
+  </data>
+  <data name="Allergies" xml:space="preserve">
+    <value>حساسية لشيئ معين</value>
+  </data>
+  <data name="AllFieldsWithAreMandatory" xml:space="preserve">
+    <value>يرجى عدم ترك أي خانة دون تعبئتها. إذا لم يكن لديك إجابة مناسبة تنطبق على السؤال فيرجى كتابة الرقم 0 (صفر)</value>
+  </data>
+  <data name="AlphabeticalValuesShouldBeEnteredInChildsNameField" xml:space="preserve">
+    <value>يجب إدخال أحرف أبجدية في حقل اسم الطفل.</value>
+  </data>
+  <data name="AlphabeticalValuesShouldBeEnteredInClinicSpecialityField" xml:space="preserve">
+    <value>يجب إدخال قيم أبجدية فقط في خانة تخصص العيادة</value>
+  </data>
+  <data name="AlphabeticalValuesShouldBeEnteredInFathersNameField" xml:space="preserve">
+    <value>يجب إدخال أحرف أبجدية في حقل اسم الأب.</value>
+  </data>
+  <data name="AlphabeticalValuesShouldBeEnteredInFirstNameField" xml:space="preserve">
+    <value>يجب إدخال قيم أبجدية في حقل الاسم الأول.</value>
+  </data>
+  <data name="AlphabeticalValuesShouldBeEnteredInLastNameField" xml:space="preserve">
+    <value>يجب إدخال قيم أبجدية في حقل الاسم الأخير.</value>
+  </data>
+  <data name="AlphabeticalValuesShouldBeEnteredInMiddleNameField" xml:space="preserve">
+    <value>يجب إدخال قيم أبجدية في حقل الاسم الأوسط.</value>
+  </data>
+  <data name="AlphabeticalValuesShouldBeEnteredInmothersNameField" xml:space="preserve">
+    <value>يجب إدخال أحرف أبجدية في حقل اسم الأم</value>
+  </data>
+  <data name="AlphabeticalValuesShouldBeEnteredInNameField" xml:space="preserve">
+    <value>يجب إدخال قيم أبجدية فقط في خانة الاسم</value>
+  </data>
+  <data name="AlphabeticalValuesShouldBeEnteredInOccupationField" xml:space="preserve">
+    <value>يجب إدخال قيم أبجدية فقط في خانة المهنة</value>
+  </data>
+  <data name="AlRajhiTakaful" xml:space="preserve">
+    <value>تكافل الراجحي</value>
+  </data>
+  <data name="Always4MSK" xml:space="preserve">
+    <value>دائماً (٤)</value>
+  </data>
+  <data name="AlwaysDailyWeekly" xml:space="preserve">
+    <value>دائمًا (يوميًا/أسبوعيًا)</value>
+  </data>
+  <data name="AmountOfKneePainDuringActivities" xml:space="preserve">
+    <value>ماهو مقدار ألم الركبة الذي عانيته الأسبوع الماضي أثناء أداء الأنشطة التالية؟</value>
+  </data>
+  <data name="Anemia" xml:space="preserve">
+    <value>فقر الدم (أنيميا)</value>
+  </data>
+  <data name="AnemiaHypovitaminosis" xml:space="preserve">
+    <value>نقص فيتامينات / أنيميا (فقر دم)</value>
+  </data>
+  <data name="AnorexiaPoorAppetite" xml:space="preserve">
+    <value>فقدان أو ضعف الشهية (يرجي كتابة الرد بـ نعم أو لا)</value>
+  </data>
+  <data name="AnorexiaVitaminDeficiency" xml:space="preserve">
+    <value>نقص فيتامينات / ضعف في الشهية</value>
+  </data>
+  <data name="Answer" xml:space="preserve">
+    <value>إجابة</value>
+  </data>
+  <data name="AnswerFewQuestionsC19" xml:space="preserve">
+    <value>سوف تجيب على بعض الأسئلة حول أي أعراض لديك والاتصال الذي قمت به مع الآخرين.</value>
+  </data>
+  <data name="AnswerSurvey" xml:space="preserve">
+    <value>أجب على الاستبيان</value>
+  </data>
+  <data name="AnyExtraComment" xml:space="preserve">
+    <value>أي تعليقات اضافية...</value>
+  </data>
+  <data name="AnyHealthReasonLimitedYouPhysicalActivity" xml:space="preserve">
+    <value>هل أنت على دراية بأي سبب صحي أو حالة طبية تعيقك أو تمنعك من المشاركة في النشاطات البدنية ؟</value>
+  </data>
+  <data name="AnyHospitalAdmission" xml:space="preserve">
+    <value>هل حدث تنويم بالمستشفي مؤخرا؟</value>
+  </data>
+  <data name="AnyHospitalAdmissionForMajorIllness" xml:space="preserve">
+    <value>أي تاريخ سابق للتنويم بمستشفي؟</value>
+  </data>
+  <data name="AnyOneSmokingInYourFamily" xml:space="preserve">
+    <value>هل يدخن فرد آخر في أسرتك ؟</value>
+  </data>
+  <data name="AnyProlapsePostDeliveryGynecologicalProblemVaginismus" xml:space="preserve">
+    <value>هل تعانين من أي سقوط بالرحم، آلام مهبلية عند الجماع، مشاكل نسائية من بعد الولادة ، أو تناقص الرغبة الجنسية ؟</value>
+  </data>
+  <data name="AnySideEffects" xml:space="preserve">
+    <value>أي أعراض جانبية ؟</value>
+  </data>
+  <data name="AnySpecificFoodHabits" xml:space="preserve">
+    <value>هل يوجد عادات غذائية معينة (غير محببة) ؟</value>
+  </data>
+  <data name="AnySurgery" xml:space="preserve">
+    <value>هل تعرضت لإجراء جراحي حديثاً؟</value>
+  </data>
+  <data name="AnyTreatmentReceived" xml:space="preserve">
+    <value>هل تلقيت علاج طبي في تلك الزيارة؟</value>
+  </data>
+  <data name="Appetite" xml:space="preserve">
+    <value>الشهية</value>
+  </data>
+  <data name="Applies" xml:space="preserve">
+    <value>ينطبق</value>
+  </data>
+  <data name="AppointmentAvailability" xml:space="preserve">
+    <value>توفر المواعيد</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>عربى</value>
+  </data>
+  <data name="AreYouASmoker" xml:space="preserve">
+    <value>هل أنت مدخن؟</value>
+  </data>
+  <data name="AreYouPregnantNow" xml:space="preserve">
+    <value>هل يوجد حمل حالياَ ؟</value>
+  </data>
+  <data name="AreYouSureYouWishSubmitYourQuestionaire" xml:space="preserve">
+    <value>هل أنت متأكد من رغبتك في إرسال استبيانك؟</value>
+  </data>
+  <data name="AreYouTakingAnyPrescriptionMedications" xml:space="preserve">
+    <value>هل تتناول أي أدوية أو عقاقير طبية ؟</value>
+  </data>
+  <data name="ArrhythmiaIrregularHeartbeat" xml:space="preserve">
+    <value>خفقان / عدم إنتظام ضربات القلب</value>
+  </data>
+  <data name="ArrythmiaIrregularHeartbeat" xml:space="preserve">
+    <value>عدم انتظام ضربات القلب</value>
+  </data>
+  <data name="Arthritis" xml:space="preserve">
+    <value>إلتهاب المفاصل</value>
+  </data>
+  <data name="AscendingStairs" xml:space="preserve">
+    <value>و٢: صعود الدرج</value>
+  </data>
+  <data name="Asthma" xml:space="preserve">
+    <value>ربو</value>
+  </data>
+  <data name="AvailabilityOfServices" xml:space="preserve">
+    <value>توفر الخدمات</value>
+  </data>
+  <data name="AXA" xml:space="preserve">
+    <value>اكسا</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>العودة</value>
+  </data>
+  <data name="BadReactionOrAllergyToMedicationOrSupplement" xml:space="preserve">
+    <value>هل سبق و أن تعرضت لأي حساسية أو أعراض جانبية من أي دواء، عقار طبي، أو مكمل غذائي؟</value>
+  </data>
+  <data name="Bedridden" xml:space="preserve">
+    <value>طريح الفراش</value>
+  </data>
+  <data name="BehaviorAttitude" xml:space="preserve">
+    <value>السلوك والتعامل</value>
+  </data>
+  <data name="BendingKneeFully" xml:space="preserve">
+    <value>أ٤: ثني الركبة بالكامل </value>
+  </data>
+  <data name="BendingPickAnObject" xml:space="preserve">
+    <value>و٥: الإنحناء إلتقاط شيء من الأرض</value>
+  </data>
+  <data name="BottleFeed" xml:space="preserve">
+    <value>ألبان صناعية</value>
+  </data>
+  <data name="BreastFeeding" xml:space="preserve">
+    <value>رضاعة طبيعية</value>
+  </data>
+  <data name="Brother" xml:space="preserve">
+    <value>أخ</value>
+  </data>
+  <data name="Bupa" xml:space="preserve">
+    <value>بوبا</value>
+  </data>
+  <data name="C19NO" xml:space="preserve">
+    <value>ب. لا</value>
+  </data>
+  <data name="C19YES" xml:space="preserve">
+    <value>أ. نعم</value>
+  </data>
+  <data name="Calls" xml:space="preserve">
+    <value>مكالمات هاتفية</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="Cancer" xml:space="preserve">
+    <value>السرطان</value>
+  </data>
+  <data name="CancerBreast" xml:space="preserve">
+    <value>سرطان الثدي</value>
+  </data>
+  <data name="CancerColon" xml:space="preserve">
+    <value>سرطان القولون</value>
+  </data>
+  <data name="CancerInputFieldShouldNotBeEmpty" xml:space="preserve">
+    <value>خانة سرطان يجب أن لا تكون فارغة.</value>
+  </data>
+  <data name="CancerLung" xml:space="preserve">
+    <value>سرطان الرئة</value>
+  </data>
+  <data name="CandiesSweets" xml:space="preserve">
+    <value>الحلويات / السكاكر (يرجي كتابة الرد بـ نعم أو لا)</value>
+  </data>
+  <data name="CarbonatedSoftDrinks" xml:space="preserve">
+    <value>المشروبات الغازية (يرجي كتابة الرد بـ نعم أو لا)</value>
+  </data>
+  <data name="Cardiology" xml:space="preserve">
+    <value>أمراض القلب</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>نقدي</value>
+  </data>
+  <data name="CheckboxesAreRequired" xml:space="preserve">
+    <value>الخانات الإلزامية.</value>
+  </data>
+  <data name="ChickenPox" xml:space="preserve">
+    <value>الجديري المائي (العنقز)</value>
+  </data>
+  <data name="ChildCare" xml:space="preserve">
+    <value>رعاية الطفل</value>
+  </data>
+  <data name="ChildForm" xml:space="preserve">
+    <value>نموذج الأطفال</value>
+  </data>
+  <data name="ChildLiveWith" xml:space="preserve">
+    <value>مع من يعيش الطفل </value>
+  </data>
+  <data name="ChildMemberNo" xml:space="preserve">
+    <value>ترتيب الطفل:</value>
+  </data>
+  <data name="ChildsName" xml:space="preserve">
+    <value>اسم الطفل</value>
+  </data>
+  <data name="ChronicEyeProblems" xml:space="preserve">
+    <value>أمراض العين المزمنة</value>
+  </data>
+  <data name="ChronicEyeProblemsInputFieldShouldNotBeEmpty" xml:space="preserve">
+    <value>خانة مشاكل العين المزمنة يجب ان لا يكون فارغة.</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="ClinicSpeciality" xml:space="preserve">
+    <value>ماهو التخصص ؟</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>أغلق</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>تعليقات...</value>
+  </data>
+  <data name="Communication" xml:space="preserve">
+    <value>التواصل</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>مكان العمل (إسم الشركة)</value>
+  </data>
+  <data name="Complaint" xml:space="preserve">
+    <value>شكوى</value>
+  </data>
+  <data name="ComplaintorGeneralFeedback" xml:space="preserve">
+    <value>هل ترغب في رفع تعليقاتك على شكل شكوى أو ملاحظات عامة؟</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>مكتمل</value>
+  </data>
+  <data name="CompletedInputFieldShouldNotBeEmpty" xml:space="preserve">
+    <value>يجب ألا يكون حقل المكتمل فارغًا.</value>
+  </data>
+  <data name="ConfirmedCaseOfCOVID19" xml:space="preserve">
+    <value>حالة مؤكدة من فيروس كورونا الجديد COVID-19</value>
+  </data>
+  <data name="CongestiveHeartFailure" xml:space="preserve">
+    <value>مرض قصور وظائف القلب الإحتقاني</value>
+  </data>
+  <data name="CoronaryArteryDisease" xml:space="preserve">
+    <value>مرض تصلب الشرايين التاجية</value>
+  </data>
+  <data name="CosmeticConcerns" xml:space="preserve">
+    <value>احتياج لخدمات تجميلية</value>
+  </data>
+  <data name="CountiesYouFrequentlyVisit" xml:space="preserve">
+    <value>البلدان التي تقوم بزيارتها بصورة متكررة:</value>
+  </data>
+  <data name="CreditCard" xml:space="preserve">
+    <value>بطاقة ائتمانية</value>
+  </data>
+  <data name="CustomerSatisfactionSurvey" xml:space="preserve">
+    <value>تقييم رضا العميل</value>
+  </data>
+  <data name="Daily3MSK" xml:space="preserve">
+    <value>يومياً (٣)</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="DateOfLastDoctorVisit" xml:space="preserve">
+    <value>تاريخ آخر زيارة للطبيب</value>
+  </data>
+  <data name="Daughter" xml:space="preserve">
+    <value>ابنة</value>
+  </data>
+  <data name="DefinitelyDoesnt" xml:space="preserve">
+    <value>لا ينطبق بالتأكيد</value>
+  </data>
+  <data name="Delivery" xml:space="preserve">
+    <value>توصيل</value>
+  </data>
+  <data name="Dental" xml:space="preserve">
+    <value>الأسنان</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>قسم</value>
+  </data>
+  <data name="Depression" xml:space="preserve">
+    <value>إكتئاب</value>
+  </data>
+  <data name="DepressionOrMentalIllness" xml:space="preserve">
+    <value>إكتئاب /  مرض عقلي</value>
+  </data>
+  <data name="DermatologyAndSurgicalCare" xml:space="preserve">
+    <value>الأمراض الجلدية والعناية الجراحية</value>
+  </data>
+  <data name="DescendingStairs" xml:space="preserve">
+    <value>و١: نزول الدرج</value>
+  </data>
+  <data name="DevelopmentalDisorder" xml:space="preserve">
+    <value>إضطراب أو تأخر النمو</value>
+  </data>
+  <data name="DevelopmentHistory" xml:space="preserve">
+    <value>تاريخ النمو</value>
+  </data>
+  <data name="Diabetes" xml:space="preserve">
+    <value>سكري</value>
+  </data>
+  <data name="DiagnosisTreatment" xml:space="preserve">
+    <value>التشخيص والعلاج</value>
+  </data>
+  <data name="DiptheriaOrTetanus" xml:space="preserve">
+    <value>الدفتريا / التيتانوس</value>
+  </data>
+  <data name="DisclaimerSelectingNoCurrentHealthHideConditions" xml:space="preserve">
+    <value>ملحوظة: إختيارك لـ "لا يوجد مشاكل صحية حالية" سيؤدي إلي إخفاء باقي الإختيارات تلقائيا</value>
+  </data>
+  <data name="Divorced" xml:space="preserve">
+    <value>مطلق</value>
+  </data>
+  <data name="Doesnot" xml:space="preserve">
+    <value>لا ينطبق</value>
+  </data>
+  <data name="Dosage" xml:space="preserve">
+    <value>الجرعة</value>
+  </data>
+  <data name="DoUseSunBlockOrSunCreams" xml:space="preserve">
+    <value>هل تستعمل كريمات الحماية من الشمس؟</value>
+  </data>
+  <data name="DoYouExerciseRegularly" xml:space="preserve">
+    <value>هل تمارس الرياضة بشكل منتظم ؟</value>
+  </data>
+  <data name="DoYouExperienceStressAtSchool" xml:space="preserve">
+    <value>هل يعاني الطفل من أي ضغوطات في المدرسة؟</value>
+  </data>
+  <data name="DoYouHaveAnyPetsOrAnimals" xml:space="preserve">
+    <value>هل لديك حيوانات أليفة ؟</value>
+  </data>
+  <data name="DoYouHaveAnyPetsOrAnimalsShouldNotBeEmpty" xml:space="preserve">
+    <value>خانة هل لديك أي حيوانات أليفة؟ يجب أن لا تكون فارغة.</value>
+  </data>
+  <data name="DoYouHaveFeverC19" xml:space="preserve">
+    <value>2. هل لديك سخونة (حمى) اليوم أو خلال الخمس أيام الماضية؟</value>
+  </data>
+  <data name="DoYouHaveNauseaOrVomitingC19" xml:space="preserve">
+    <value>5. هل تعاني من الغثيان والقيء و / أو الإسهال؟</value>
+  </data>
+  <data name="DoYouHaveNewCoughC19" xml:space="preserve">
+    <value>3. هل لديك سعال (كحة) جديدة أو كحة مزمنة تسوء؟</value>
+  </data>
+  <data name="DoYouHaveShortnessOfBreathC19" xml:space="preserve">
+    <value>4. هل لديك ضيق تنفس جديد أو ضيق تنفس مزمن يسوء؟</value>
+  </data>
+  <data name="DoYouSmokeCigarettes" xml:space="preserve">
+    <value>هل أنت مدخن ؟</value>
+  </data>
+  <data name="DoYouSmokeShisha" xml:space="preserve">
+    <value>هل تدخن الشيشة؟</value>
+  </data>
+  <data name="DoYouSmokeTobaccoInOtherForms" xml:space="preserve">
+    <value>هل تدخن التبغ في أشكال أخرى (شيشة ، غليون، سجائر إلكترونية) ؟</value>
+  </data>
+  <data name="DoYouSufferFromAnyFollowing" xml:space="preserve">
+    <value>هل تعاني من أي مما يلي؟</value>
+  </data>
+  <data name="DrugHistory" xml:space="preserve">
+    <value>تاريخ الأدوية و العقاقير الطبية</value>
+  </data>
+  <data name="EaseBookingAppointment" xml:space="preserve">
+    <value>سهولة في حجز المواعيد</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="ElevenToFifteenYears" xml:space="preserve">
+    <value>من 11 إلى 15 سنة</value>
+  </data>
+  <data name="ElevenToFiteenYears" xml:space="preserve">
+    <value>من إحدى عشر عامًا إلى خمسة عشر عام</value>
+  </data>
+  <data name="ElevenToFourteenCigarettes" xml:space="preserve">
+    <value>من 11 إلى 14 سيجارة</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>بريد إلكتروني</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>عنوان البريد الإلكتروني</value>
+  </data>
+  <data name="EmailFormatIsIncorrect" xml:space="preserve">
+    <value>اسم البريد الإلكتروني غير صحيح.</value>
+  </data>
+  <data name="EndocrinologyAndDiabetesManagement" xml:space="preserve">
+    <value>الغدد الصماء وإدارة مرض السكري</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="ENTAudiologyAndSpeechLanguagePathology" xml:space="preserve">
+    <value>أمراض الأنف والأذن والحنجرة</value>
+  </data>
+  <data name="EnterCompleteAddress" xml:space="preserve">
+    <value>فضلاً ادخل عنوانك</value>
+  </data>
+  <data name="EnterValidEmailAddress" xml:space="preserve">
+    <value>الرجاء إدخال عنوان بريد الكتروني صحيح</value>
+  </data>
+  <data name="EnterYourPersonalInformation" xml:space="preserve">
+    <value>أدخل معلوماتك الشخصية</value>
+  </data>
+  <data name="Epilepsy" xml:space="preserve">
+    <value>صرع</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطا!</value>
+  </data>
+  <data name="ExplanationDiagnosis" xml:space="preserve">
+    <value>دقة شرح التشخيص</value>
+  </data>
+  <data name="ExposureHazardousMaterials" xml:space="preserve">
+    <value>تعرض مستمر أو لفترات طويلة لمواد مضرة؟</value>
+  </data>
+  <data name="Extreme4MSK" xml:space="preserve">
+    <value>شديدة جداً (٤)</value>
+  </data>
+  <data name="ExtremelyMSK" xml:space="preserve">
+    <value>بشكل كُلي (٤)</value>
+  </data>
+  <data name="FacilityEnvironment" xml:space="preserve">
+    <value>المبنى والبيئة</value>
+  </data>
+  <data name="FacilityLocationAndEnvironment" xml:space="preserve">
+    <value>موقع المبنى والبيئة</value>
+  </data>
+  <data name="FamilyAndGeriatricMedicine" xml:space="preserve">
+    <value>طب الأسرة وطب الشيخوخة</value>
+  </data>
+  <data name="FamilyHealthHistory" xml:space="preserve">
+    <value>التاريخ المرضي للأسرة</value>
+  </data>
+  <data name="FamilyHistory" xml:space="preserve">
+    <value>التاريخ المرضي العائلي</value>
+  </data>
+  <data name="FamilyMedicineUnit" xml:space="preserve">
+    <value>وحدة طب الأسرة</value>
+  </data>
+  <data name="FamilyMemberNumber" xml:space="preserve">
+    <value>رقم عضوية الأسرة:</value>
+  </data>
+  <data name="FastJunkfood" xml:space="preserve">
+    <value>الأطعمة / الوجبات السريعة (يرجي كتابة الرد بـ نعم أو لا)</value>
+  </data>
+  <data name="Father" xml:space="preserve">
+    <value>أب</value>
+  </data>
+  <data name="FathersName" xml:space="preserve">
+    <value>اسم الأب</value>
+  </data>
+  <data name="FatigueExhaustion" xml:space="preserve">
+    <value>التعب / الإرهاق</value>
+  </data>
+  <data name="FavoriteOutingPlace" xml:space="preserve">
+    <value>أماكن التنزه المفضلة:</value>
+  </data>
+  <data name="FavoriteRestaurant" xml:space="preserve">
+    <value>المطاعم المفضلة:</value>
+  </data>
+  <data name="FavoriteShoppingStore" xml:space="preserve">
+    <value>أماكن التسوق المفضلة:</value>
+  </data>
+  <data name="FavoriteSportsClub" xml:space="preserve">
+    <value>النادي الرياضي المفضل:</value>
+  </data>
+  <data name="FavoriteTvEntertainment" xml:space="preserve">
+    <value>العروض التليفزيونية المفضلة (برامج / منوعات / مسلسلات / أفلام... إلخ):</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>ملاحظة</value>
+  </data>
+  <data name="FeedingHistory" xml:space="preserve">
+    <value>تاريخ الرضاعة</value>
+  </data>
+  <data name="FeelGrindingWhenKneeMoves" xml:space="preserve">
+    <value>ت٢. هل تشعر بصرير أو تسمع طقطقه أو أي صوت في ركبتك عند تحريك الركبة؟</value>
+  </data>
+  <data name="FeelThatEasilyGetNervous" xml:space="preserve">
+    <value>أرى أنني أتعصب بسهولة</value>
+  </data>
+  <data name="FeltHurriedRushed" xml:space="preserve">
+    <value>الشعور بالتعجيل</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>أنثى</value>
+  </data>
+  <data name="FewQuestionsAboutYourExperienceWithUs" xml:space="preserve">
+    <value>بضع من الأسئلة عن تجربتك معنا</value>
+  </data>
+  <data name="FindDifficultTolerateInterruptionsWhenWorking" xml:space="preserve">
+    <value>أجد صعوبة في تحمل المقاطعات أثناء العمل</value>
+  </data>
+  <data name="FindHardCalmDownAfterGetiingUpset" xml:space="preserve">
+    <value>يصعب علي أن أهدأ بعد الغضب</value>
+  </data>
+  <data name="FindMyselfGettingUpsetOverMinorthings" xml:space="preserve">
+    <value>أجد نفسي أنزعج من الأشياء الصغيرة</value>
+  </data>
+  <data name="FindMyselfImpatientWhenFacedWithDelays" xml:space="preserve">
+    <value>ينفد صبري عند التعرض للتأخير لسبب ما مثل المصاعد، وإشارات المرور، والانتظار</value>
+  </data>
+  <data name="Finish" xml:space="preserve">
+    <value>إنهاء</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="FiteenToTwentyCigarettes" xml:space="preserve">
+    <value>من 15 إلى 20 سيجارة</value>
+  </data>
+  <data name="FiveToSixHours" xml:space="preserve">
+    <value>من 5 إلى 6 ساعات</value>
+  </data>
+  <data name="FiveToSixTimesPerWeek" xml:space="preserve">
+    <value>من خمسة إلى ستة مرات في الأسبوع</value>
+  </data>
+  <data name="Foods" xml:space="preserve">
+    <value>هل تتبع نظام غذائي لعلاج مرض محدد</value>
+  </data>
+  <data name="FoodsList" xml:space="preserve">
+    <value>قائمة الطعام</value>
+  </data>
+  <data name="ForHowManyYears" xml:space="preserve">
+    <value>لمدة كم عام ؟</value>
+  </data>
+  <data name="FourToSixCigarettes" xml:space="preserve">
+    <value>من 4 إلى 6 سجائر</value>
+  </data>
+  <data name="FourToSixSishaYears" xml:space="preserve">
+    <value>من أربعة أعوام إلى ستة أعوام</value>
+  </data>
+  <data name="FourToSixYears" xml:space="preserve">
+    <value>من 4 إلى 6 سنوات</value>
+  </data>
+  <data name="Frequency" xml:space="preserve">
+    <value>عدد المرات</value>
+  </data>
+  <data name="FullyBendYourKnee" xml:space="preserve">
+    <value>ت٥: هل تستطيع ثني ركبتك بشكل كامل؟</value>
+  </data>
+  <data name="FullyStraightenYourKnee" xml:space="preserve">
+    <value>ت٤: هل تستطيع مد ركبتك بشكل كامل؟</value>
+  </data>
+  <data name="FunctionDailyLiving" xml:space="preserve">
+    <value>الوظائف، أنشطة الحياة اليومية</value>
+  </data>
+  <data name="FunctionDailyLivingSubtotal" xml:space="preserve">
+    <value>مجموع أنشطة الحياة اليومية:</value>
+  </data>
+  <data name="FunctionMSK" xml:space="preserve">
+    <value>الوظائف، الأنشطة الرياضية والترفيهية</value>
+  </data>
+  <data name="FunctionSportsRecreationalActivitiesSubtotal" xml:space="preserve">
+    <value>مجموع الأنشطة  الرياضية والترفيهية:</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="GettingInIutOfCar" xml:space="preserve">
+    <value>و٧: الصعود أو النزول من السيارة</value>
+  </data>
+  <data name="GettingInOutOfBath" xml:space="preserve">
+    <value>و١٣: الدخول والخروج من حوض الاستحمام</value>
+  </data>
+  <data name="GettingOnOffToilet" xml:space="preserve">
+    <value>و١٥: الجلوس أو القيام من المرحاض</value>
+  </data>
+  <data name="GoingShopping" xml:space="preserve">
+    <value>و٨: الذهاب للتسوق</value>
+  </data>
+  <data name="GoingUpDownStairs" xml:space="preserve">
+    <value>أ٦: صعود أو نزول الدرج</value>
+  </data>
+  <data name="HairFalling" xml:space="preserve">
+    <value>تساقط الشعر</value>
+  </data>
+  <data name="HaveWeCoveredEverything" xml:space="preserve">
+    <value>هل ترى أننا قمنا بتغطية كافة النقاط المتعلقة بك؟</value>
+  </data>
+  <data name="HaveWeCoveredEverythingChild" xml:space="preserve">
+    <value>هل ترى بأننا قد قمنا بتغطية كافة الأسئلة المتعلقة بطفلك ؟</value>
+  </data>
+  <data name="HaveYouHadAnySurgery" xml:space="preserve">
+    <value>هل سبق و أن قمت بعمل أي إجراء جراحي؟</value>
+  </data>
+  <data name="HaveYouHadContactC19" xml:space="preserve">
+    <value>1. هل كان لديك اتصال او تعامل مع</value>
+  </data>
+  <data name="HaveYouHadTheFollowingImmunizations" xml:space="preserve">
+    <value>هل تلقيت التطعيمات و اللقاحات المذكورة أدناه ؟ إذا لم تكن متأكدًا فيرجى اختيار لا</value>
+  </data>
+  <data name="HaveYouOrYourFamilyLifeChanges" xml:space="preserve">
+    <value>هل مررت أنت أو أي من أفراد أسرتك مؤخراً بأي تغيرات معيشية أو ضغوط نفسية غير طبيعية ؟</value>
+  </data>
+  <data name="HaveYouOrYourFamilyLifeChangesShouldNotBeEmpty" xml:space="preserve">
+    <value>هل عانيت أنت أو عائلتك مؤخرًا من أي تغييرات في الحياة أو إجهاد نفسي غير عادي؟ يجب أن لا تكون فارغة.</value>
+  </data>
+  <data name="HaveYouReceivedAnyBloodTransfusion" xml:space="preserve">
+    <value>هل سبق و أن تم نقل دم لك؟</value>
+  </data>
+  <data name="HeadOfFamily" xml:space="preserve">
+    <value>رب الأسرة</value>
+  </data>
+  <data name="HealthHabits" xml:space="preserve">
+    <value>عادات الصحية</value>
+  </data>
+  <data name="HearingDisorder" xml:space="preserve">
+    <value>مشاكل بالسمع</value>
+  </data>
+  <data name="HeartDiseases" xml:space="preserve">
+    <value>أمراض القلب و قصور الدورة التاجية</value>
+  </data>
+  <data name="HeavyDomesticDutie" xml:space="preserve">
+    <value>و١٦: الأعمال المنزلية الثقيلة، نقل الصناديق الثقيلة، ونظافة أرضيات المنزل...إلخ</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>الطول: سم</value>
+  </data>
+  <data name="HeightCm" xml:space="preserve">
+    <value>الطول (سم)</value>
+  </data>
+  <data name="Hepatitis" xml:space="preserve">
+    <value>الإلتهاب الكبدي</value>
+  </data>
+  <data name="HepatitisA2ShotSeries" xml:space="preserve">
+    <value>الإلتهاب الكبدي أ (التطعيم مزدوج الجرعة)</value>
+  </data>
+  <data name="HepatitisB3ShotSeries" xml:space="preserve">
+    <value>الإلتهاب الكبدي ب (التطعيم ثلاثي الجرعة)</value>
+  </data>
+  <data name="HighBloodPressure" xml:space="preserve">
+    <value>إرتفاع ضغط الدم</value>
+  </data>
+  <data name="HighCholesterol" xml:space="preserve">
+    <value>إرتفاع دهون الدم</value>
+  </data>
+  <data name="HistoryConceptionAssistance" xml:space="preserve">
+    <value>هل سبق لك استخدام وسائل مساعدة للحمل</value>
+  </data>
+  <data name="HistoryConceptionAssistanceInputFieldShouldNotBeEmpty" xml:space="preserve">
+    <value>يجب ألاتكون خانة وسائل مساعدة الحمل فارغة.</value>
+  </data>
+  <data name="HistoryConceptionAssistanceSpecifyTypeDate" xml:space="preserve">
+    <value>هل إستخدمتِ وسيلة للمساعدة على الحمل (إن كانت الإجابة نعم ، يرجى تحديد نوعها و تاريخ إستخدامها) ؟</value>
+  </data>
+  <data name="HistoryContraceptionMethods" xml:space="preserve">
+    <value>هل سبق لك استخدام وسائل منع الحمل</value>
+  </data>
+  <data name="HistoryContraceptionMethodsInputFieldShouldNotBeEmpty" xml:space="preserve">
+    <value>يجب ألاتكون خانة وسائل منع الحمل فارغة.</value>
+  </data>
+  <data name="HistoryContraceptionMethodsSpecifyTypeDuration" xml:space="preserve">
+    <value>هل تستخدمين وسيلة لمنع الحمل (إن كانت الإجابة نعم ، يرجى تحديد نوعها و فترة إستخدامها) ؟</value>
+  </data>
+  <data name="HistoryMenstrualDisturbance" xml:space="preserve">
+    <value>هل يوجد تاريخ سابق لحدوث إضطرابات بالدورة الشهرية ؟</value>
+  </data>
+  <data name="HistoryVaginalBleeding" xml:space="preserve">
+    <value>هل يوجد تاريخ سابق لحدوث نزيف مهبلي ؟</value>
+  </data>
+  <data name="HistoryVaginalDischarge" xml:space="preserve">
+    <value>هل يوجد تاريخ سابق لحدوث إفرازات مهبلية ؟</value>
+  </data>
+  <data name="Hobbies" xml:space="preserve">
+    <value>الهوايات :</value>
+  </data>
+  <data name="HospitalAdmissionWhen" xml:space="preserve">
+    <value>تاريخ التنويم (السنة)؟</value>
+  </data>
+  <data name="HospitalAdmissionWhy" xml:space="preserve">
+    <value>سبب التنويم؟</value>
+  </data>
+  <data name="HospitalAdmissionYear" xml:space="preserve">
+    <value>تاريخ التنويم (السنة)</value>
+  </data>
+  <data name="HowManyHoursSleepEveryDay" xml:space="preserve">
+    <value>كم عدد (متوسط) ساعات نومك في اليوم؟</value>
+  </data>
+  <data name="HowManyPerDay" xml:space="preserve">
+    <value>كم سيجارة باليوم ؟</value>
+  </data>
+  <data name="HowManySticksOfCigarettesDoYouSmokePerDay" xml:space="preserve">
+    <value>كم عدد السجائر التي تدخنها كل يوم؟</value>
+  </data>
+  <data name="HowManyYearsHaveYouBeenSmokingCigarettes" xml:space="preserve">
+    <value>كم عدد سنوات تدخينك السجائر؟</value>
+  </data>
+  <data name="HowManyYearsHaveYouBeenSmokingShisha" xml:space="preserve">
+    <value>كم عدد سنوات تدخينك الشيشة؟</value>
+  </data>
+  <data name="HowOftenAreYouExposedToSmokingAtmosphere" xml:space="preserve">
+    <value>كم مرة تعرضت فيها إلى بيئة تدخين؟</value>
+  </data>
+  <data name="HowOftenDoYouSmokeShisha" xml:space="preserve">
+    <value>كم عدد مرات تدخينك الشيشة؟</value>
+  </data>
+  <data name="HowWouldYouRateProCare" xml:space="preserve">
+    <value>ما هو تقييمك لمستشفى العناية؟</value>
+  </data>
+  <data name="HowWouldYouRateProCareWithScore" xml:space="preserve">
+    <value>ما هو تقييمك لمستشفى العناية؟ (0 غير مرضي – 10 ممتاز)</value>
+  </data>
+  <data name="HowWouldYouRateReceptionStaff" xml:space="preserve">
+    <value>ما هو تقييمك لفريق الاستقبال؟</value>
+  </data>
+  <data name="HowWouldYouRateReceptionStaffWithScore" xml:space="preserve">
+    <value>ما هو تقييمك لفريق الاستقبال؟ (0 غير مرضي – 10 ممتاز)</value>
+  </data>
+  <data name="HowWouldYouRateTheNursesAndTheStaff" xml:space="preserve">
+    <value>ما هو تقييمك لفريق التمريض؟</value>
+  </data>
+  <data name="HowWouldYouRateTheNursesAndTheStaffWithScore" xml:space="preserve">
+    <value>ما هو تقييمك لفريق التمريض؟ (0 غير مرضي – 10 ممتاز)</value>
+  </data>
+  <data name="HowWouldYouRateYourDoctor" xml:space="preserve">
+    <value>ما هو تقييمك لطبيبك؟</value>
+  </data>
+  <data name="HowWouldYouRateYourDoctorWithScore" xml:space="preserve">
+    <value>ما هو تقييمك لطبيبك؟ (0 غير مرضي – 10 ممتاز)</value>
+  </data>
+  <data name="Husband" xml:space="preserve">
+    <value>زوج</value>
+  </data>
+  <data name="Hyperlipidemia" xml:space="preserve">
+    <value>ارتفاع دهون الدم و الكولسترول</value>
+  </data>
+  <data name="IAmNotOptimisticPerson" xml:space="preserve">
+    <value>أنا لست شخص متفائل</value>
+  </data>
+  <data name="IceCreams" xml:space="preserve">
+    <value>الآيس كريم (يرجي كتابة الرد بـ نعم أو لا)</value>
+  </data>
+  <data name="IDonotRemember" xml:space="preserve">
+    <value>لا أتذكر</value>
+  </data>
+  <data name="IfYesAndYouDonotMindSharingPleaseSpecify" xml:space="preserve">
+    <value>إذا كانت الإجابة نعم ، ولا تمانع في الإفصاح عنها ، فيرجى ذكرها</value>
+  </data>
+  <data name="IfYesPleaseSpecify" xml:space="preserve">
+    <value>إن كانت الإجابة نعم ، يرجى التحديد</value>
+  </data>
+  <data name="IfYesSpecifyWhenAndWhy" xml:space="preserve">
+    <value>إذا نعم، كيف و متى و لماذا</value>
+  </data>
+  <data name="IfYesWhatKind" xml:space="preserve">
+    <value>يتم تحديد النوع إن وجد؟</value>
+  </data>
+  <data name="IfYouHaveQuitWhatYearDidYouQuit" xml:space="preserve">
+    <value>إذا كنت قد أقلعت عن التدخين , فلمدة كم عام؟</value>
+  </data>
+  <data name="Immunization" xml:space="preserve">
+    <value>التحصين</value>
+  </data>
+  <data name="ImmunizationCompleted" xml:space="preserve">
+    <value>هل تطعيمات الطفل مكتملة؟</value>
+  </data>
+  <data name="ImmunizationHistory" xml:space="preserve">
+    <value>تاريخ التطعيمات</value>
+  </data>
+  <data name="ImmunizationNotCompletedWhy" xml:space="preserve">
+    <value>إذا كانت الإجابة لا، يرجى ذكر السبب و تحديد التطعيمات الناقصة؟</value>
+  </data>
+  <data name="Influenza" xml:space="preserve">
+    <value>الإنفلونزا</value>
+  </data>
+  <data name="InPast14DaysC19" xml:space="preserve">
+    <value>خلال الـ 14 يومًا الماضية؟</value>
+  </data>
+  <data name="Insurance" xml:space="preserve">
+    <value>التأمين</value>
+  </data>
+  <data name="InsuranceProvider" xml:space="preserve">
+    <value>شركة التأمين</value>
+  </data>
+  <data name="InsuranceRelatedIssues" xml:space="preserve">
+    <value>خدمات التأمين</value>
+  </data>
+  <data name="InternalMedicineAndGastroenterology" xml:space="preserve">
+    <value>الطب الباطني والجهاز الهضمي</value>
+  </data>
+  <data name="IschemicHeartDisease" xml:space="preserve">
+    <value>قصور الشرايين التاجية للقلب</value>
+  </data>
+  <data name="ISmokeOccasionally" xml:space="preserve">
+    <value>أدخن من حين لآخر</value>
+  </data>
+  <data name="ISmokeShishaOccassionally" xml:space="preserve">
+    <value>من وقت لآخر</value>
+  </data>
+  <data name="IUsedToSmoke" xml:space="preserve">
+    <value>اعتدت أن أدخن</value>
+  </data>
+  <data name="JointStiffnessYouHaveExperienced" xml:space="preserve">
+    <value>الأسئلة التالية تتعلق بمقدار تصلب المفصل الذي عانيت منه الإسبوع الماضي في ركبتك.</value>
+  </data>
+  <data name="JumpingMSK" xml:space="preserve">
+    <value>و٣: القفز</value>
+  </data>
+  <data name="Kg" xml:space="preserve">
+    <value>كغ</value>
+  </data>
+  <data name="KidneyDisease" xml:space="preserve">
+    <value>أمراض الكلى</value>
+  </data>
+  <data name="KneeCatchOrHangUpWhenMoving" xml:space="preserve">
+    <value>ت٣: هل ركبتك تتصلب عند الحركة؟</value>
+  </data>
+  <data name="KneeDifficulty" xml:space="preserve">
+    <value>ج٤: بشكل عام، ما مقدار الصعوبة التي تواجهها مع ركبتك؟</value>
+  </data>
+  <data name="KneelingMSK" xml:space="preserve">
+    <value>و٥: الارتكاز على الركبتين، الجلوس بين السجدتين</value>
+  </data>
+  <data name="KnowledgeHelpfulness" xml:space="preserve">
+    <value>الخبرة والتعاون</value>
+  </data>
+  <data name="KOOSScore" xml:space="preserve">
+    <value>استبانة الإلتهاب المفصلي العظمي وإصابات الركبة</value>
+  </data>
+  <data name="LabRadiologyServices" xml:space="preserve">
+    <value>خدمات المختبر والأشعة</value>
+  </data>
+  <data name="LackOfConfidenceInKnee" xml:space="preserve">
+    <value>ج٣: ما مدى انزعاجك بسبب ضعف ثقتك في ركبتك؟</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>الاسم الأخير</value>
+  </data>
+  <data name="LearningDifficulties" xml:space="preserve">
+    <value>هل يوجد صعوبات بارزة في التعلم</value>
+  </data>
+  <data name="LessThan1Year" xml:space="preserve">
+    <value>أقل من سنة</value>
+  </data>
+  <data name="LessThanAMonth" xml:space="preserve">
+    <value>أقل من شهر</value>
+  </data>
+  <data name="LessThanOneYear" xml:space="preserve">
+    <value>أقل من عام واحد</value>
+  </data>
+  <data name="LightDomesticDuties" xml:space="preserve">
+    <value>و١٧: الأعمال المنزلية الخفيفة، الطبخ وتنظيف الغبار...إلخ</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>قائمة:</value>
+  </data>
+  <data name="ListOfFamilyMembers" xml:space="preserve">
+    <value>قائمة أفراد الأسرة</value>
+  </data>
+  <data name="LongWaitingTime" xml:space="preserve">
+    <value>وقت الانتظار طويل</value>
+  </data>
+  <data name="LyingInBed" xml:space="preserve">
+    <value>و١٢: الإستلقاء على السرير، التقلب على أحد الجانبين أو الحفاظ على وضع ثابت للركبة</value>
+  </data>
+  <data name="Malath" xml:space="preserve">
+    <value>ملاذ</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="MarriageDate" xml:space="preserve">
+    <value>تاريخ الزواج</value>
+  </data>
+  <data name="Married" xml:space="preserve">
+    <value>متزوج</value>
+  </data>
+  <data name="MartialStatus" xml:space="preserve">
+    <value>الحالة الزوجية</value>
+  </data>
+  <data name="Measles" xml:space="preserve">
+    <value>الحصبة</value>
+  </data>
+  <data name="MeaslesOrMumpsOrRubella" xml:space="preserve">
+    <value>الحصبة / النكاف / الحصبة الألمانية</value>
+  </data>
+  <data name="Medgulf" xml:space="preserve">
+    <value>ميدغلف</value>
+  </data>
+  <data name="Medication" xml:space="preserve">
+    <value>أدوية</value>
+  </data>
+  <data name="MedicationAvailability" xml:space="preserve">
+    <value>تواجد الأدوية</value>
+  </data>
+  <data name="MedicationList" xml:space="preserve">
+    <value>قائمة الأدوية</value>
+  </data>
+  <data name="Mednet" xml:space="preserve">
+    <value>ميدنت</value>
+  </data>
+  <data name="MembershipNumber" xml:space="preserve">
+    <value>رقم العضوية</value>
+  </data>
+  <data name="Meningitis" xml:space="preserve">
+    <value>الإلتهاب السحائي</value>
+  </data>
+  <data name="MentalIllness" xml:space="preserve">
+    <value>مرض عقلي</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>اسم الأب</value>
+  </data>
+  <data name="Migraine" xml:space="preserve">
+    <value>داء الشقيقة</value>
+  </data>
+  <data name="Mild1MSK" xml:space="preserve">
+    <value>خفيفة (١)</value>
+  </data>
+  <data name="MildlyMSK" xml:space="preserve">
+    <value>بشكل بسيط (١)</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>رقم الهاتف الجوال</value>
+  </data>
+  <data name="MobileNo" xml:space="preserve">
+    <value>رقم الهاتف الجوال</value>
+  </data>
+  <data name="MobileNumber" xml:space="preserve">
+    <value>رقم الجوال</value>
+  </data>
+  <data name="MobileRegisteredWithWhatsApp" xml:space="preserve">
+    <value>تسجيل رقم الهاتف عن طريق برنامج الواتس اب؟</value>
+  </data>
+  <data name="MobileShouldBeStartingWith05" xml:space="preserve">
+    <value>يجب ان يبدأ رقم الهاتف المحمول بـ 05.</value>
+  </data>
+  <data name="Moderate2MSK" xml:space="preserve">
+    <value>متوسطة (٢)</value>
+  </data>
+  <data name="ModeratelyMSK" xml:space="preserve">
+    <value>بشكل متوسط (٢)</value>
+  </data>
+  <data name="ModifiedLifeStyle" xml:space="preserve">
+    <value>ج٢: هل قمت بتعديل نمط حياتك لتجنب الضرر المحتمل من بعض الأنشطة على ركبتك؟</value>
+  </data>
+  <data name="Monthly1MSK" xml:space="preserve">
+    <value>شهرياً (١)</value>
+  </data>
+  <data name="MoreThan5Years" xml:space="preserve">
+    <value>أكثر من ٥ سنين.</value>
+  </data>
+  <data name="MoreThanAMonth" xml:space="preserve">
+    <value>أكثر من شهر</value>
+  </data>
+  <data name="MoreThanEightHours" xml:space="preserve">
+    <value>أكثر من 8 ساعات</value>
+  </data>
+  <data name="MoreThanFifteenShishayears" xml:space="preserve">
+    <value>أكثر من خمسة عشر عامًا</value>
+  </data>
+  <data name="MoreThanFifteenYears" xml:space="preserve">
+    <value>أكثر من 15 سنة</value>
+  </data>
+  <data name="MoreThanThirtyCigarettes" xml:space="preserve">
+    <value>أكثر من 30 سيجارة</value>
+  </data>
+  <data name="MoreThanThreeTimesDay" xml:space="preserve">
+    <value>أكثر من ثلاث مرات يوميًا</value>
+  </data>
+  <data name="Mother" xml:space="preserve">
+    <value>أم</value>
+  </data>
+  <data name="MothersName" xml:space="preserve">
+    <value>اسم الأم</value>
+  </data>
+  <data name="Motor" xml:space="preserve">
+    <value>الجهاز الحركي / العضلي</value>
+  </data>
+  <data name="Mumps" xml:space="preserve">
+    <value>النكاف</value>
+  </data>
+  <data name="MusculoskeletalSystem" xml:space="preserve">
+    <value>الجهاز العضلي الهيكلي</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>لا يوجد / لا ينطبق</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>إسم الشخص</value>
+  </data>
+  <data name="NameOfImmunizations" xml:space="preserve">
+    <value>إسم التطعيم / اللقاح</value>
+  </data>
+  <data name="NameOfMedication" xml:space="preserve">
+    <value>إسم الدواء / العقار الطبي</value>
+  </data>
+  <data name="NameOfMedicationOrSupplement" xml:space="preserve">
+    <value>إسم الدواء أو المستحضر الطبي أو المكمل الغذائي</value>
+  </data>
+  <data name="NameOfSupplement" xml:space="preserve">
+    <value>إسم الفيتامين/ المستحضر العشبي/ المكمل الغذائي</value>
+  </data>
+  <data name="NameOfSurgery" xml:space="preserve">
+    <value>إسم أو طبيعة العملية / الإجراء الجراحي</value>
+  </data>
+  <data name="Neutral" xml:space="preserve">
+    <value>محايد</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>البتة</value>
+  </data>
+  <data name="Never0MSK" xml:space="preserve">
+    <value>أبداً (٠)</value>
+  </data>
+  <data name="NeverBeen" xml:space="preserve">
+    <value>لم يسبق لي</value>
+  </data>
+  <data name="NeverNoPainMSK" xml:space="preserve">
+    <value>لا يوجد ألم (٠)</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="NextC19" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="Nightmares" xml:space="preserve">
+    <value>كوابيس</value>
+  </data>
+  <data name="NightWhileInBed" xml:space="preserve">
+    <value>أ٧: في فراشك أثناء لليل</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="NoCurrentHealthIssues" xml:space="preserve">
+    <value>لا يوجد أي مشاكل صحية حالية</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>لا شيء</value>
+  </data>
+  <data name="None0MSK" xml:space="preserve">
+    <value>لا يوجد تصلب (٠)</value>
+  </data>
+  <data name="NoneNoDifMSK" xml:space="preserve">
+    <value>لا يوجد صعوبة (٠)</value>
+  </data>
+  <data name="NoOfSiblings" xml:space="preserve">
+    <value>عدد الأخوة و الأخوات</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>طبيعي</value>
+  </data>
+  <data name="NormalAppetite" xml:space="preserve">
+    <value>طبيعية</value>
+  </data>
+  <data name="NotAtAllMSK" xml:space="preserve">
+    <value>لا على الإطلاق (٠)</value>
+  </data>
+  <data name="NotAvailable" xml:space="preserve">
+    <value>غير موجودين</value>
+  </data>
+  <data name="NotCompletedWhy" xml:space="preserve">
+    <value>غير مكتمل. لماذا؟</value>
+  </data>
+  <data name="NotHelpful" xml:space="preserve">
+    <value>غير متعاونين</value>
+  </data>
+  <data name="NotSure" xml:space="preserve">
+    <value>غير متأكد</value>
+  </data>
+  <data name="NPS_CanContactQuestion" xml:space="preserve">
+    <value>هل تريد أن نقوم بالتواصل معك؟</value>
+  </data>
+  <data name="NPS_RecReasonQuestion" xml:space="preserve">
+    <value>ما هو سبب اختيارك هذا التقييم؟</value>
+  </data>
+  <data name="NPS_RecValQuestion" xml:space="preserve">
+    <value>من 1 (غير محتمل) - 10 (محتمل جداً) ما مدى الاحتمالية أنك تنصح غيرك بزيارة عيادتي؟</value>
+  </data>
+  <data name="NumberOfAbortionsSpecifyWeekOfPregnancy" xml:space="preserve">
+    <value>كم عدد الإجهاضات (يرجى تحديد عمر الجنين بالأسابيع عند حدوث الإجهاض):</value>
+  </data>
+  <data name="NumberOfDeliveriesSpecifyNormalAndCaeserian" xml:space="preserve">
+    <value>كم عدد الولادات (يرجى تحديد كم منها كان طبيعيا و كم منها عملية قيصرية):</value>
+  </data>
+  <data name="NumericValues1To100ForHowManyYearsField" xml:space="preserve">
+    <value>يجب عليك إدخال قيمة رقمية من 1 إلى 100، في خانة لمدة كم سنة؟</value>
+  </data>
+  <data name="NumericValues1To100HowManyPerDayField" xml:space="preserve">
+    <value>يجب إدخال قيمة رقمية من ١ إلى ١٠٠ في خانة كم سيجارة باليوم ؟</value>
+  </data>
+  <data name="NumericValues1To100IfQuitWhatYearField" xml:space="preserve">
+    <value>يجب عليك إدخال قيمة رقمية من 1 إلى 100، في خانة إذا كنت قد أقلعت عن التدخين، في أي سنة ؟</value>
+  </data>
+  <data name="NumericValuesShouldBeEnteredInHeightField" xml:space="preserve">
+    <value>يجب إدخال قيم رقمية فقط في خانة الطول</value>
+  </data>
+  <data name="NumericValuesShouldBeEnteredInMobileField" xml:space="preserve">
+    <value>يجب إدخال القيم الرقمية في حقل الهاتف المحمول.</value>
+  </data>
+  <data name="NumericValuesShouldBeEnteredInNoOfSiblingsField" xml:space="preserve">
+    <value>يجب إدخال قيمة رقمية في خانة عدد الأشقاء</value>
+  </data>
+  <data name="NumericValuesShouldBeEnteredInWeightField" xml:space="preserve">
+    <value>يجب إدخال قيمة رقمية في خانة الوزن</value>
+  </data>
+  <data name="Nutrition" xml:space="preserve">
+    <value>التغذية</value>
+  </data>
+  <data name="NutritionHistory" xml:space="preserve">
+    <value>تاريخ التغذية</value>
+  </data>
+  <data name="ObstericAndGynaecologyHistory" xml:space="preserve">
+    <value>تاريخ النساء و الولادة</value>
+  </data>
+  <data name="OccasionallyOnceMonth" xml:space="preserve">
+    <value>من حين لآخر (مرة كل شهر)</value>
+  </data>
+  <data name="Occupation" xml:space="preserve">
+    <value>الوظيفة</value>
+  </data>
+  <data name="Often3MSK" xml:space="preserve">
+    <value>غالباً (٣)</value>
+  </data>
+  <data name="OftenAwareOfKneeProblem" xml:space="preserve">
+    <value>ج١: كم مره تدرك وتتذكر أن لديك مشكلة في الركبة؟</value>
+  </data>
+  <data name="OftenExperienceKneePain" xml:space="preserve">
+    <value>أ١: كم مره تشعر بألم في الركبة؟</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>حسنا</value>
+  </data>
+  <data name="OnceEveryday" xml:space="preserve">
+    <value>مرة كل يوم</value>
+  </data>
+  <data name="OnceEveryTwoWeeks" xml:space="preserve">
+    <value>مرة كل أسبوعين</value>
+  </data>
+  <data name="OnceOrTwiceWeekly" xml:space="preserve">
+    <value>مرة أو مرتين أسبوعيًا</value>
+  </data>
+  <data name="OncePerMonth" xml:space="preserve">
+    <value>مرة كل شهر</value>
+  </data>
+  <data name="OneToThreeCigarettes" xml:space="preserve">
+    <value>من 1 إلى 3 سيجارة</value>
+  </data>
+  <data name="OneToThreeYears" xml:space="preserve">
+    <value>من سنة إلى 3 سنوات</value>
+  </data>
+  <data name="OneToTwoHours" xml:space="preserve">
+    <value>من ساعة إلى ساعتين</value>
+  </data>
+  <data name="OneToTwoYears" xml:space="preserve">
+    <value>من عام إلى عامين</value>
+  </data>
+  <data name="OnlineMedicationForm" xml:space="preserve">
+    <value>نموذج العلاج عبر الإنترنت</value>
+  </data>
+  <data name="OperationFailed" xml:space="preserve">
+    <value>حدث خطأ!</value>
+  </data>
+  <data name="Ophthalmology" xml:space="preserve">
+    <value>طب العيون</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>أخرى</value>
+  </data>
+  <data name="OtherInputFieldShouldNotBeEmpty" xml:space="preserve">
+    <value>خانة (أخرى) يجب أن لا تكون فارغة.</value>
+  </data>
+  <data name="Others" xml:space="preserve">
+    <value>أخرى</value>
+  </data>
+  <data name="OthersInputFieldShouldNotBeEmpty" xml:space="preserve">
+    <value>خانة أخرى يجب أن لاتكون فارغة</value>
+  </data>
+  <data name="OthersPleaseSpecify" xml:space="preserve">
+    <value>أخرى، يرجى التحديد</value>
+  </data>
+  <data name="OtherTypesOfCancer" xml:space="preserve">
+    <value>أنواع أخرى من السرطان</value>
+  </data>
+  <data name="OtherTypesOfCancerInputFieldShouldNotBeEmpty" xml:space="preserve">
+    <value>خانة أنواع أخرى من السرطان يجب أن لا تكون فارغة.</value>
+  </data>
+  <data name="Overweight" xml:space="preserve">
+    <value>فوق الطبيعي</value>
+  </data>
+  <data name="PainMSK" xml:space="preserve">
+    <value>الألم</value>
+  </data>
+  <data name="PainSubtotal" xml:space="preserve">
+    <value>مجموع الألم:</value>
+  </data>
+  <data name="Parking" xml:space="preserve">
+    <value>المواقف</value>
+  </data>
+  <data name="PastMedicalHistory" xml:space="preserve">
+    <value>التاريخ المرضي السابق</value>
+  </data>
+  <data name="PastMedicalIllness" xml:space="preserve">
+    <value>مرض صحي سابق</value>
+  </data>
+  <data name="PastSurgicalHistory" xml:space="preserve">
+    <value>التاريخ المرضي السابق</value>
+  </data>
+  <data name="PatientSurvey" xml:space="preserve">
+    <value>استبيان زوارنا</value>
+  </data>
+  <data name="PersonalInfoPreferredToBeFilled" xml:space="preserve">
+    <value>معلومات شخصية (يفضل ذكرها ، و لكنها تبقى إختيارية إن كنت لا ترغب في الإفصاح عنها)</value>
+  </data>
+  <data name="PersonalInformation" xml:space="preserve">
+    <value>معلومات شخصية</value>
+  </data>
+  <data name="Pharmacy" xml:space="preserve">
+    <value>الصيدلية</value>
+  </data>
+  <data name="PharmacyStaff" xml:space="preserve">
+    <value>موظفي الصيدلية</value>
+  </data>
+  <data name="PickUp" xml:space="preserve">
+    <value>استلام</value>
+  </data>
+  <data name="PleaseCheckFollowingConditionsRunningInYourFamily" xml:space="preserve">
+    <value>الرجاء وضع علامة بالمربع الذي يشير إلى الحالات المرضية الموضحة أدناه (إن وجدت بأفراد العائلة من درجتي القرابة الأولى و الثانية):</value>
+  </data>
+  <data name="PleaseCheckIfYouHaveFollowingConditions" xml:space="preserve">
+    <value>يرجى التحقق لمعرفة ما إذا كان لديك أي من الشروط التالية:</value>
+  </data>
+  <data name="PleaseCheckToIndicateIfYouHaveHadAnyOfTheFollowingConditions" xml:space="preserve">
+    <value>الرجاء وضع علامة بالمربع الذي يشير إلي الحالات المرضية الموضحة أدناه (إن كان قد سبق للطفل أن أصيب بها في الماضي):</value>
+  </data>
+  <data name="PleaseCompleteAllRequiredFields" xml:space="preserve">
+    <value>نرجو اكمال جميع الخانات اللازمة</value>
+  </data>
+  <data name="PleaseEnterAnyOtherInformationAboutYourHealth" xml:space="preserve">
+    <value>يرجى ذكر أي نقاط لم ترد في هذا الإستبيان بخصوص حالتك الصحية و التي قد ترغب في مشاركتها مع طبيبك:</value>
+  </data>
+  <data name="PleaseEnterTheFollowingInformationToProceed" xml:space="preserve">
+    <value>الرجاء ادخال البيانات المطلوبة للاستمرار</value>
+  </data>
+  <data name="PleaseEnterValidStaffEmail" xml:space="preserve">
+    <value>يرجى إدخال بريد إلكتروني صالح للموظفين</value>
+  </data>
+  <data name="PleaseEnterYourAddress" xml:space="preserve">
+    <value>الرجاء إدخال عنوانك</value>
+  </data>
+  <data name="PleaseLetUsKnowMoreInfo" xml:space="preserve">
+    <value>الرجاء اعلامنا في حالة توفر أي معلومات أخرى...</value>
+  </data>
+  <data name="PleaseSelect" xml:space="preserve">
+    <value>الرجاء الاختيار</value>
+  </data>
+  <data name="PleaseSelectTheOption" xml:space="preserve">
+    <value>يرجى تحديد أحد الخيارات</value>
+  </data>
+  <data name="PleaseSelectYourPaymentType" xml:space="preserve">
+    <value>يرجى اختيار طريقة الدفع</value>
+  </data>
+  <data name="PleaseSpecify" xml:space="preserve">
+    <value>يرجى تحديدها</value>
+  </data>
+  <data name="PleaseSpecifyInsurer" xml:space="preserve">
+    <value>الرجاء تحديد شركة التأمين الخاصة بك</value>
+  </data>
+  <data name="PleaseSpecifyYellowFeverCholera" xml:space="preserve">
+    <value>يرجى ذكرها ، على سبيل المثال : الحمى الصفراء، الكوليرا، إلخ</value>
+  </data>
+  <data name="PleaseTellUsWhyYouAreNotSatisfiedWithDoctor" xml:space="preserve">
+    <value>نرجوا منك إخبارنا لماذا أنت غير راضٍ عن طبيبك</value>
+  </data>
+  <data name="PleaseTellUsWhyYouAreNotSatisfiedWithMyClinic" xml:space="preserve">
+    <value>نرجوا منك إخبارنا لماذا أنت غير راضٍ عن عيادتي</value>
+  </data>
+  <data name="PleaseTellUsWhyYouAreNotSatisfiedWithNursingStaff" xml:space="preserve">
+    <value>نرجوا منك إخبارنا لماذا أنت غير راضٍ عن فريق التمريض</value>
+  </data>
+  <data name="PleaseTellUsWhyYouAreNotSatisfiedWithReceptionStaff" xml:space="preserve">
+    <value>نرجوا منك إخبارنا لماذا أنت غير راضٍ عن فريق خدمة العملاء</value>
+  </data>
+  <data name="PleaseTellUsWhyYouAreSatisfiedWithDoctor" xml:space="preserve">
+    <value>نرجوا منك ايضاح سبب رضاك من طبيبك</value>
+  </data>
+  <data name="PleaseTellUsWhyYouAreSatisfiedWithMyClinic" xml:space="preserve">
+    <value>نرجوا منك ايضاح سبب رضاك من عيادتي</value>
+  </data>
+  <data name="PleaseTellUsWhyYouAreSatisfiedWithNursingStaff" xml:space="preserve">
+    <value>نرجوا منك ايضاح سبب رضاك من فريق التمريض</value>
+  </data>
+  <data name="PleaseTellUsWhyYouAreSatisfiedWithReceptionStaff" xml:space="preserve">
+    <value>نرجوا منك ايضاح سبب رضاك من فريق خدمة العملاء</value>
+  </data>
+  <data name="PleaseTryAgainOrContactMyClinicForAssistance" xml:space="preserve">
+    <value>يرجى المحاولة مرة أخرى أو الاتصال ب عيادتي للحصول على المساعدة.</value>
+  </data>
+  <data name="PneumoniaVaccine" xml:space="preserve">
+    <value>الإلتهاب الرئوي</value>
+  </data>
+  <data name="Polio" xml:space="preserve">
+    <value>شلل الأطفال</value>
+  </data>
+  <data name="PoorCommunication" xml:space="preserve">
+    <value>التواصل الضعيف</value>
+  </data>
+  <data name="PreferredCommunicationTool" xml:space="preserve">
+    <value>الوسيلة المفضلة للتواصل</value>
+  </data>
+  <data name="PrescriptionPickUpDelivery" xml:space="preserve">
+    <value>تسليم أو توصيل الأدوية الموصوفة</value>
+  </data>
+  <data name="PrescriptionPickUporDelivery" xml:space="preserve">
+    <value>تسليم أو توصيل الأدوية الموصوفة</value>
+  </data>
+  <data name="PresentMedicalHistory" xml:space="preserve">
+    <value>التاريخ المرضي الحالي</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>السابق</value>
+  </data>
+  <data name="ProfessionalismAttitude" xml:space="preserve">
+    <value>الاحترافية والسلوك</value>
+  </data>
+  <data name="ProvideReasonComplainOrFeedback" xml:space="preserve">
+    <value>هل ترغب في رفع تعليقاتك على شكل شكوى أو ملاحظات عامة؟</value>
+  </data>
+  <data name="ProvideReasonRatingQuestionDoctor" xml:space="preserve">
+    <value>الرجاء ايضاح سبب تقييمك للدكتور؟</value>
+  </data>
+  <data name="ProvideReasonRatingQuestionNurse" xml:space="preserve">
+    <value>نرجوا منك مشاركتنا سبب تقييمك لفريق التمريض؟</value>
+  </data>
+  <data name="ProvideReasonRatingQuestionProcare" xml:space="preserve">
+    <value>الرجاء ايضاح سبب تقييمك لمستشفى العناية؟</value>
+  </data>
+  <data name="ProvideReasonRatingQuestionReception" xml:space="preserve">
+    <value>نرجوا منك مشاركتنا سبب تقييمك لفريق خدمة العملاء؟</value>
+  </data>
+  <data name="PsychiatryAndPsychology" xml:space="preserve">
+    <value>الطب النفسي وعلم النفس</value>
+  </data>
+  <data name="PubGenOthers" xml:space="preserve">
+    <value>غيره</value>
+  </data>
+  <data name="PuttingOnSocks" xml:space="preserve">
+    <value>و٩: لبس الجوارب</value>
+  </data>
+  <data name="QualityOfDoctor" xml:space="preserve">
+    <value>جودة الأطباء</value>
+  </data>
+  <data name="QualityOfLife" xml:space="preserve">
+    <value>جودة الحياة</value>
+  </data>
+  <data name="QualityOfLifeSubtotal" xml:space="preserve">
+    <value>مجموع جودة الحياة:</value>
+  </data>
+  <data name="Questionnaire" xml:space="preserve">
+    <value>استبيان</value>
+  </data>
+  <data name="Questions" xml:space="preserve">
+    <value>أسئلة</value>
+  </data>
+  <data name="Rarely" xml:space="preserve">
+    <value>نادرًا</value>
+  </data>
+  <data name="Rarely1MSK" xml:space="preserve">
+    <value>نادراً (١)</value>
+  </data>
+  <data name="Reaction" xml:space="preserve">
+    <value>طبيعة الحساسية أو التفاعل أو الأعراض الجانبية</value>
+  </data>
+  <data name="ReasonForAdmission" xml:space="preserve">
+    <value>سبب التنويم</value>
+  </data>
+  <data name="RecommendProCareYourFriends" xml:space="preserve">
+    <value>ما مدى الاحتمالية أنك تنصح غيرك بزيارة مستشفى العناية؟</value>
+  </data>
+  <data name="RecommendProCareYourFriendsWithScore" xml:space="preserve">
+    <value>ما مدى الاحتمالية أنك تنصح غيرك بزيارة مستشفى العناية؟ (0 غير مرضي – 10 ممتاز)</value>
+  </data>
+  <data name="RegistrationForm" xml:space="preserve">
+    <value>استمارة التسجيل</value>
+  </data>
+  <data name="Relation" xml:space="preserve">
+    <value>صلة القرابة</value>
+  </data>
+  <data name="Relationship" xml:space="preserve">
+    <value>صلة القرابة</value>
+  </data>
+  <data name="RememberToCheckYourSelfC19" xml:space="preserve">
+    <value>يرجى التذكر أن تتحقق من نفسك كل يوم بحثًا عن أي علامات أو أعراض جديدة (حرارة، كحة، ضيق في التنفس) وأن تبلغ طبيب عيادة الموظفين قبل القدوم للعمل في حالة وجود أي من هذه الأعراض.</value>
+  </data>
+  <data name="RequestFailed" xml:space="preserve">
+    <value>فشل الطلب!</value>
+  </data>
+  <data name="RequestFailedText" xml:space="preserve">
+    <value>عذرًا ، حدث خطأ أثناء إرسال طلبك. يرجى المحاولة مرة أخرى أو الاتصال بمستشفى العناية للحصول على المساعدة.</value>
+  </data>
+  <data name="ResidenceCountryOrCityMostOfTheYear" xml:space="preserve">
+    <value>مدينة الإقامة أغلب فترات العام:</value>
+  </data>
+  <data name="ResultGreenC19" xml:space="preserve">
+    <value>يمكنك التوجه للعمل</value>
+  </data>
+  <data name="ResultRedC19" xml:space="preserve">
+    <value>يجب أن تبقى في المنزل وتتصل على طبيب عيادة الموظفين وتبلغ مديرك المباشر</value>
+  </data>
+  <data name="ResultYellowC19" xml:space="preserve">
+    <value>يجب أن تتصل على عيادة الموظفين قبل التوجه للعمل</value>
+  </data>
+  <data name="RisingFromBed" xml:space="preserve">
+    <value>و١٠: النهوض من الفراش</value>
+  </data>
+  <data name="RisingFromSitting" xml:space="preserve">
+    <value>و٣: القيام من وضع الجلوس</value>
+  </data>
+  <data name="RunningMSK" xml:space="preserve">
+    <value>ر٢: الجري</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="SchoolNameAddressContactInfoAndWhichGrade" xml:space="preserve">
+    <value>إسم المدرسة ، وعنوانها، و بيانات الإتصال ، و في أي صف دراسي</value>
+  </data>
+  <data name="SchoolPerformance" xml:space="preserve">
+    <value>مستوي التحصيل و الدرجات المدرسية</value>
+  </data>
+  <data name="Seizures" xml:space="preserve">
+    <value>التشنجات</value>
+  </data>
+  <data name="SelectCompletedOrNot" xml:space="preserve">
+    <value>اختر مكتمل أو لا؟</value>
+  </data>
+  <data name="SelectingAcknowledgeYouHaveNoMinorOrMajorHealthIssues" xml:space="preserve">
+    <value>في حالة تحديدك لهذا الخيار فأنت تُقر بأن ليس لديك أي مشاكل صحية.</value>
+  </data>
+  <data name="SelectWhetherDelivereyOrPickUp" xml:space="preserve">
+    <value>يرجى تحديد ما إذا كنت ترغب في توصيل وصفتك الطبية أو استلامها من الصيدلية</value>
+  </data>
+  <data name="ServiceTeamMyClinicRegardingYourExperience" xml:space="preserve">
+    <value>هل تريد أن يقوم بالتواصل معك شخص من فريق خدمة عملاء عيادتي بخصوص تجربتك؟</value>
+  </data>
+  <data name="SevenToEightHours" xml:space="preserve">
+    <value>من 7 إلى 8 ساعات</value>
+  </data>
+  <data name="SevenToNineYears" xml:space="preserve">
+    <value>من سبعة أعوام إلى تسعة أعوام</value>
+  </data>
+  <data name="SevenToTenCigarettes" xml:space="preserve">
+    <value>من 7 إلى 10 سجائر</value>
+  </data>
+  <data name="SeventToNineYears" xml:space="preserve">
+    <value>من 7 إلى 9 سنوات</value>
+  </data>
+  <data name="Severe3MSK" xml:space="preserve">
+    <value>شديدة (٣)</value>
+  </data>
+  <data name="SeverelyMSK" xml:space="preserve">
+    <value>بشكل كبير (٣)</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="ShishaSmokingQuestionaire" xml:space="preserve">
+    <value>استبيان حول تدخين الشيشة</value>
+  </data>
+  <data name="ShortWaitingTime" xml:space="preserve">
+    <value>وقت الانتظار قصير</value>
+  </data>
+  <data name="SickleCell" xml:space="preserve">
+    <value>أنيميا الخلايا المنجلية</value>
+  </data>
+  <data name="Single" xml:space="preserve">
+    <value>أعزب</value>
+  </data>
+  <data name="Sister" xml:space="preserve">
+    <value>أخت</value>
+  </data>
+  <data name="SittingLyingOrRestingLaterTheDay" xml:space="preserve">
+    <value>ت٧: كيف تكون شدة التصلب في ركبتك بعد الجلوس أو الاستلقاء أو الراحة في نهاية اليوم؟</value>
+  </data>
+  <data name="SittingMSK" xml:space="preserve">
+    <value>و١٤: وضع الجلوس</value>
+  </data>
+  <data name="SittingOrLying" xml:space="preserve">
+    <value>أ٨: الجلوس أو الإستلقاء</value>
+  </data>
+  <data name="SleepAssessmentQuestionaire" xml:space="preserve">
+    <value>استبيان تقييم النوم</value>
+  </data>
+  <data name="SleepDisorder" xml:space="preserve">
+    <value>مشاكل متعلقة بالنوم</value>
+  </data>
+  <data name="SleepDisorderIinsomniaSleepDifficulties" xml:space="preserve">
+    <value>اضطرابات النوم/ الأرق/ صعوبة في النوم</value>
+  </data>
+  <data name="Smoking" xml:space="preserve">
+    <value>التدخين</value>
+  </data>
+  <data name="SmokingQuestionaire" xml:space="preserve">
+    <value>استبيان التدخين</value>
+  </data>
+  <data name="SmoothProcess" xml:space="preserve">
+    <value>نظام جيد</value>
+  </data>
+  <data name="SMS" xml:space="preserve">
+    <value>رسائل نصية</value>
+  </data>
+  <data name="Snoring" xml:space="preserve">
+    <value>شخير</value>
+  </data>
+  <data name="SocialEngagementAtSchool" xml:space="preserve">
+    <value>درجة الإندماج الإجتماعي بالمدرسة</value>
+  </data>
+  <data name="Sometimes2MSK" xml:space="preserve">
+    <value>أحياناً (٢)</value>
+  </data>
+  <data name="SomewhatApplies" xml:space="preserve">
+    <value>ينطبق إلى حد ما</value>
+  </data>
+  <data name="SomewhatDoesnotApply" xml:space="preserve">
+    <value>لا ينطبق إلى حد ما</value>
+  </data>
+  <data name="Son" xml:space="preserve">
+    <value>ابن</value>
+  </data>
+  <data name="Sorry" xml:space="preserve">
+    <value>نأسف</value>
+  </data>
+  <data name="SorryAnErrorOccurredWhilstGettingReferenceDataForYourRequest" xml:space="preserve">
+    <value>عذرًا، حدث خطأ أثناء مراجعة طلبك.</value>
+  </data>
+  <data name="SorryAnErrorOccurredWhilstSubmittingYourRequest" xml:space="preserve">
+    <value>عذرًا، حدث خطأ أثناء تقديم طلبك.</value>
+  </data>
+  <data name="SorrySomethingWentWrong" xml:space="preserve">
+    <value>عذرًا، حدث خطأ.</value>
+  </data>
+  <data name="sorrywedonotdelivertolocationsoutsideofthecityofJeddah" xml:space="preserve">
+    <value>عذراً ،نحن لا نقوم بالتوصيل إلى خارج مدينة جدة.</value>
+  </data>
+  <data name="Speech" xml:space="preserve">
+    <value>النطق و التحدث</value>
+  </data>
+  <data name="SpeechDisorder" xml:space="preserve">
+    <value>صعوبات بالنطق</value>
+  </data>
+  <data name="SquattingMSK" xml:space="preserve">
+    <value>ر١: وضعية القرفصاء</value>
+  </data>
+  <data name="StandingMSK" xml:space="preserve">
+    <value>و٤: الوقوف</value>
+  </data>
+  <data name="StandingUpRight" xml:space="preserve">
+    <value>أ٩: الوقوف باستقامة</value>
+  </data>
+  <data name="StiffnessAfterFirstWakening" xml:space="preserve">
+    <value>ت٦: كيف تكون شدة التصلب في ركبتك بعد الإستيقاظ صباحاً؟</value>
+  </data>
+  <data name="StiffnessMSK" xml:space="preserve">
+    <value>التصلب</value>
+  </data>
+  <data name="StiffnessSensation" xml:space="preserve">
+    <value>التصلب هو الإحساس بتقييد أو بطء في سهولة تحريك مفصل الركبة.</value>
+  </data>
+  <data name="StraighteningKneeFully" xml:space="preserve">
+    <value>أ٣: مد الركبة بالكامل </value>
+  </data>
+  <data name="StreetAddress" xml:space="preserve">
+    <value>اسم الشارع</value>
+  </data>
+  <data name="StressAssessmentQuestionaire" xml:space="preserve">
+    <value>استبيان الضغط</value>
+  </data>
+  <data name="Stroke" xml:space="preserve">
+    <value>السكتة الدماغية</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="SubmitC19" xml:space="preserve">
+    <value>تقديم</value>
+  </data>
+  <data name="SubmitMSK" xml:space="preserve">
+    <value>تقديم</value>
+  </data>
+  <data name="SubmitYourAnswers" xml:space="preserve">
+    <value>هل تود ارسال إجاباتك ؟</value>
+  </data>
+  <data name="Surgery" xml:space="preserve">
+    <value>عملية جراحية</value>
+  </data>
+  <data name="SurgeryWhen" xml:space="preserve">
+    <value>تاريخ العملية / الإجراء الجراحي (السنة)؟</value>
+  </data>
+  <data name="SurgeryYear" xml:space="preserve">
+    <value>تاريخ العملية / الإجراء الجراحي (السنة)</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>الاسم الأخير</value>
+  </data>
+  <data name="SurveySubmitted" xml:space="preserve">
+    <value>تم تقديم استبيانك بنجاح</value>
+  </data>
+  <data name="SwallowingDisorder" xml:space="preserve">
+    <value>صعوبات بالبلع</value>
+  </data>
+  <data name="SwellingYourKnee" xml:space="preserve">
+    <value>ت١. هل يوجد تورم في ركبتك؟</value>
+  </data>
+  <data name="SwitchLanguage" xml:space="preserve">
+    <value>تغيير اللغة</value>
+  </data>
+  <data name="SymptomsDescription" xml:space="preserve">
+    <value>أجب عن هذه الأسئلة بالتفكير في أعراض ركبتك خلال الأسبوع الماضي.</value>
+  </data>
+  <data name="SymptomsMSK" xml:space="preserve">
+    <value>الأعراض :</value>
+  </data>
+  <data name="SymptomsStiffnessSubtotal" xml:space="preserve">
+    <value>مجموع الأعراض والتصلب:</value>
+  </data>
+  <data name="TakingAnyVitaminsHerbalMedicinesOrSupplements" xml:space="preserve">
+    <value>هل تتناول أي فيتامينات ، مستحضرات عشبية أو مكملات غذائية ؟</value>
+  </data>
+  <data name="TakingOffSocks" xml:space="preserve">
+    <value>و١١: خلع الجوارب</value>
+  </data>
+  <data name="TechnicalInfo" xml:space="preserve">
+    <value>المعلومات الفنية</value>
+  </data>
+  <data name="TendOverReactSituations" xml:space="preserve">
+    <value>أميل إلى الانفعال الزائد في بعض المواقف</value>
+  </data>
+  <data name="TenToElevenYears" xml:space="preserve">
+    <value>من عشرة أعوام إلى إحدى عشر عامًا</value>
+  </data>
+  <data name="TenYears" xml:space="preserve">
+    <value>10 سنوات</value>
+  </data>
+  <data name="ThankYou" xml:space="preserve">
+    <value>شكراً لك</value>
+  </data>
+  <data name="ThankYouForCompletingC19" xml:space="preserve">
+    <value>شكرا لاستكمال الاستبيان في</value>
+  </data>
+  <data name="ThankYouMSK" xml:space="preserve">
+    <value>شكراً جزيلاً لإجابتك على كل الأسئلة في هذه الاستبانة.</value>
+  </data>
+  <data name="ThreeToFourHours" xml:space="preserve">
+    <value>من 3 إلى 4 ساعات</value>
+  </data>
+  <data name="ThreeToFourTimesPerWeek" xml:space="preserve">
+    <value>من ثلاث إلى أربع مرات في الأسبوع</value>
+  </data>
+  <data name="ThyroidDisease" xml:space="preserve">
+    <value>أمراض الغدة الدرقية</value>
+  </data>
+  <data name="Totally" xml:space="preserve">
+    <value>ينطبق تمامًا</value>
+  </data>
+  <data name="TreatmentPlanClarity" xml:space="preserve">
+    <value>وضوح خطة العلاج</value>
+  </data>
+  <data name="TwentyOneTotwentyFiveCigarettes" xml:space="preserve">
+    <value>من 21 إلى 25 سيجارة</value>
+  </data>
+  <data name="TwentySixToThirtyCigarettes" xml:space="preserve">
+    <value>من 26 إلى 30 سيجارة</value>
+  </data>
+  <data name="TwistingMSK" xml:space="preserve">
+    <value>و٤: الإلتواء أو اللف على ركبتك</value>
+  </data>
+  <data name="TwistingPivotingKnee" xml:space="preserve">
+    <value>أ٢: الإلتواء أو اللف على ركبتك </value>
+  </data>
+  <data name="TwoToThreeTimesDay" xml:space="preserve">
+    <value>من مرتين إلى ثلاث مرات يوميًا</value>
+  </data>
+  <data name="TwoToThreeYears" xml:space="preserve">
+    <value>من عامين إلى ثلاث</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>يتم تحديد طبيعتها إن وجدت</value>
+  </data>
+  <data name="Underweight" xml:space="preserve">
+    <value>دون الطبيعي</value>
+  </data>
+  <data name="UrineIncontinence" xml:space="preserve">
+    <value>سلس بولي (عدم تحكم بالبول)</value>
+  </data>
+  <data name="ValidStaffEmail" xml:space="preserve">
+    <value>بريد إلكتروني غير صالح للموظفين</value>
+  </data>
+  <data name="VisionHearing" xml:space="preserve">
+    <value>النظر / السمع</value>
+  </data>
+  <data name="WaitingTime" xml:space="preserve">
+    <value>وقت الانتظار</value>
+  </data>
+  <data name="WaitingTimeInPharmacy" xml:space="preserve">
+    <value>الانتظار في العيادة</value>
+  </data>
+  <data name="WalkingFlatSurface" xml:space="preserve">
+    <value>و٦: المشي على سطح مستوي</value>
+  </data>
+  <data name="WalkingOnFlatSurface" xml:space="preserve">
+    <value>أ٥: المشي على سطح مستوي</value>
+  </data>
+  <data name="Weekly2MSK" xml:space="preserve">
+    <value>اسبوعياً (٢)</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>الوزن</value>
+  </data>
+  <data name="WeightAndBodyBuilt" xml:space="preserve">
+    <value>الوزن و البنية العامة للجسم</value>
+  </data>
+  <data name="WelcomeToFamilyCenteredCare" xml:space="preserve">
+    <value>مرحبًا بكم في مركز الرعاية العائلية</value>
+  </data>
+  <data name="WhatIsDateYourLastMenstrualCycle" xml:space="preserve">
+    <value>ما هو تاريخ آخر دورة شهرية لكِ ؟</value>
+  </data>
+  <data name="WhatIsTheRelation" xml:space="preserve">
+    <value>إن كانت الإجابة نعم ، فما علاقتك به ؟</value>
+  </data>
+  <data name="WhatsApp" xml:space="preserve">
+    <value>واتس اب</value>
+  </data>
+  <data name="WhatSurgery" xml:space="preserve">
+    <value>إسم أو طبيعة العملية / الإجراء الجراحي؟</value>
+  </data>
+  <data name="WhatTypeOfExerciseForAWeek" xml:space="preserve">
+    <value>ماهو نوع الرياضة؟ كم مرة في الأسبوع؟ وماهي المدة التي تتطلبك للقيام بالتمرين؟</value>
+  </data>
+  <data name="WhatWasTheReasonForLastClinicVisit" xml:space="preserve">
+    <value>ما هو سبب آخر زيارة لك للعيادات ؟</value>
+  </data>
+  <data name="WhatWereYouNotsatisfiedWith" xml:space="preserve">
+    <value>ما الذي وجدته غير مرضي؟</value>
+  </data>
+  <data name="WhatWereYouSatisfiedWith" xml:space="preserve">
+    <value>ما الذي وجدته مرضي؟</value>
+  </data>
+  <data name="When" xml:space="preserve">
+    <value>متى</value>
+  </data>
+  <data name="WhenWasYourLastClinicVisit" xml:space="preserve">
+    <value>متى كانت آخر زيارة لك للعيادات ؟</value>
+  </data>
+  <data name="WhenWasYourLastDentalVisit" xml:space="preserve">
+    <value>متى كانت آخر زيارة لطبيب الأسنان ؟</value>
+  </data>
+  <data name="WhichFamliyMemberAreYou" xml:space="preserve">
+    <value>أي فرد من العائلة أنت؟</value>
+  </data>
+  <data name="WhoopingCough" xml:space="preserve">
+    <value>السعال الديكي</value>
+  </data>
+  <data name="WhoShouldBeContactedRegardingFamilyMemberAppointments" xml:space="preserve">
+    <value>من هو الشخص الذي ينبغي الإتصال به بخصوص حجز المواعيد و المتابعات الطبية و شئون الطفل الصحية الأخرى؟</value>
+  </data>
+  <data name="Why" xml:space="preserve">
+    <value>لماذا</value>
+  </data>
+  <data name="WhyNotRecommendProCareYourFriends" xml:space="preserve">
+    <value>لماذا اخترت هذا التقييم ؟</value>
+  </data>
+  <data name="Widowed" xml:space="preserve">
+    <value>أرمل</value>
+  </data>
+  <data name="WidthCm" xml:space="preserve">
+    <value>الوزن (كغ)</value>
+  </data>
+  <data name="Wife" xml:space="preserve">
+    <value>زوجة</value>
+  </data>
+  <data name="WomenCare" xml:space="preserve">
+    <value>رعاية المرأة</value>
+  </data>
+  <data name="WorkRelatedProblems" xml:space="preserve">
+    <value>أمراض / مشاكل / متاعب صحية متعلقة بالعمل؟</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>عام</value>
+  </data>
+  <data name="Years1to3" xml:space="preserve">
+    <value>١ إلى ٣ سنين.</value>
+  </data>
+  <data name="Years3to5" xml:space="preserve">
+    <value>٣ إلى ٥ سنين.</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="YourAnswersHelpUsToUnderstandYourMedicalHistory" xml:space="preserve">
+    <value>إجاباتك على الأسئلة التالية ستساعدنا على فهم تاريخك المرضي والتعرف على مخاوفك التي يمكنك مناقشتها مع طبيبك، ولذلك يرجى منك ملئ  هذا الإستبيان بعناية على قدر المستطاع. شكراً  لتعاونك </value>
+  </data>
+  <data name="YourInformationSubmittedSuccessfully" xml:space="preserve">
+    <value>تم تقديم المعلومات الخاصة بك بنجاح!</value>
+  </data>
+  <data name="YourOneStopShopForYourFamilyHealthCareNeeds" xml:space="preserve">
+    <value>برنامجك الشامل لتلبية احتياجات الرعاية الصحية العائلية</value>
+  </data>
+</root>
