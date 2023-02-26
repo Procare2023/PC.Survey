@@ -59,6 +59,7 @@ namespace PCMainSurveyService.SurveyService
             catch (Exception ex)
             {
                 WriteToFile("Simple Service Error on: {0} " + ex.Message + ex.StackTrace);
+                _logger.LogInformation("Survey Worker Service Exception" + ex.ToString(), DateTimeOffset.Now);
                 //Stop the Windows Service.
                 //using (System.ServiceProcess.ServiceController serviceController = new System.ServiceProcess.ServiceController("Service"))
                 //{
@@ -84,9 +85,9 @@ namespace PCMainSurveyService.SurveyService
                     writer.Close();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                _logger.LogInformation("Survey Worker Service Exception - WriteToFile" + ex.ToString(), DateTimeOffset.Now);
             }
 
         }

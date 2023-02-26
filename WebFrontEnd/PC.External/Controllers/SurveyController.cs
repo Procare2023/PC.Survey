@@ -8,7 +8,7 @@ namespace PC.External.Controllers
 {
     public class SurveyController : Controller
     {
-        private readonly ILogger<SurveyController> _logger;
+        public readonly ILogger<SurveyController> _logger;
         private readonly ISurveyUnitofWork _unitofWork;
         public SurveyController(ILogger<SurveyController> logger, ISurveyUnitofWork unitofWork)
         {
@@ -18,12 +18,21 @@ namespace PC.External.Controllers
 
         public async Task<IActionResult> PCSurvey(int? id)
         {
-            //get patient record
-            var patient = await _unitofWork.GeneralSurveyReport.GetByIdAsync((int)id);
-            if (patient == null || patient.SurveyStatus == DataLayer.Enum.SurveyStatus.Answered || patient.SurveyStatus == DataLayer.Enum.SurveyStatus.Unsent)
-                return Redirect("https://procare.com.sa/");
+            try
+            {
+                //get patient record
+                var patient = await _unitofWork.GeneralSurveyReport.GetByIdAsync((int)id);
+                if (patient == null || patient.SurveyStatus == DataLayer.Enum.SurveyStatus.Answered || patient.SurveyStatus == DataLayer.Enum.SurveyStatus.Unsent)
+                    return Redirect("https://procare.com.sa/");
 
-            return View(patient);
+                return View(patient);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation("SurveyController - PCSurvey Exception" + ex.ToString(), DateTimeOffset.Now);
+                throw;
+            }
+
         }
 
         [HttpPost]
@@ -40,7 +49,7 @@ namespace PC.External.Controllers
             }
             catch (Exception ex)
             {
-
+                _logger.LogInformation("SurveyController - SaveRecord Exception" + ex.ToString(), DateTimeOffset.Now);
                 return Json("error" + ex.ToString());
             }
 
@@ -48,20 +57,29 @@ namespace PC.External.Controllers
 
         private static void FillGeneralSurvey(GeneralSurvey genenralSurvey, GeneralSurvey patient)
         {
-            genenralSurvey.ApptNo = patient.ApptNo;
-            genenralSurvey.ApptDate = patient.ApptDate;
-            genenralSurvey.AppointmentStatus = patient.AppointmentStatus;
-            genenralSurvey.MRN = patient.MRN;
-            genenralSurvey.PatientName = patient.PatientName;
-            genenralSurvey.BirthDate = patient.BirthDate;
-            genenralSurvey.Mobile = patient.Mobile;
-            genenralSurvey.Doctor = patient.Doctor;
-            genenralSurvey.Specialty = patient.Specialty;
-            genenralSurvey.CreateStamp = patient.CreateStamp;
+            try
+            {
+                genenralSurvey.ApptNo = patient.ApptNo;
+                genenralSurvey.ApptDate = patient.ApptDate;
+                genenralSurvey.AppointmentStatus = patient.AppointmentStatus;
+                genenralSurvey.MRN = patient.MRN;
+                genenralSurvey.PatientName = patient.PatientName;
+                genenralSurvey.BirthDate = patient.BirthDate;
+                genenralSurvey.Mobile = patient.Mobile;
+                genenralSurvey.Doctor = patient.Doctor;
+                genenralSurvey.Specialty = patient.Specialty;
+                genenralSurvey.CreateStamp = patient.CreateStamp;
 
-            genenralSurvey.SurveyStatus = DataLayer.Enum.SurveyStatus.Answered;
-            genenralSurvey.UpdateStamp = DateTime.Now;
-            genenralSurvey.RespondedDate = DateTime.Now;
+                genenralSurvey.SurveyStatus = DataLayer.Enum.SurveyStatus.Answered;
+                genenralSurvey.UpdateStamp = DateTime.Now;
+                genenralSurvey.RespondedDate = DateTime.Now;
+            }
+            catch (Exception ex)
+            {
+
+                //_logger.LogInformation("SurveyController - FillGeneralSurvey Exception" + ex.ToString(), DateTimeOffset.Now);
+            }
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
