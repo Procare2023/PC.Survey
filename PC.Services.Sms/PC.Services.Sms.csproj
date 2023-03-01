@@ -24,4 +24,10 @@
     <Folder Include="SMSTemplate\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="SMSTemplate\SMSGeneralSurveyEn.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

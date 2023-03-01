@@ -815,8 +815,8 @@
     var rateReception;
 
     var rateAsComplainOrFeedback;
-    var en = "culture=en-US";
-    var ar = "culture=ar-SA";
+    var en = "culture=en-us";
+    var ar = "culture=ar-sa";
     var lang;
 
     function switchLang(var2) {
@@ -838,7 +838,7 @@
         let value = params.culture;
         lang = value;
 
-        if (value == 'ar-SA') {
+        if (value.toLowerCase() == 'ar-SA') {
             $('body').attr({ 'dir': 'rtl' });
             $('body').removeClass('eng_v');
             $('body').addClass('arb_v');
@@ -1080,7 +1080,7 @@
         if (errors != null && errors.length > 0) {
 
 
-            if (lang == 'en-US') {
+            if (lang.toLowerCase() == 'en-us') {
             // Display the errors.
             swal({
                 title: '@Resource.PleaseCompleteAllRequiredFields',
@@ -1092,7 +1092,7 @@
             return;
             }
 
-            if (lang == 'ar-SA') {
+            if (lang.toLowerCase() == 'ar-sa') {
             // Display the errors.
             swal({
                 title: 'نرجو اكمال جميع الخانات اللازمة',
@@ -1164,7 +1164,7 @@
             url: "/PCSurvey/Survey/SaveRecord",
             data: args,
             success: function (data) {
-                if (lang == 'en-US') {
+                if (lang.toLowerCase() == 'en-us') {
                 $('.full_screen_loading_box').hide();
                 swal({
                     title: '@Resource.ThankYou',
@@ -1177,7 +1177,7 @@
                 });
                 }
 
-                if (lang == 'ar-SA') {
+                if (lang.toLowerCase() == 'ar-sa') {
                     swal({
                     title: 'شكراً لك',
                     html: 'تم تقديم المعلومات الخاصة بك بنجاح!',
@@ -1191,7 +1191,7 @@
             },
             error: function (data) {
                 alert(data);
-                if (lang == 'en-US') {
+                if (lang.toLowerCase() == 'en-us') {
                 $('.full_screen_loading_box').hide();
                 swal({
                     title: '@Resource.RequestFailed',
@@ -1201,7 +1201,7 @@
                 });
                 }
 
-                if (lang == 'ar-SA') {
+                if (lang.toLowerCase() == 'ar-sa') {
                            swal({
                     title: 'فشل الطلب!',
                     text: 'عذرًا ، حدث خطأ أثناء إرسال طلبك. يرجى المحاولة مرة أخرى أو الاتصال بمستشفى العناية للحصول على المساعدة.',
