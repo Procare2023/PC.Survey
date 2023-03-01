@@ -56,15 +56,15 @@ namespace PC.AccessLayer.Survey
 
                 // Next, loop through each appointment and check that they have not been already
                 // surveyed for the past n months.
-                await CreateAndSaveAppt(apptMonthOffset, yesterday, appts);
+                CreateAndSaveAppt(apptMonthOffset, yesterday, appts);
 
-                var unsent = await _unitOfWork.GeneralSurveyReport.FindAllAsync(criteria: q => q.SurveyStatus == SurveyStatus.Unsent, null);
+                var unsent = _unitOfWork.GeneralSurveyReport.FindAll(criteria: q => q.SurveyStatus == SurveyStatus.Unsent, null);
                 //_context.GeneralSurveyReport.Where(q => q.SurveyStatus == SurveyStatus.Unsent).ToList();
 
                 if (unsent == null || unsent.ToList().Count < 0)
                     return;
 
-                await SendSmsAndUpdateDatabaseAsync(externalUrlBaseLink, unsent);
+                SendSmsAndUpdateDatabaseAsync(externalUrlBaseLink, unsent);
             }
             catch (Exception)
             {
@@ -73,7 +73,7 @@ namespace PC.AccessLayer.Survey
             }
         }
 
-        private async Task SendSmsAndUpdateDatabaseAsync(string externalUrlBaseLink, IEnumerable<GeneralSurvey> unsent)
+        private void SendSmsAndUpdateDatabaseAsync(string externalUrlBaseLink, IEnumerable<GeneralSurvey> unsent)
         {
             int count = 0;
             foreach (var record in unsent)
@@ -93,7 +93,7 @@ namespace PC.AccessLayer.Survey
                     // Then queue it to be sent off.
                     //GeneralSurveySMSNotifier.SendSurveyOursms(MessageManager.C_SOURCE_GeneralSurvey, Language.English, record.Mobile, generalSurveyModel, ALBConstants.C_SYSTEM_USER_ID);
                     SurveyModelDto model = FillDto(record, firstName, urlToShorten);
-                    var response = await _sendSmsService.SendSmsAsync<ResponseDto>(model);
+                    var response = _sendSmsService.SendSmsAsync<ResponseDto>(model);
                     if (response != null && response.IsSuccess)
                     {
                         // Once done, mark as sent.
@@ -116,7 +116,7 @@ namespace PC.AccessLayer.Survey
             }
             try
             {
-                var sendEmail = await _sendSmsService.SendEmailAsync<ResponseDto>(count);
+                var sendEmail = _sendSmsService.SendEmailAsync<ResponseDto>(count);
             }
             catch (Exception)
             {
@@ -136,7 +136,7 @@ namespace PC.AccessLayer.Survey
             };
         }
 
-        private async Task CreateAndSaveAppt(int apptMonthOffset, DateTime yesterday, List<DataLayer.Model.Patient.Appointment.v_appointment_dump> appts)
+        private void CreateAndSaveAppt(int apptMonthOffset, DateTime yesterday, List<DataLayer.Model.Patient.Appointment.v_appointment_dump> appts)
         {
             var startDate = yesterday.AddMonths(apptMonthOffset);
 
@@ -171,7 +171,7 @@ namespace PC.AccessLayer.Survey
                     ac.SurveyStatus = SurveyStatus.Unsent;
                     ac.CreateStamp = DateTime.Now;
 
-                    await _unitOfWork.GeneralSurveyReport.AddAsync(ac);
+                    _unitOfWork.GeneralSurveyReport.Add(ac);
                     //await _context.SaveChangesAsync();
                     //}
                 }

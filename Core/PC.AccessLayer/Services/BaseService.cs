@@ -18,11 +18,11 @@ namespace PC.AccessLayer.Services
             this.responseModel = new ResponseDto();
         }
 
-        public async Task<T> SendAsync<T>(ApiRequest apiRequest)
+        public T SendAsync<T>(ApiRequest apiRequest)
         {
             try
             {
-                T apiResponseDto = await ProcessRequest<T>(apiRequest);
+                T apiResponseDto = ProcessRequest<T>(apiRequest);
 
                 return apiResponseDto;
             }
@@ -32,7 +32,7 @@ namespace PC.AccessLayer.Services
                 return apiResponseDto;
             }
         }
-        private async Task<T> ProcessRequest<T>(ApiRequest apiRequest)
+        private T ProcessRequest<T>(ApiRequest apiRequest)
         {
             var client = httpClient.CreateClient("MangoAPI");
             HttpRequestMessage message = new HttpRequestMessage();
@@ -69,9 +69,9 @@ namespace PC.AccessLayer.Services
                     break;
             }
 
-            apiResponse = await client.SendAsync(message);
+            apiResponse = client.Send(message);
 
-            var apiContent = await apiResponse.Content.ReadAsStringAsync();
+            var apiContent = apiResponse.Content.ReadAsStringAsync().Result;
             var apiResponseDto = JsonConvert.DeserializeObject<T>(apiContent);
             return apiResponseDto;
         }
