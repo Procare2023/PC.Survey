@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PC.Services.Core;
-using PC.Services.Core.Interfaces;
 using PC.Services.Core.Models;
 using PC.Services.Core.Security;
 using PC.Services.DL.DbContext;

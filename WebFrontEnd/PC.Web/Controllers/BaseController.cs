@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PC.Services.Core;
-using PC.Services.Core.Interfaces;
 using PC.Services.Core.Security;
 using PC.Services.DL.DbContext;
 using System.Net.Http.Headers;
