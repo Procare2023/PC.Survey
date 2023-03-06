@@ -1,0 +1,132 @@
+﻿@model IEnumerable<ApplicationUser>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+
+            <a asp-action="AddNewAccount" asp-controller="admin" class="btn bg-primary btn-lg btn-block runbtn" style="width: 200px" type="button">
+                <i class="glyphicon glyphicon-user"></i>
+                Add New User
+            </a>
+        </div>
+
+        <!-- Exportable Table -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            System User List
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            @if (Model.Any())
+                            {
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <thead>
+                                        <tr>
+                                            <th hidden>
+                                                Id
+                                            </th>
+                                            <th>
+                                                User Name
+                                            </th>
+                                            <th>
+                                                Full Name
+                                            </th>
+
+                                            <th>
+                                                User Status
+                                            </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th hidden>
+                                                Id
+                                            </th>
+                                            <th>
+                                                User Name
+                                            </th>
+                                            <th>
+                                                Full Name
+                                            </th>
+
+                                            <th>
+                                                User Status
+                                            </th>
+
+                                            <th></th>
+                                    </tfoot>
+                                    <tbody>
+                                        @foreach (var account in Model)
+                                        {
+                                            <tr>
+                                                <td hidden>@account.Id</td>
+                                                <td>
+                                                    @account.UserName
+                                                </td>
+                                                <td>
+                                                    @account.FirstName  @account.LastName
+                                                </td>
+
+                                                <td>
+                                                    @if (@account.UserStatus == true)
+                                                    {
+                                                        <text>active</text>
+                                                    }
+
+
+                                                    @if (@account.UserStatus == false)
+                                                    {
+                                                        <text>InActive</text>
+                                                    }
+
+                                                </td>
+                                                <td>
+
+                                                    <form method="post" asp-action="DeleteUser" asp-route-id="@account.Id">
+
+                                                        <a asp-action="EditUser" asp-controller="Admin"
+                                                   asp-route-id="@account.Id" class="btn btn-info text-white" style="cursor:pointer">
+                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                        </a>
+
+
+                                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delet? : @account.UserName')">
+                                                            <span class="glyphicon glyphicon-trash"></span>
+                                                        </button>
+
+                                                        <a class="btn btn-primary" asp-action="ChangeUserPassword" asp-route-id="@account.Id">Change Password</a>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <p><h4 style="text-align:center">No Data to Display</h4></p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Exportable Table -->
+    </div>
+</section>
+
+<!-- Jquery Core Js -->
+<script src="~/styles/ww/plugins/jquery/jquery.min.js"></script>
+
+<!-- Custom Js -->
+<script src="~/styles/ww/js/pages/tables/jquery-datatable.js"></script>

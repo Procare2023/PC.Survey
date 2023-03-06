@@ -1,0 +1,157 @@
+﻿@model PC.Services.DL.ViewModels.AccountViewModel
+
+@{
+    ViewBag.Title = "Add New User";
+}
+
+
+<form asp-action="AddNewAccount" method="post">
+
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Input Group -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Add New User
+                            </h2>
+                        </div>
+                        <div class="body">
+
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        @*<span class="input-group-addon">
+                                            <i class="material-icons">person</i>
+                                            </span>*@
+                                        <label asp-for="Username"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="Username" class="form-control" placeholder="Username">
+                                            <span asp-validation-for="Username" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <label asp-for="Password"></label>
+                                        <div class="form-line">
+                                            <input type="password" asp-for="Password" class="form-control" placeholder="Password" />
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <label asp-for="ConfirmPassword"></label>
+                                        <div class="form-line">
+                                            <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+                                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <label asp-for="FirstName"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="FirstName" class="form-control" placeholder="First Name">
+                                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <label asp-for="LastName"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="LastName" class="form-control" placeholder="Last Name" />
+                                            <span asp-validation-for="LastName" class="text-danger"></span>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <label asp-for="PhoneNumber"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="PhoneNumber" class="form-control" placeholder="Phone Number" />
+                                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <label asp-for="Email"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="Email" class="form-control" placeholder="Email">
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <label asp-for="UserStatus"></label>
+                                        <div class="form-line">
+                                            <select asp-for="UserStatus" class="form-control show-tick" data-live-search="false" required="required">
+
+                                                <option>Select User Status</option>
+                                                <option value="true">Active</option>
+                                                <option value="false">Inactive</option>
+
+
+                                            </select>
+                                            <span asp-validation-for="UserStatus" class="text-danger"></span>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+                            <div class="row clearfix">
+                                <div class="button-demo">
+                                    <button class="btn bg-primary waves-effect" type="submit" title="Save">
+                                        Save
+                                    </button>
+
+                                    <a asp-action="ListUsers" class="btn bg-warning waves-effect" type="button" title="Back">
+                                        Back
+                                    </a>
+                                </div>
+
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Input Group -->
+        </div>
+
+    </section>
+</form>
+
+<!-- App scripts -->
+<script src="~/styles/ww/plugins/jquery/jquery.min.js"></script>
+

@@ -1,0 +1,88 @@
+﻿@{
+    ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
+
+}
+
+<div class="menu">
+    <ul class="list">
+        <li class="header">MAIN NAVIGATION</li>
+        @*@{
+            var page = ViewBag.Title;
+            }*@
+
+        <li class="active">
+
+            <a asp-action="Home" asp-controller="Home" class="toggled waves-effect waves-block">
+                <i class="material-icons">home</i>
+                <span>Home</span>
+            </a>
+        </li>
+
+
+        @if (signInManager.IsSignedIn(User) && signInManager.Context.User.IsInRole(SD.Admin))
+        {
+
+            <li>
+                <a href="javascript:void(0);" class="menu-toggle">
+                    <i class="material-icons">view_list</i>
+                    <span>Administration</span>
+                </a>
+                <ul class="ml-menu">
+                    <li>
+                        <a href="\Admin\ListUsers">Users</a>
+                    </li>
+                    <li>
+                        <a href="\Admin\ListRoles">System Roles</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="AppSetting">System App. Settings</a>
+                    </li>
+                </ul>
+            </li>
+
+
+        }
+
+        @if (signInManager.IsSignedIn(User) && (signInManager.Context.User.IsInRole(SD.Admin) || signInManager.Context.User.IsInRole(SD.User)))
+        {
+            <li>
+                <a href="javascript:void(0);" class="menu-toggle">
+                    <i class="material-icons">assignment</i>
+                    <span>Patients Survey</span>
+                </a>
+                <ul class="ml-menu">
+                    <li>
+                        <a asp-controller="PCSurvey" asp-action="Index">Survey Report</a>
+                    </li>
+                    @* <li>
+                        <a asp-controller="MainCategory" asp-action="Index">Main Category</a>
+                        </li>
+                        <li>
+                        <a asp-controller="activity" asp-action="Index">Activity</a>
+                        </li>
+                        <li>
+                        <a asp-controller="Details" asp-action="Index">Activity Details</a>
+                        </li>
+                        <li>
+                        <a asp-controller="CategoryHeader" asp-action="Index">Create Category Header</a>
+                        </li>*@
+                </ul>
+            </li>
+        }
+
+
+
+    </ul>
+</div>
+
+<!-- Footer -->
+<div class="legal">
+    <div class="copyright">
+        &copy; @DateTime.Now.Year <a href="javascript:void(0);">@config["AppSetting:ApplicationName"]</a>.
+    </div>
+    <div class="version">
+        <b>Version: </b> 1.0.0
+    </div>
+</div>
+<!-- #Footer -->
+<!-- Navigation -->

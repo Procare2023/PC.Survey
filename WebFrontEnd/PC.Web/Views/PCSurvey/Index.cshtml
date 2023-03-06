@@ -1,0 +1,152 @@
+﻿@model IEnumerable<PC.DataLayer.Model.Survey.GeneralSurvey>
+    @{
+    ViewBag.Title = "Survey Report";
+}
+
+<section class="content">
+    <div id="PlaceHolderHereUser"></div>
+    <div class="container-fluid">
+        @*<div class="block-header">
+
+            <a asp-action="Create" asp-controller="Activity" class="btn bg-primary btn-lg btn-block runbtn" style="width: 200px" type="button">
+            <i class="glyphicon glyphicon-work"></i>
+            Survey Satisfaction Report
+            </a>
+            </div>*@
+
+        <!-- Exportable Table -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            Survey Satisfaction Report
+                        </h2>
+
+                    </div>
+
+                    <div class="body">
+
+                        <div class="table-responsive">
+                            @if (Model.Any())
+                            {
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th hidden>
+                                                Id
+                                            </th>
+                                            <th>
+                                                Appt No
+                                            </th>
+                                            <th>Appt Date</th>
+
+                                            <th>
+                                                Created By
+                                            </th>
+                                            <th>
+                                                Created Date
+                                            </th>
+                                            <th>Updated By</th>
+                                            <th>Updated Date</th>
+                                            <th></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>No</th>
+                                            <th hidden>
+                                                Id
+                                            </th>
+                                            <th>
+                                                Appt No
+                                            </th>
+                                            <th>Appt Date</th>
+
+                                            <th>
+                                                Created By
+                                            </th>
+                                            <th>
+                                                Created Date
+                                            </th>
+                                            <th>Updated By</th>
+                                            <th>Updated Date</th>
+                                            <th></th>
+
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        @{
+                                            int No = 0;
+                                        }
+                                        @foreach (var activity in Model)
+                                        {
+                                            No = No + 1;
+                                            <tr>
+                                                <td> @No </td>
+                                                <td hidden>@activity.ApptCopyGenSurveyId</td>
+                                                <td>
+                                                    @activity.ApptNo
+                                                </td>
+                                                <td>
+                                                    @activity.ApptDate
+                                                </td>
+
+                                                <td>
+                                                    @*@activity.CreatedBy*@
+                                                </td>
+                                                <td>
+                                                    @*@activity.CreatedDateTime*@
+                                                </td>
+                                                <td>
+                                                    @*@if (activity.UpdatedBy != null)
+                                                        {
+                                                        @activity.UpdatedBy
+                                                        }*@
+
+                                                </td>
+                                                <td>
+                                                    @*@if (activity.UpdatedDateTime != null)
+                                                        {
+                                                        @activity.UpdatedDateTime
+                                                        }*@
+
+                                                </td>
+                                                <td>
+                                                    @*<form method="post" asp-action="Delete" asp-route-id="@activity.ActivityId">
+
+                                                        <a asp-action="Edit"
+                                                        asp-route-id="@activity.ActivityId" class="btn btn-info text-white" style="cursor:pointer">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                        </a>
+                                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delet? : @activity.Name')">
+                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                        </button>
+                                                        </form>*@
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <p><h4 style="text-align:center">No Data to Display</h4></p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Exportable Table -->
+    </div>
+</section>
+
+<!-- Jquery Core Js -->
+<script src="~/styles/ww/plugins/jquery/jquery.min.js"></script>
+
+<!-- Custom Js -->
+<script src="~/styles/ww/js/pages/tables/jquery-datatable.js"></script>
+

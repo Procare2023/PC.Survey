@@ -1,0 +1,61 @@
+﻿@model PC.Services.DL.ViewModels.CreateRoleViewModel
+
+@{
+    ViewBag.Title = "Create Role";
+}
+
+<form asp-action="CreateRole" method="post">
+
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Input Group -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Add New Role
+                            </h2>
+                        </div>
+                        <div class="body">
+
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+
+                                        <label asp-for="RoleName"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="RoleName" class="form-control" placeholder="Role Name">
+                                            <span asp-validation-for="RoleName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+                            <div class="row clearfix">
+                                <div class="button-demo">
+                                    <button class="btn bg-primary waves-effect" type="submit" title="Save">
+                                        Save
+                                    </button>
+
+                                    <a asp-action="ListRoles" class="btn bg-warning waves-effect" type="button" title="Back">
+                                        Back
+                                    </a>
+                                </div>
+
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Input Group -->
+
+
+    </section>
+</form>
+
+<!-- App scripts -->
+<script src="~/styles/ww/plugins/jquery/jquery.min.js"></script>

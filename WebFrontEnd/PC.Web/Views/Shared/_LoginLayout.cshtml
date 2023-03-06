@@ -1,0 +1,30 @@
+﻿
+<html lang="en">
+<head>
+    <partial name="_HeaderPartial" />
+    @*<img src="~/images/@config["AppSetting:ApplicationLogo"]" height="45px" alt="Document Controller">*@
+</head>
+<body class="login-page">
+    <div class="login-box">
+        <div class="logo">
+            @*<a href="javascript:void(0);">Admin<b>BSB</b></a>
+                <small>Admin BootStrap Based - Material Design</small>*@
+        </div>
+        @RenderBody()
+
+        <footer class="border-top footer text-muted" style="position: fixed;color:#3459A8">
+            <div class="container">
+                &copy; 2022 - @config["AppSetting:ApplicationFooter"]
+            </div>
+        </footer>
+    </div>
+
+
+
+
+
+    <partial name="_ScriptExtenstions" />
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

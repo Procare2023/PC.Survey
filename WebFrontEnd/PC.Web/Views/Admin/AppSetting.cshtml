@@ -1,0 +1,381 @@
+﻿@model PC.Web.Models.Setting;
+@{
+    ViewData["Title"] = "App Settings";
+}
+
+<form asp-action="AppSetting" method="post">
+
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Input Group -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Change System App Settings
+                            </h2>
+                        </div>
+                        <div class="body">
+
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                        </span>
+                                        <label asp-for="AccessFailedCount"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="AccessFailedCount" class="form-control">
+                                            <span asp-validation-for="AccessFailedCount" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="UserPasswordLength"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="UserPasswordLength" class="form-control">
+                                            <span asp-validation-for="UserPasswordLength" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="PassRequireDigit"></label>
+                                        <div class="form-line">
+                                            <select asp-for="PassRequireDigit" class="form-control show-tick" data-live-search="false">
+                                                <option value="true"> Yes </option>
+                                                <option value="False"> No </option>
+                                            </select>
+                                            <span asp-validation-for="PassRequireDigit" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="PassRequireLowercase"></label>
+                                        <div class="form-line">
+                                            <select asp-for="PassRequireLowercase" class="form-control show-tick" data-live-search="false">
+                                                <option value="true"> Yes </option>
+                                                <option value="False"> No </option>
+                                            </select>
+                                            <span asp-validation-for="PassRequireLowercase" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="PassRequireUppercase"></label>
+                                        <div class="form-line">
+                                            <select asp-for="PassRequireUppercase" class="form-control show-tick" data-live-search="false">
+                                                <option value="true"> Yes </option>
+                                                <option value="False"> No </option>
+                                            </select>
+                                            <span asp-validation-for="PassRequireUppercase" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="PassRequireNonAlphanumeric"></label>
+                                        <div class="form-line">
+                                            <select asp-for="PassRequireNonAlphanumeric" class="form-control show-tick" data-live-search="false">
+                                                <option value="true"> Yes </option>
+                                                <option value="False"> No </option>
+                                            </select>
+                                            <span asp-validation-for="PassRequireNonAlphanumeric" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                        </span>
+                                        <label asp-for="UserSessionTimeOut"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="UserSessionTimeOut" class="form-control">
+                                            <span asp-validation-for="UserSessionTimeOut" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="MaxLimitToLockUser"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="MaxLimitToLockUser" class="form-control">
+                                            <span asp-validation-for="MaxLimitToLockUser" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="UserConfirmPolicyTitle"></label>
+                                        <div class="form-line">
+                                            <textarea asp-for="UserConfirmPolicyTitle" class="form-control"> </textarea>
+                                            <span asp-validation-for="UserConfirmPolicyTitle" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                        </span>
+                                        <label asp-for="UserConfirmPolicy"></label>
+                                        <div class="form-line">
+                                            <textarea asp-for="UserConfirmPolicy" class="form-control"></textarea>
+                                            <span asp-validation-for="UserConfirmPolicy" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="ApplicationName"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="ApplicationName" class="form-control">
+                                            <span asp-validation-for="ApplicationName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="ApplicationLogo"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="ApplicationLogo" class="form-control"> </input>
+                                            <span asp-validation-for="ApplicationLogo" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                        </span>
+                                        <label asp-for="EmpDataApiUrl"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="EmpDataApiUrl" class="form-control">
+                                            <span asp-validation-for="EmpDataApiUrl" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="EnableConfirmPolicy"></label>
+                                        <div class="form-line">
+                                            <select asp-for="EnableConfirmPolicy" class="form-control show-tick" data-live-search="false">
+                                                <option value="true"> Yes </option>
+                                                <option value="False"> No </option>
+                                            </select>
+                                            <span asp-validation-for="EnableConfirmPolicy" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="EnableRightClick"></label>
+                                        <div class="form-line">
+                                            <select asp-for="EnableRightClick" class="form-control show-tick" data-live-search="false">
+                                                <option value="true"> Yes </option>
+                                                <option value="False"> No </option>
+                                            </select>
+                                            <span asp-validation-for="EnableRightClick" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="SecurityAnswer"></label>
+                                        <div class="form-line">
+                                            <select asp-for="SecurityAnswer" class="form-control show-tick" data-live-search="false">
+                                                <option value="true"> Yes </option>
+                                                <option value="False"> No </option>
+                                            </select>
+                                            <span asp-validation-for="SecurityAnswer" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                        </span>
+                                        <label asp-for="From"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="From" class="form-control">
+                                            <span asp-validation-for="From" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                        </span>
+                                        <label asp-for="SmtpCredentials"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="SmtpCredentials" class="form-control">
+                                            <span asp-validation-for="SmtpCredentials" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                        </span>
+                                        <label asp-for="Subject"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="Subject" class="form-control">
+                                            <span asp-validation-for="Subject" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                        </span>
+                                        <label asp-for="SmtpClient"></label>
+                                        <div class="form-line">
+                                            <input type="text" asp-for="SmtpClient" class="form-control">
+                                            <span asp-validation-for="SmtpClient" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                        </span>
+                                        <label asp-for="SmtpPort"></label>
+                                        <div class="form-line">
+                                            <input type="number" asp-for="SmtpPort" class="form-control">
+                                            <span asp-validation-for="SmtpPort" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="UseDefaultCredentials"></label>
+                                        <div class="form-line">
+                                            <select asp-for="UseDefaultCredentials" class="form-control show-tick" data-live-search="false">
+                                                <option value="true"> Yes </option>
+                                                <option value="False"> No </option>
+                                            </select>
+                                            <span asp-validation-for="UseDefaultCredentials" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+
+                                        </span>
+                                        <label asp-for="EnableSsl"></label>
+                                        <div class="form-line">
+                                            <select asp-for="EnableSsl" class="form-control show-tick" data-live-search="false">
+                                                <option value="true"> Yes </option>
+                                                <option value="False"> No </option>
+                                            </select>
+                                            <span asp-validation-for="EnableSsl" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+                            <div class="row clearfix">
+                                <div class="button-demo">
+                                    <button class="btn bg-primary waves-effect" type="submit" title="Save">
+                                        Save
+                                    </button>
+
+                                    <a asp-controller="Home" asp-action="Home" class="btn bg-warning waves-effect" type="button" title="Back">
+                                        Back
+                                    </a>
+                                </div>
+
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Input Group -->
+    </section>
+</form>
+
+<!-- App scripts -->
+<script src="~/styles/ww/plugins/jquery/jquery.min.js"></script>
