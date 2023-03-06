@@ -1,6 +1,7 @@
 ﻿//using Mango.Services.CouponAPI.Models.Dto;
 //using Mango.Services.CouponAPI.Respository;
 using Microsoft.AspNetCore.Mvc;
+using PC.Services.Sms.Loger;
 using PC.Services.Sms.Models.Dto;
 using PC.Services.Sms.Repository;
 //using RazorEngine.Templating;
@@ -73,6 +74,10 @@ namespace PC.Services.Sms
             {
                 _response.IsSuccess = false;
                 _response.ErrorMessages = new List<string>() { ex.ToString() };
+                ServiceLogger.WriteToFile(
+                    "Email has an error &" 
+                    + smsCount.ToString() + " SMS have been sent successfully " + System.Environment.NewLine
+                    + ex.ToString() );
             }
             return _response;
         }

@@ -56,12 +56,12 @@ namespace PC.AccessLayer.Survey
 
                 // Next, loop through each appointment and check that they have not been already
                 // surveyed for the past n months.
-                CreateAndSaveAppt(apptMonthOffset, yesterday, appts);
+                CreateAndSaveAppt(apptMonthOffset, yesterday, appts); //.OrderBy(t => t.Session_Date).Take(1).ToList()
 
                 var unsent = _unitOfWork.GeneralSurveyReport.FindAll(criteria: q => q.SurveyStatus == SurveyStatus.Unsent, null);
                 //_context.GeneralSurveyReport.Where(q => q.SurveyStatus == SurveyStatus.Unsent).ToList();
 
-                if (unsent == null || unsent.ToList().Count < 0)
+                if (unsent == null || unsent.ToList().Count <= 0)
                     return;
 
                 SendSmsAndUpdateDatabaseAsync(externalUrlBaseLink, unsent);
@@ -140,6 +140,7 @@ namespace PC.AccessLayer.Survey
         {
             var startDate = yesterday.AddMonths(apptMonthOffset);
 
+            var ListToSave = new List<GeneralSurvey>();
             foreach (var a in appts)
             {
                 try
@@ -171,7 +172,8 @@ namespace PC.AccessLayer.Survey
                     ac.SurveyStatus = SurveyStatus.Unsent;
                     ac.CreateStamp = DateTime.Now;
 
-                    _unitOfWork.GeneralSurveyReport.Add(ac);
+                    ListToSave.Add(ac);
+                    //_unitOfWork.GeneralSurveyReport.Add(ac);
                     //await _context.SaveChangesAsync();
                     //}
                 }
@@ -181,6 +183,8 @@ namespace PC.AccessLayer.Survey
                     //FileTrace.WriteException(apptFetchException);
                 }
             }
+            if(ListToSave.Count > 0)
+                _unitOfWork.GeneralSurveyReport.AddRange(ListToSave);
         }
         #endregion
 

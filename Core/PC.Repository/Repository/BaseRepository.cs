@@ -164,6 +164,7 @@ namespace PC.Repository.Repository
         public IEnumerable<T> AddRange(IEnumerable<T> entities)
         {
             _context.Set<T>().AddRange(entities);
+            _context.SaveChanges();
             return entities;
         }
 

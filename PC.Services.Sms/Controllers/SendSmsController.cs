@@ -65,8 +65,8 @@ namespace PC.Services.Sms
                    template,
                  surveytDto);
 
-                if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development" || _config.GetValue<bool>("AppSetting:test"))
-                    surveytDto.Mobile = "0542025115";
+                //if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development" || _config.GetValue<bool>("AppSetting:test"))
+                //    surveytDto.Mobile = "0542025115";
 
                 using (var httpClient = new HttpClient { BaseAddress = baseAddress })
                 {
@@ -80,6 +80,7 @@ namespace PC.Services.Sms
                 }
                 if (responseData != null)
                 {
+                    //var containQueued = responseData.Contains("Queued");
                     responseData = responseData.Replace("\"", string.Empty);
                     responseData.Replace("{", string.Empty);
                     responseData.Replace("}", string.Empty);
