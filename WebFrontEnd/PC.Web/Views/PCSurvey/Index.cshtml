@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PC.DataLayer.Model.Survey.GeneralSurvey>
+﻿@model PC.Web.ViewModels.GeneralSurveyViewModel
     @{
     ViewBag.Title = "Survey Report";
 }
@@ -6,141 +6,305 @@
 <section class="content">
     <div id="PlaceHolderHereUser"></div>
     <div class="container-fluid">
-        @*<div class="block-header">
 
-            <a asp-action="Create" asp-controller="Activity" class="btn bg-primary btn-lg btn-block runbtn" style="width: 200px" type="button">
-            <i class="glyphicon glyphicon-work"></i>
-            Survey Satisfaction Report
-            </a>
-            </div>*@
+        <form asp-action=index method="post">
+            <!--DateTime Picker -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Please Select Date From - To
+                            </h2>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="date" asp-for=fromDate class="datepicker form-control" placeholder="Please choose from date..." required>
+                                        </div>
+                                    </div>
+                                </div>
 
-        <!-- Exportable Table -->
-        <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>
-                            Survey Satisfaction Report
-                        </h2>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="date" asp-for=ToDate class="datepicker form-control" placeholder="Please choose to date..." required>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <div class="button-demo">
+                                    <button class="btn bg-primary waves-effect" type="submit" title="Search">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                            </div>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="body">
+                <!--#END# DateTime Picker -->
+                <!-- Exportable Table -->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Survey Satisfaction Report
+                            </h2>
 
-                        <div class="table-responsive">
-                            @if (Model.Any())
-                            {
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th hidden>
-                                                Id
-                                            </th>
-                                            <th>
-                                                Appt No
-                                            </th>
-                                            <th>Appt Date</th>
+                        </div>
 
-                                            <th>
-                                                Created By
-                                            </th>
-                                            <th>
-                                                Created Date
-                                            </th>
-                                            <th>Updated By</th>
-                                            <th>Updated Date</th>
-                                            <th></th>
+                        <div class="body">
 
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>No</th>
-                                            <th hidden>
-                                                Id
-                                            </th>
-                                            <th>
-                                                Appt No
-                                            </th>
-                                            <th>Appt Date</th>
+                            <div class="table-responsive">
+                                @if (Model != null)
+                                {
+                                    if (Model.SurveyList.Any())
+                                    {
+                                        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th hidden>
+                                                        Id
+                                                    </th>
+                                                    <th>
+                                                        Appt No
+                                                    </th>
+                                                    <th>Appt Date</th>
 
-                                            <th>
-                                                Created By
-                                            </th>
-                                            <th>
-                                                Created Date
-                                            </th>
-                                            <th>Updated By</th>
-                                            <th>Updated Date</th>
-                                            <th></th>
+                                                    <th>MRN</th>
+                                                    <th>Patient Name</th>
+                                                    <th>Mobile</th>
+                                                    <th>Doctor</th>
+                                                    <th>Doctor Rating</th>
+                                                    <th>Doctor Reason</th>
+                                                    <th>Doctor Satisfied Reason</th>
+                                                    <th>Doctor Satisfied Comment</th>
+                                                    <th>Doctor Not Satisfied Comment</th>
 
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        @{
-                                            int No = 0;
-                                        }
-                                        @foreach (var activity in Model)
-                                        {
-                                            No = No + 1;
-                                            <tr>
-                                                <td> @No </td>
-                                                <td hidden>@activity.ApptCopyGenSurveyId</td>
-                                                <td>
-                                                    @activity.ApptNo
-                                                </td>
-                                                <td>
-                                                    @activity.ApptDate
-                                                </td>
 
-                                                <td>
-                                                    @*@activity.CreatedBy*@
-                                                </td>
-                                                <td>
-                                                    @*@activity.CreatedDateTime*@
-                                                </td>
-                                                <td>
-                                                    @*@if (activity.UpdatedBy != null)
-                                                        {
-                                                        @activity.UpdatedBy
-                                                        }*@
+                                                    <th>Nurse Rating</th>
+                                                    <th>Nurses & Staff Reason</th>
+                                                    <th>Nurses & Staff Satisfied Reason</th>
+                                                    <th>Nurses & StaffSatisfied Comment</th>
+                                                    <th>Nurses & Staff Not Satisfied Comment</th>
 
-                                                </td>
-                                                <td>
-                                                    @*@if (activity.UpdatedDateTime != null)
-                                                        {
-                                                        @activity.UpdatedDateTime
-                                                        }*@
 
-                                                </td>
-                                                <td>
-                                                    @*<form method="post" asp-action="Delete" asp-route-id="@activity.ActivityId">
+                                                    <th>Reception Rating</th>
+                                                    <th>Reception Staff Satisfied</th>
+                                                    <th>Reception Staff Not Satisfied</th>
+                                                    <th>Reception Staff Satisfied Comment</th>
+                                                    <th>Reception Staff Not Satisfied Comment</th>
 
-                                                        <a asp-action="Edit"
-                                                        asp-route-id="@activity.ActivityId" class="btn btn-info text-white" style="cursor:pointer">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                        </a>
-                                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delet? : @activity.Name')">
-                                                        <span class="glyphicon glyphicon-trash"></span>
-                                                        </button>
-                                                        </form>*@
-                                                </td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                </table>
-                            }
-                            else
-                            {
-                                <p><h4 style="text-align:center">No Data to Display</h4></p>
-                            }
+                                                    <th>Recommended Rating</th>
+                                                    <th>Recommend Comment</th>
+
+                                                    <th>Survey Reason</th>
+                                                    <th>Satisfied Reason</th>
+
+                                                    <th>Over all Rating</th>
+                                                    <th>Overall Satisfied Comment</th>
+                                                    <th>Overall NotSatisfied Comment</th>
+
+                                                    <th>Responded Date</th>
+                                                    <th>complain Feedbacks</th>
+                                                    <th>Survey Status</th>
+                                                    <th></th>
+
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th hidden>
+                                                        Id
+                                                    </th>
+                                                    <th>
+                                                        Appt No
+                                                    </th>
+                                                    <th>Appt Date</th>
+
+                                                    <th>MRN</th>
+                                                    <th>Patient Name</th>
+                                                    <th>Mobile</th>
+
+                                                    <th>Doctor</th>
+                                                    <th>Doctor Rating</th>
+                                                    <th>Doctor Reason</th>
+                                                    <th>Doctor Satisfied Reason</th>
+                                                    <th>Doctor Satisfied Comment</th>
+                                                    <th>Doctor Not Satisfied Comment</th>
+
+
+                                                    <th>Nurse Rating</th>
+                                                    <th>Nurses & Staff Reason</th>
+                                                    <th>Nurses & Staff Satisfied Reason</th>
+                                                    <th>Nurses & StaffSatisfied Comment</th>
+                                                    <th>Nurses & Staff Not Satisfied Comment</th>
+
+
+                                                    <th>Reception Rating</th>
+                                                    <th>Reception Staff Satisfied</th>
+                                                    <th>Reception Staff Not Satisfied</th>
+                                                    <th>Reception Staff Satisfied Comment</th>
+                                                    <th>Reception Staff Not Satisfied Comment</th>
+
+                                                    <th>Recommended Rating</th>
+                                                    <th>Recommend Comment</th>
+
+                                                    <th>Survey Reason</th>
+                                                    <th>Satisfied Reason</th>
+
+                                                    <th>Over all Rating</th>
+                                                    <th>Overall Satisfied Comment</th>
+                                                    <th>Overall NotSatisfied Comment</th>
+
+                                                    <th>Responded Date</th>
+                                                    <th>complain Feedbacks</th>
+                                                    <th>Survey Status</th>
+                                                    <th></th>
+
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                @{
+                                                    int No = 0;
+                                                }
+                                                @foreach (var activity in Model.SurveyList)
+                                                {
+                                                    No = No + 1;
+                                                    <tr>
+                                                        <td> @No </td>
+                                                        <td hidden>@activity.ApptCopyGenSurveyId</td>
+                                                        <td>
+                                                            @activity.ApptNo
+                                                        </td>
+                                                        <td>
+                                                            @activity.ApptDate
+                                                        </td>
+                                                        <td>
+                                                            @activity.MRN
+                                                        </td>
+                                                        <td>
+                                                            @activity.PatientName
+                                                        </td>
+                                                        <td>
+                                                            @activity.Mobile
+                                                        </td>
+                                                        <td>
+                                                            @activity.Doctor
+                                                        </td>
+                                                        <td>
+                                                            @activity.DoctorRating
+                                                        </td>
+
+                                                        <td>
+                                                            @activity.DoctorSurveyReason
+                                                        </td>
+                                                        <td>
+                                                            @activity.DoctorSurveySatisfiedReason
+                                                        </td>
+                                                        <td>
+                                                            @activity.DoctorSatisfiedComment
+                                                        </td>
+                                                        <td>
+                                                            @activity.DoctorNotSatisfiedComment
+                                                        </td>
+
+                                                        <td>
+                                                            @activity.NurseRating
+                                                        </td>
+                                                        <td>
+                                                            @activity.NursesAndStaffReason
+                                                        </td>
+                                                        <td>
+                                                            @activity.NursesAndStaffSatisfiedReason
+                                                        </td>
+                                                        <td>
+                                                            @activity.NursesAndStaffSatisfiedComment
+                                                        </td>
+                                                        <td>
+                                                            @activity.NursesAndStaffNotSatisfiedComment
+                                                        </td>
+
+                                                        <td>
+                                                            @activity.ReceptionRating
+                                                        </td>
+                                                        <td>
+                                                            @activity.ReceptionStaffSatisfied
+                                                        </td>
+                                                        <td>
+                                                            @activity.ReceptionStaffNotSatisfied
+                                                        </td>
+                                                        <td>
+                                                            @activity.ReceptionStaffSatisfiedComment
+                                                        </td>
+                                                        <td>
+                                                            @activity.ReceptionStaffNotSatisfiedComment
+                                                        </td>
+
+                                                        <td>
+                                                            @activity.RecommendedRating
+                                                        </td>
+
+                                                        <td>
+                                                            @activity.RecommendComment
+                                                        </td>
+
+                                                        <td>
+                                                            @activity.GeneralSurveyReason
+                                                        </td>
+
+                                                        <td>
+                                                            @activity.GeneralSurveySatisfiedReason
+                                                        </td>
+
+                                                        <td>
+                                                            @activity.OverallRating
+                                                        </td>
+                                                        <td>
+                                                            @activity.OverallSatisfiedComment
+                                                        </td>
+                                                        <td>
+                                                            @activity.OverallNotSatisfiedComment
+                                                        </td>
+
+                                                        <td>
+                                                            @activity.RespondedDate
+                                                        </td>
+
+                                                        <td>
+                                                            @activity.complainFeedbacks
+                                                        </td>
+
+                                                        <td>
+                                                            @activity.SurveyStatus
+                                                        </td>
+                                                        <td>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    }
+                                    else
+                                    {
+                                        <p><h4 style="text-align:center">No Data to Display</h4></p>
+                                    }
+                                }
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- #END# Exportable Table -->
+            <!-- #END# Exportable Table -->
+        </form>
     </div>
 </section>
 

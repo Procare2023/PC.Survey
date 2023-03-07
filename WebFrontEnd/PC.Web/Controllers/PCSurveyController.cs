@@ -9,6 +9,7 @@ using PC.Services.Core.Helper.Consts;
 using PC.Services.Core.Models;
 using PC.Services.Core.Security;
 using PC.Services.DL.DbContext;
+using PC.Web.ViewModels;
 using System.Security.Claims;
 
 namespace PC.Web.Controllers
@@ -32,15 +33,18 @@ namespace PC.Web.Controllers
         /**************Survey Section******************************************/
 
         [HttpGet]
-        //[Authorize("ListRoles-AdminController")]
         public async Task<IActionResult> Index()
         {
-            var SurveyList = await _unitofWork.GeneralSurveyReport.GetAllAsync();
-            return View(SurveyList);
+            return View();
         }
 
-
-
+        [HttpPost]
+        public async Task<IActionResult> Index(GeneralSurveyViewModel model)
+        {
+            model.SurveyList = await _unitofWork.GeneralSurveyReport.FindAllAsync(criteria: r => r.ApptDate >= model.fromDate
+                                && r.ApptDate <= model.ToDate);
+            return View(model);
+        }
         /**************End Activity Section******************************************/
         #endregion Survey
 
