@@ -39,7 +39,7 @@ namespace PC.Web.Initializer
                 LastName = "test"
             };
 
-            _userManager.CreateAsync(adminUser, "Admin@123456").GetAwaiter().GetResult();
+            _userManager.CreateAsync(adminUser, "ProCare@123456").GetAwaiter().GetResult();
             _userManager.AddToRoleAsync(adminUser, PC.Services.Core.Helper.Consts.SD.Admin).GetAwaiter().GetResult();
 
             var temp1 = _userManager.AddClaimsAsync(adminUser, new Claim[] {
@@ -59,7 +59,7 @@ namespace PC.Web.Initializer
                 LastName = "test"
             };
 
-            _userManager.CreateAsync(customerUser, "Admin@123456").GetAwaiter().GetResult();
+            _userManager.CreateAsync(customerUser, "ProCare@#123654").GetAwaiter().GetResult();
             _userManager.AddToRoleAsync(customerUser, PC.Services.Core.Helper.Consts.SD.User).GetAwaiter().GetResult();
 
             //var temp2 = _userManager.AddClaimsAsync(customerUser, new Claim[] {
